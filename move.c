@@ -6,11 +6,12 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 17:20:58 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/04/27 21:12:35 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/04/27 21:44:13 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 void    print_arr(int arr_len1, int num, int pos, int array1[], int array2[])
 {
@@ -61,6 +62,18 @@ void    swap_b(int temp1, int array2[])
 **  the last one.
 */
 
+void    rotate_a(int array1[], int arr_len1)
+{
+    int pos = 0;
+    int temp1 = array1[0];
+    while(array1[pos] <= arr_len1)
+    {
+        array1[pos] = array1[pos + 1];
+        pos++;
+    }
+    array1[arr_len1 - 1] = temp1;
+}
+
 /*
 **  SS - Swap A and B at the same time.
 */
@@ -89,7 +102,7 @@ int     main()
     temp1 = 0;
     temp2 = 0;
 
-    printf(">-Initial array1-<\narr_size = %i\n", arr_len1);
+    printf(">-arr_size = %i\n", arr_len1);
     print_arr(arr_len1, num, pos, array1, array2);
 
     printf(">-swap_a-<\n");
@@ -103,27 +116,25 @@ int     main()
     printf(">-ss-<\n");
     ss(temp1, temp2, array1, array2);
     print_arr(arr_len1, num, pos, array1, array2);
-    printf(">-pa-<\n");
-    temp1 = array2[0];
-    while()
-    print_arr(arr_len1, num, pos, array1, array2);
+    // printf(">-pa-<\n");
+    // temp1 = array2[0];
+    // while()
+    // print_arr(arr_len1, num, pos, array1, array2);
 
 
     printf(">-rotate_a-<\n");
-    num = 0;
-    pos = 0;
-    temp1 = array1[0];
-    temp2 = array1[arr_len1 - 1];
-    while(array1[pos] < arr_len1)
-    {
-        array1[pos] = array1[pos + 1];
-        pos++;
-        // print_arr(arr_len1, num, pos, array1);
-    }
-    array1[arr_len1] = temp1;
-    array1[arr_len1 - 1] = temp2;
-    num = 0;
-    pos = 1;
+    rotate_a(array1, arr_len1);
+    // num = 0;
+    // pos = 0;
+    // temp1 = array1[0];
+    // while(array1[pos] <= arr_len1)
+    // {
+    //     array1[pos] = array1[pos + 1];
+    //     pos++;
+    // }
+    // array1[arr_len1 - 1] = temp1;
+    // num = 0;
+    // pos = 1;
     print_arr(arr_len1, num, pos, array1, array2);
 
     // system("leaks push_swap");
