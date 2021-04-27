@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <string.h>
 
 int checkorder(int arr[], int n)
 {
@@ -39,11 +40,11 @@ int	input_validator(const char *argv)
 			i++;
 		}
 	}
-	else
-	{
-		printf("No arg passed");
-		return (0);
-	}
+	// else
+	// {
+	// 	printf("No arg passed");
+	// 	return (0);
+	// }
 		
 }
 
