@@ -13,11 +13,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void    print_arr(int arr_len1, int num, int pos, int array1[], int array2[])
+void    print_arr(int arr_len1, int stack_a[], int stack_b[])
 {
-    while(array1[num] < arr_len1 + 1 && pos < arr_len1 + 1)
+    int num;
+    int pos;
+
+    num = 0;
+    pos = 1;
+    while(stack_a[num] < arr_len1 + 1 && pos < arr_len1 + 1)
     {
-        printf("[%d] = %i       [%d] = %i\n", pos, array1[num], pos, array2[num]);
+        printf("[%d] = %i       [%d] = %i\n", pos, stack_a[num], pos, stack_b[num]);
         pos++;
         num++;
     }
@@ -28,11 +33,13 @@ void    print_arr(int arr_len1, int num, int pos, int array1[], int array2[])
 **  if the is only one or no elemnts.
 */
 
-void    swap_a(int temp1, int array1[])
+void    sa(int stack_a[])
 {
-    temp1 = array1[0];
-    array1[0] = array1[1];
-    array1[1] = temp1;
+    int temp;
+
+    temp = stack_a[0];
+    stack_a[0] = stack_a[1];
+    stack_a[1] = temp;
 }
 
 /*
@@ -40,11 +47,13 @@ void    swap_a(int temp1, int array1[])
 **  if the is only one or no elemnts.
 */
 
-void    swap_b(int temp1, int array2[])
+void    sb(int stack_b[])
 {
-    temp1 = array2[0];
-    array2[0] = array2[1];
-    array2[1] = temp1;
+    int temp;
+
+    temp = stack_b[0];
+    stack_b[0] = stack_b[1];
+    stack_b[1] = temp;
 }
 
 /*
@@ -52,9 +61,9 @@ void    swap_b(int temp1, int array2[])
 **  Do nothing if B is empty.
 */
 
-// void    push_a(int temp1, int temp2, int array1[], int array2[])
+// void    push_a(int temp1, int temp2, int stack_a[], int stack_b[])
 // {
-//     temp1 = array2[0];
+//     temp1 = stack_b[0];
     
 // }
 /*
@@ -62,80 +71,56 @@ void    swap_b(int temp1, int array2[])
 **  the last one.
 */
 
-void    rotate_a(int array1[], int arr_len1)
+void    ra(int stack_a[], int arr_len1)
 {
     int pos = 0;
-    int temp1 = array1[0];
-    while(array1[pos] <= arr_len1)
+    int temp1 = stack_a[0];
+    while(stack_a[pos] <= arr_len1)
     {
-        array1[pos] = array1[pos + 1];
+        stack_a[pos] = stack_a[pos + 1];
         pos++;
     }
-    array1[arr_len1 - 1] = temp1;
+    stack_a[arr_len1 - 1] = temp1;
 }
 
 /*
 **  SS - Swap A and B at the same time.
 */
 
-void    ss(int temp1, int temp2, int array1[], int array2[])
+void    ss(int stack_a[], int stack_b[])
 {
-    swap_a(temp1, array1);
-    swap_b(temp2, array2);
+    sa(stack_a);
+    sb(stack_b);
 }
+
 int     main()
 {
-    int array1[] = {2, 1, 3, 5, 4};
-    int array2[] = {5, 7, 1, 3, 2};
-    int temp1;
-    int temp2;
+    int stack_a[] = {2, 1, 3, 5, 4};
+    int stack_b[] = {5, 7, 1, 3, 2};
     int arr_len1;
-    int arr_len2;
-    int num;
-    int pos;
+    // int arr_len2;
 
-    arr_len1 = sizeof(array1)/sizeof(array1[0]);
-    arr_len2 = sizeof(array2)/sizeof(array2[0]);
-
-    num = 0;
-    pos = 1;
-    temp1 = 0;
-    temp2 = 0;
+    arr_len1 = sizeof(stack_a)/sizeof(stack_a[0]);
+    // arr_len2 = sizeof(stack_b)/sizeof(stack_b[0]);
 
     printf(">-arr_size = %i\n", arr_len1);
-    print_arr(arr_len1, num, pos, array1, array2);
+    print_arr(arr_len1, stack_a, stack_b);
 
-    printf(">-swap_a-<\n");
-    swap_a(temp1, array1);
-    print_arr(arr_len1, num, pos, array1, array2);
+    printf(">-sa-<\n");
+    sa(stack_a);
+    print_arr(arr_len1, stack_a, stack_b);
 
-    printf(">-swap_b-<\n");
-    swap_b(temp1, array2);
-    print_arr(arr_len1, num, pos, array1, array2);
+    printf(">-sb-<\n");
+    sb(stack_b);
+    print_arr(arr_len1, stack_a, stack_b);
 
     printf(">-ss-<\n");
-    ss(temp1, temp2, array1, array2);
-    print_arr(arr_len1, num, pos, array1, array2);
-    // printf(">-pa-<\n");
-    // temp1 = array2[0];
-    // while()
-    // print_arr(arr_len1, num, pos, array1, array2);
+    ss(stack_a, stack_b);
+    print_arr(arr_len1, stack_a, stack_b);
 
-
-    printf(">-rotate_a-<\n");
-    rotate_a(array1, arr_len1);
-    // num = 0;
-    // pos = 0;
-    // temp1 = array1[0];
-    // while(array1[pos] <= arr_len1)
-    // {
-    //     array1[pos] = array1[pos + 1];
-    //     pos++;
-    // }
-    // array1[arr_len1 - 1] = temp1;
-    // num = 0;
-    // pos = 1;
-    print_arr(arr_len1, num, pos, array1, array2);
+    printf(">-ra-<\n");
+    ra(stack_a, arr_len1);
+    print_arr(arr_len1, stack_a, stack_b);
 
     // system("leaks push_swap");
     return(0);
