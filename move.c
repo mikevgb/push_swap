@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 17:20:58 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/04/28 19:46:08 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/04/28 21:36:49 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void    print_arr(int arr_len_a, int stack_a[], int stack_b[])
     pos = 1;
     while(stack_a[num] < arr_len_a + 1 && pos < arr_len_a + 1)
     {
-        printf("[%d] = %i       [%d] = %i\n", pos, stack_a[num], pos, stack_b[num]);
+        printf("%d*  %i  [P]       %d*  %i  [P]\n", pos, stack_a[num], pos, stack_b[num]);
         pos++;
         num++;
     }
@@ -78,7 +78,7 @@ void    pa(int stack_a[], int stack_b[], int arr_len_a, int arr_len_b)
 
     pos = 0;
     tmp = stack_b[0];
-    while(stack_b[pos] <= arr_len_b)
+    while(pos <= arr_len_b)
     {
         stack_b[pos] = stack_b[pos + 1];
         pos++;
@@ -87,7 +87,7 @@ void    pa(int stack_a[], int stack_b[], int arr_len_a, int arr_len_b)
     stack_b[arr_len_b - 1] = 9;
     
     pos = arr_len_a;
-    while(stack_a[pos] <= arr_len_a)
+    while(pos <= arr_len_a)
     {
         stack_b[pos] = stack_b[pos - 1];
         pos--;
@@ -95,11 +95,6 @@ void    pa(int stack_a[], int stack_b[], int arr_len_a, int arr_len_b)
     stack_a[0] = tmp;
 }
 
-// void    push_a(int tmp1, int tmp2, int stack_a[], int stack_b[])
-// {
-//     tmp1 = stack_b[0];
-    
-// }
 /*
 **  RA - Shift up all elemnts in stack a by 1. The first element becomes
 **  the last one.
@@ -112,7 +107,7 @@ void    ra(int stack_a[], int arr_len_a)
 
     pos = 0;
     tmp = stack_a[0];
-    while(stack_a[pos] <= arr_len_a)
+    while(pos <= arr_len_a)
     {
         stack_a[pos] = stack_a[pos + 1];
         pos++;
@@ -132,7 +127,7 @@ void    rb(int stack_b[], int arr_len_b)
 
     pos = 0;
     tmp = stack_b[0];
-    while(stack_b[pos] <= arr_len_b)
+    while(pos <= arr_len_b)
     {
         stack_b[pos] = stack_b[pos + 1];
         pos++;
@@ -157,21 +152,48 @@ void    rr(int stack_a[], int stack_b[], int arr_len_a, int arr_len_b)
 
 void    rra(int stack_a[], int arr_len_a)
 {
-    int tmp;
     int pos;
+    int tmp;
 
-    pos = 0;
+    pos = arr_len_a - 1;
     tmp = stack_a[arr_len_a - 1];
-    while(stack_a[pos] <= arr_len_a - 1)
+    while(pos > 0)
     {
-        stack_a[pos] = stack_a[pos + 1];
+        stack_a[pos] = stack_a[pos - 1];
         pos--;
     }
     stack_a[0] = tmp;
-    // printf("%i\n", stack_a[2]);
-    // printf("%i\n", stack_a[arr_len_a - 1]);
 }
 
+/*
+**  RRB - Shift down all elemnts in stack b by 1. The last element becomes
+**  the first one.
+*/
+
+void    rrb(int stack_b[], int arr_len_b)
+{
+    int pos;
+    int tmp;
+
+    pos = arr_len_b - 1;
+    tmp = stack_b[arr_len_b - 1];
+    while(pos > 0)
+    {
+        stack_b[pos] = stack_b[pos - 1];
+        pos--;
+    }
+    stack_b[0] = tmp;
+}
+
+/*
+**  RRR - rra and rrb at the same time.
+*/
+
+void    rrr(int stack_a[], int stack_b[], int arr_len_a, int arr_len_b)
+{
+    rra(stack_a, arr_len_a);
+    rrb(stack_b, arr_len_b);
+}
 // void    increase_stack_a(int stack_a, int arr_len_a)
 // {
 //     // int new_stack;
@@ -193,7 +215,7 @@ int     main()
     arr_len_a = sizeof(stack_a)/sizeof(stack_a[0]);
     arr_len_b = sizeof(stack_b)/sizeof(stack_b[0]);
 
-    printf(">-arr_size = %i\n", arr_len_a);
+    printf(">-arr_a_size = %i\n", arr_len_a);
     print_arr(arr_len_a, stack_a, stack_b);
 
     // printf(">-sa-<\n");
@@ -220,13 +242,21 @@ int     main()
     // rr(stack_a, stack_b, arr_len_a, arr_len_b);
     // print_arr(arr_len_a, stack_a, stack_b);
 
-    printf(">-rra-<\n");
-    rra(stack_a, arr_len_a);
-    print_arr(arr_len_a, stack_a, stack_b);
-
-    // printf(">-pa-<\n");
-    // pa(stack_a, stack_b, arr_len_a, arr_len_b);
+    // printf(">-rra-<\n");
+    // rra(stack_a, arr_len_a);
     // print_arr(arr_len_a, stack_a, stack_b);
+
+    // printf(">-rrb-<\n");
+    // rra(stack_b, arr_len_b);
+    // print_arr(arr_len_a, stack_a, stack_b);
+
+    // printf(">-rr-<\n");
+    // rrr(stack_a, stack_b, arr_len_a, arr_len_b);
+    // print_arr(arr_len_a, stack_a, stack_b);
+
+    printf(">-pa-<\n");
+    pa(stack_a, stack_b, arr_len_a, arr_len_b);
+    print_arr(arr_len_a, stack_a, stack_b);
 
     // system("leaks push_swap");
     return(0);
