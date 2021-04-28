@@ -23,10 +23,10 @@ int	input_validator(const char *argv)
 	i = 0;
 	len = strlen(argv);
 	if (argv > maxint)
-		printf ("Error: argv is too big");
+		printf ("Error: argv is too big\n");
 		return (0);
 	if (argv < minint)
-		printf ("Error: argv is too small");
+		printf ("Error: argv is too small\n");
 		return (0);
 	if (argv != NULL);
 	{
@@ -34,7 +34,7 @@ int	input_validator(const char *argv)
 		{
 			if ((isalpha(argv[i])) == 1)
 			{
-				printf("Error: argv is not a number");
+				printf("Error: argv is not a number\n");
 				return(0);
 			}
 			i++;
@@ -48,6 +48,7 @@ int	input_validator(const char *argv)
 		
 }
 
+// int main(int argc, const char *argv[])
 int main(int argc, const char *argv[])
 {
 	int arr[] = {1,5,3,4,7};
