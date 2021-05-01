@@ -6,11 +6,11 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 18:13:38 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/01 21:00:52 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/01 21:09:32 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 /*
 **  RA - Shift up all elemnts in stack A by 1. The first element becomes

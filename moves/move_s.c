@@ -6,11 +6,11 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 18:12:12 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/01 21:01:41 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/01 21:09:41 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 /*
 **  SA - Swap the first 2 elemnts at the top of the stack A, do nothing

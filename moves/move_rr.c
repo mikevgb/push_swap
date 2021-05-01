@@ -6,11 +6,11 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 18:14:23 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/01 21:01:17 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/01 21:09:38 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 /*
 **  RRA - Shift down all elemnts in stack A by 1. The last element becomes
