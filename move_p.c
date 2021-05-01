@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 18:23:27 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/01 20:13:02 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/01 20:21:31 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void    pa(int stack_a[], int stack_b[])
     stack_b[0] -= 1;
     while(pos > 0)
     {
-        stack_a[pos] = stack_b[pos - 1];
+        stack_a[pos] = stack_a[pos - 1];
         pos--;
     }
     stack_a[1] = tmp;
