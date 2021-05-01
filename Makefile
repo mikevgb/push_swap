@@ -6,13 +6,18 @@
 #    By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/26 17:20:55 by mvillaes          #+#    #+#              #
-#    Updated: 2021/04/26 17:26:39 by mvillaes         ###   ########.fr        #
+#    Updated: 2021/05/01 18:24:31 by mvillaes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRCS = move.c
+SRCS = 	move.c \
+		move_r.c \
+		move_rr.c \
+		move_s.c \
+		move_p.c
+
 
 OBJ = $(SRC:.c=.o)
 
