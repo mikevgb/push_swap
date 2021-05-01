@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 18:14:23 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/01 19:56:38 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/01 21:01:17 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 **  the first one.
 */
 
-void    rra(int stack_a[])
+void    rra(int *stack_a)
 {
     int pos;
     int tmp;
@@ -37,7 +37,7 @@ void    rra(int stack_a[])
 **  the first one.
 */
 
-void    rrb(int stack_b[])
+void    rrb(int *stack_b)
 {
     int pos;
     int tmp;
@@ -56,7 +56,7 @@ void    rrb(int stack_b[])
 **  RRR - RRA and RRB at the same time.
 */
 
-void    rrr(int stack_a[], int stack_b[])
+void    rrr(int *stack_a, int *stack_b)
 {
     rra(stack_a);
     rrb(stack_b);

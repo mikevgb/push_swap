@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 18:13:38 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/01 19:49:28 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/01 21:00:52 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 **  the last one.
 */
 
-void    ra(int stack_a[])
+void    ra(int *stack_a)
 {
     int pos;
     int tmp;
@@ -37,7 +37,7 @@ void    ra(int stack_a[])
 **  the last one.
 */
 
-void    rb(int stack_b[])
+void    rb(int *stack_b)
 {
     int pos;
     int tmp;
@@ -56,7 +56,7 @@ void    rb(int stack_b[])
 **  RR - Rotate A and B at the same time.
 */
 
-void    rr(int stack_a[], int stack_b[])
+void    rr(int *stack_a, int *stack_b)
 {
     ra(stack_a);
     rb(stack_b);

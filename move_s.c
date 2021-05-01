@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 18:12:12 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/01 19:39:34 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/01 21:01:41 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 **  if the is only one or no elemnts.
 */
 
-void    sa(int stack_a[])
+void    sa(int *stack_a)
 {
     int tmp;
 
@@ -31,7 +31,7 @@ void    sa(int stack_a[])
 **  if the is only one or no elemnts.
 */
 
-void    sb(int stack_b[])
+void    sb(int *stack_b)
 {
     int tmp;
 
@@ -44,7 +44,7 @@ void    sb(int stack_b[])
 **  SS - Swap A and B at the same time.
 */
 
-void    ss(int stack_a[], int stack_b[])
+void    ss(int *stack_a, int *stack_b)
 {
     sa(stack_a);
     sb(stack_b);

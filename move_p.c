@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 18:23:27 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/01 20:21:31 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/01 21:00:28 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 **  Do nothing if B is empty.
 */
 
-void    pa(int stack_a[], int stack_b[])
+void    pa(int *stack_a, int *stack_b)
 {
     int tmp;
     int pos;
@@ -45,7 +45,7 @@ void    pa(int stack_a[], int stack_b[])
 **  Do nothing if A is empty.
 */
 
-void    pb(int stack_a[], int stack_b[])
+void    pb(int *stack_a, int *stack_b)
 {
     int tmp;
     int pos;
