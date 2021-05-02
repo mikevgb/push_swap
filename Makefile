@@ -6,7 +6,7 @@
 #    By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/26 17:20:55 by mvillaes          #+#    #+#              #
-#    Updated: 2021/05/01 21:10:15 by mvillaes         ###   ########.fr        #
+#    Updated: 2021/05/02 20:08:16 by mvillaes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ SRCS = 	main.c \
 		./moves/move_r.c \
 		./moves/move_rr.c \
 		./moves/move_s.c \
-		./moves/move_p.c
+		./moves/move_p.c \
+		calc_dp.c
 
 
 OBJ = $(SRC:.c=.o)

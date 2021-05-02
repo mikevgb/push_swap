@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/01 21:36:57 by mvillaes          #+#    #+#             */
+/*   Updated: 2021/05/02 20:09:59 by mvillaes         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -21,8 +33,10 @@ void    pb(int *stack_a, int *stack_b);
 
 
 
+/* Calc */
 
+void     dp_calc(int *stack_a, int *stack_b, int **calc_a, int **calc_b);
 
 /* main */
-void    print_arr(int *stack_a, int *stack_b);
+void    print_arr(int *stack_a, int *stack_b, int **calc_a, int **calc_b);
 int     main(int argc, char **argv);
