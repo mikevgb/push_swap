@@ -17,19 +17,34 @@
 **  the last one.
 */
 
-void    ra(int *stack_a)
+// void    ra(int *stack_a)
+// {
+//     int pos;
+//     int tmp;
+
+//     pos = 1;
+//     tmp = stack_a[1];
+//     while(pos <= stack_a[0])
+//     {
+//         stack_a[pos] = stack_a[pos + 1];
+//         pos++;
+//     }
+//     stack_a[stack_a[0]] = tmp;
+// }
+
+void    ra(int **stacks)
 {
     int pos;
     int tmp;
 
     pos = 1;
-    tmp = stack_a[1];
-    while(pos <= stack_a[0])
+    tmp = stacks[1][1];
+    while(pos <= stacks[0][0])
     {
-        stack_a[pos] = stack_a[pos + 1];
+        stacks[pos] = stacks[pos + 1];
         pos++;
     }
-    stack_a[stack_a[0]] = tmp;
+    stacks[stacks[0][0]] = tmp;
 }
 
 /*
@@ -37,27 +52,43 @@ void    ra(int *stack_a)
 **  the last one.
 */
 
-void    rb(int *stack_b)
+// void    rb(int *stack_b)
+// {
+//     int pos;
+//     int tmp;
+
+//     pos = 1;
+//     tmp = stack_b[1];
+//     while(pos <= stack_b[0])
+//     {
+//         stack_b[pos] = stack_b[pos + 1];
+//         pos++;
+//     }
+//     stack_b[stack_b[0]] = tmp;
+// }
+
+void    rb(int **stacks)
 {
     int pos;
     int tmp;
 
     pos = 1;
-    tmp = stack_b[1];
-    while(pos <= stack_b[0])
+    tmp = stacks[1][4];
+    while(pos <= stacks[0][1])
     {
-        stack_b[pos] = stack_b[pos + 1];
+        stacks[pos] = stacks[pos + 1];
         pos++;
     }
-    stack_b[stack_b[0]] = tmp;
+    stacks[stacks[0][1]] = tmp;
 }
+
 
 /*
 **  RR - Rotate A and B at the same time.
 */
 
-void    rr(int *stack_a, int *stack_b)
+void    rr(int **stacks)
 {
-    ra(stack_a);
-    rb(stack_b);
+    ra(stacks);
+    rb(stacks);
 }

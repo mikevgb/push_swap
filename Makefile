@@ -13,6 +13,7 @@
 NAME = push_swap
 
 SRCS = 	main.c \
+		allo.c \
 		./moves/move_r.c \
 		./moves/move_rr.c \
 		./moves/move_s.c \

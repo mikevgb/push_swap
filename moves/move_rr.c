@@ -17,19 +17,19 @@
 **  the first one.
 */
 
-void    rra(int *stack_a)
+void    rra(int **stacks)
 {
     int pos;
     int tmp;
 
-    pos = stack_a[0];
-    tmp = stack_a[stack_a[0]];
+    pos = stacks[0][0];
+    tmp = stacks[pos];
     while(pos > 0)
     {
-        stack_a[pos] = stack_a[pos - 1];
+        stacks[pos] = stacks[pos - 1];
         pos--;
     }
-    stack_a[1] = tmp;
+    stacks[1][1] = tmp;
 }
 
 /*
@@ -37,13 +37,13 @@ void    rra(int *stack_a)
 **  the first one.
 */
 
-void    rrb(int *stack_b)
+void    rrb(int **stacks)
 {
     int pos;
     int tmp;
 
-    pos = stack_b[0];
-    tmp = stack_b[stack_b[0]];
+    pos = stacks[0][0];
+    tmp = stacks[pos];
     while(pos > 0)
     {
         stack_b[pos] = stack_b[pos - 1];

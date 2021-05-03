@@ -15,43 +15,14 @@
 void     dp_calc(int *stack_a, int *stack_b, int **calc_a, int **calc_b)
 {
     int i;
-    int j;
 
     i = 1;
-    j = 1;
-    while(i < stack_a[0])
+    while(i <= stack_a[0])
     {
-        while(stack_a[i] > stack_a[j + 1])
-        {
+        while(stack_a[i] > stack_a[i + 1])
             calc_a[i][0] += 1;
-        }
-        j++;
-        // while(stack_a[i] > stack_a[j + 1])
-        // {
-        //     calc_a[i][0] += 1;
-        //     j++;
-        // }
-        // while(stack_a[i] > stack_a[j - 1])
-        // {
-        //     calc_a[i][0] += 1;
-        //     j--;
-        // }
-        // while(stack_a[i] < stack_a[j + 1])
-        // {
-        //     if(!(calc_a == 0))
-        //     {
-        //         calc_a[i][0] -= 1;
-        //         j++;
-        //     } 
-        // }
-        // while(stack_a[i] < stack_a[j - 1])
-        // {
-        //     if(!(calc_a == 0))
-        //     {
-        //         calc_a[i][0] -= 1;
-        //         j--;
-        //     }
-        // }
+        while(stack_a[i] < stack_a[i + 1])
+            calc_a[i][0] -= 1;
         i++;
     }
     i = 1;

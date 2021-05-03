@@ -17,13 +17,13 @@
 **  if the is only one or no elemnts.
 */
 
-void    sa(int *stack_a)
+void    sa(int **stacks)
 {
     int tmp;
 
-    tmp = stack_a[1];
-    stack_a[1] = stack_a[2];
-    stack_a[2] = tmp;
+    tmp = stacks[1][1];
+    stacks[1][1] = stacks[2][1];
+    stacks[2][1] = tmp;
 }
 
 /*
@@ -31,21 +31,21 @@ void    sa(int *stack_a)
 **  if the is only one or no elemnts.
 */
 
-void    sb(int *stack_b)
+void    sb(int **stacks)
 {
     int tmp;
 
-    tmp = stack_b[1];
-    stack_b[1] = stack_b[2];
-    stack_b[2] = tmp;
+    tmp = stacks[1][4];
+    stacks[1][4] = stacks[2][4];
+    stacks[2][4] = tmp;
 }
 
 /*
 **  SS - Swap A and B at the same time.
 */
 
-void    ss(int *stack_a, int *stack_b)
+void    ss(int **stacks)
 {
-    sa(stack_a);
-    sb(stack_b);
+    sa(stacks);
+    sb(stacks);
 }
