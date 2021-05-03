@@ -6,7 +6,7 @@
 #    By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/26 17:20:55 by mvillaes          #+#    #+#              #
-#    Updated: 2021/05/02 20:08:16 by mvillaes         ###   ########.fr        #
+#    Updated: 2021/05/03 19:37:52 by mvillaes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ OBJ = $(SRC:.c=.o)
 
 CFLAG = -Wall -Werror -Wextra
 
+SANIT = -g3 -fsanitize=address
+
 $(NAME):
 	gcc $(CFLAG) $(SRCS) -o $(NAME)
 
@@ -35,6 +37,9 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+
+debug:
+	gcc $(CFLAG) $(SANIT) $(SRCS) -o $(NAME)
 
 re: fclean all
 

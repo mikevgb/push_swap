@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 17:20:58 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/02 21:00:45 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/03 20:21:07 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,44 +30,98 @@ void    print_arr(int **stacks)
 
 int     main(int argc, char **argv)
 {
-//     int size;
-//     int **stacks;
-//     int i;
+    int size;
+    int **stacks;
+    int i;
 
-//     size = argc;
-//     stacks = (int**)calloc(size, sizeof(int*));
+    size = argc;
+    stacks = (int**)calloc(size, sizeof(int*));
 
-//     i = 0;
-//     while(i < size)
-//     {
-//         stacks[i] = (int*)calloc(6, sizeof(int));
-//         i++;
-//     }
+    i = 0;
+    while(i < size)
+    {
+        stacks[i] = (int*)calloc(6, sizeof(int));
+        i++;
+    }
 
-//     //Callock check success
+    //Callock check success
 
-//     if (stacks == '\0')
-//         printf("calloc failed\n");
+    if (stacks == '\0')
+        printf("calloc failed\n");
 
-//     //Transform argc in int
-//     //and add pos values to 2d array
+    //Transform argc in int
+    //and add pos values to 2d array
 
-//    i = 1;
-//     while(i < size)
-//     {
-//         stacks[i][1] = atoi(argv[i]);
-//         stacks[i][0] = i;
-//         stacks[i][3] = i;
-//         i++;
-//     }
+    i = 1;
+    while(i < size)
+    {
+        stacks[i][1] = atoi(argv[i]);
+        stacks[i][0] = i;
+        stacks[i][3] = i;
+        i++;
+    }
 
-//     //Give value to the number of elements
+    //Give value to the number of elements
 
-//     stacks[0][0] = size - 1;
-// 	stacks[0][1] = 0;
-    alloc(argc, argv);
+    stacks[0][0] = size - 1;
+	stacks[0][1] = 0;
+    // alloc(argc, argv);
 
     printf(">-arr size = %i\n", stacks[0][0]);
+    print_arr(stacks);
+    printf("pb");
+    pb(stacks);
+    print_arr(stacks);
+    printf("pa");
+    pa(stacks);
+    print_arr(stacks);
+    printf("pb");
+    pb(stacks);
+    print_arr(stacks);
+    printf("pb");
+    pb(stacks);
+    print_arr(stacks);
+    printf("pb");
+    pb(stacks);
+    print_arr(stacks);
+    printf("pb");
+    pb(stacks);
+    print_arr(stacks);
+    printf("pb");
+    pb(stacks);
+    print_arr(stacks);
+    printf("ra");
+    ra(stacks);
+    print_arr(stacks);
+    printf("rb");
+    rb(stacks);
+    print_arr(stacks);
+    printf("rr");
+    rr(stacks);
+    print_arr(stacks);
+    printf("sa");
+    sa(stacks);
+    print_arr(stacks);
+    printf("sb");
+    sb(stacks);
+    print_arr(stacks);
+    printf("ss");
+    ss(stacks);
+    print_arr(stacks);
+    printf("rra");
+    rra(stacks);
+    print_arr(stacks);
+    printf("rrb");
+    rrb(stacks);
+    print_arr(stacks);
+    printf("rrr");
+    rrr(stacks);
+    print_arr(stacks);
+    printf("pa");
+    pa(stacks);
+    print_arr(stacks);
+    printf("pb");
+    pb(stacks);
     print_arr(stacks);
 	return(0);
 }

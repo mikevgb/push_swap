@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:36:57 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/02 20:09:59 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/03 19:28:47 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ void    rr(int **stacks);
 void    sa(int **stacks);
 void    sb(int **stacks);
 void    ss(int **stacks);
-void    rra(int *stack_a);
-void    rrb(int *stack_b);
-void    rrr(int *stack_a, int *stack_b);
-void    pa(int *stack_a, int *stack_b);
-void    pb(int *stack_a, int *stack_b);
+void    rra(int **stacks);
+void    rrb(int **stacks);
+void    rrr(int **stacks);
+void    pa(int **stacks);
+void    pb(int **stacks);
 
 
 

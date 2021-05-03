@@ -38,4 +38,6 @@ int		alloc(int argc, char **argv)
 
     stacks[0][0] = size - 1;
 	stacks[0][1] = 0;
+
+    return(0);
 }

@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 18:13:38 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/01 21:09:32 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/03 19:40:24 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ void    ra(int **stacks)
 
     pos = 1;
     tmp = stacks[1][1];
-    while(pos <= stacks[0][0])
+    while(pos < stacks[0][0])
     {
-        stacks[pos] = stacks[pos + 1];
+        stacks[pos][1] = stacks[pos + 1][1];
         pos++;
     }
-    stacks[stacks[0][0]] = tmp;
+    stacks[pos][1] = tmp;
 }
 
 /*
@@ -74,12 +74,12 @@ void    rb(int **stacks)
 
     pos = 1;
     tmp = stacks[1][4];
-    while(pos <= stacks[0][1])
+    while(pos < stacks[0][1])
     {
-        stacks[pos] = stacks[pos + 1];
+        stacks[pos][4] = stacks[pos + 1][4];
         pos++;
     }
-    stacks[stacks[0][1]] = tmp;
+    stacks[pos][4] = tmp;
 }
 
 

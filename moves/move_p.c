@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 18:23:27 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/01 21:09:34 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/03 20:13:03 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,27 @@
 **  Do nothing if B is empty.
 */
 
-void    pa(int *stack_a, int *stack_b)
+void    pa(int **stacks)
 {
     int tmp;
     int pos;
 
-    tmp = stack_b[1];
+    tmp = stacks[1][4];
     pos = 1;
-    stack_a[0] += 1;
-    while(pos <= stack_b[0])
+    stacks[0][0] += 1;
+    while(pos <= stacks[0][1])
     {
-        stack_b[pos] = stack_b[pos + 1];
+        stacks[pos][4] = stacks[pos + 1][4];
         pos++;
     }
-    pos = stack_a[0];
-    stack_b[0] -= 1;
+    pos = stacks[0][0];
+    stacks[0][1] -= 1;
     while(pos > 0)
     {
-        stack_a[pos] = stack_a[pos - 1];
+        stacks[pos][1] = stacks[pos - 1][1];
         pos--;
     }
-    stack_a[1] = tmp;
+    stacks[1][1] = tmp;
 }
 
 /*
@@ -45,25 +45,25 @@ void    pa(int *stack_a, int *stack_b)
 **  Do nothing if A is empty.
 */
 
-void    pb(int *stack_a, int *stack_b)
+void    pb(int **stacks)
 {
     int tmp;
     int pos;
 
-    tmp = stack_a[1];
+    tmp = stacks[1][1];
     pos = 1;
-    stack_b[0] += 1;
-    while(pos <= stack_a[0])
+    stacks[0][1] += 1;
+    while(pos < stacks[0][0])
     {
-        stack_a[pos] = stack_a[pos + 1];
+        stacks[pos][1] = stacks[pos + 1][1];
         pos++;
     }
-    pos = stack_b[0];
-    stack_a[0] -= 1;
+    pos = stacks[0][1];
+    stacks[0][0] -= 1;
     while(pos > 0)
     {
-        stack_b[pos] = stack_b[pos - 1];
+        stacks[pos][4] = stacks[pos - 1][4];
         pos--;
     }
-    stack_b[1] = tmp; 
+    stacks[1][4] = tmp; 
 }
