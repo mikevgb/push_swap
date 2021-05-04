@@ -11,6 +11,8 @@ int checkorder(int arr[], int n)
 	return (checkorder(arr, n-1));
 }
 
+//compare if numbers are equal with memcmp;
+
 int	input_validator(const char *argv)
 {
 	int maxint;

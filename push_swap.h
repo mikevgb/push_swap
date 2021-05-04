@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:36:57 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/03 21:14:04 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/04 20:57:15 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void    pb(int **stack);
 /* Calc */
 
 void     dp_calc(int **stack);
+void    copy_and_bubble_a(int **stack);
+void    copy_and_bubble_b(int **stack);
 
 /* main */
 
