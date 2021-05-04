@@ -8,16 +8,16 @@ void	ft_putstr(char *str)
 		write(1, str++, 1);
 }
 
-void    print_arr(int **stacks)
+void    print_arr(int **stack)
 {
     int i;
 
     i = 1;
-    printf("N@  %i  dP          N@  %i  dP\n", stacks[0][0], stacks[0][1]);
+    printf("N@  %i  dP          N@  %i  dP\n", stack[0][0], stack[0][1]);
     printf("------------------------------\n");
-    while(i <= stacks[0][0] || i <= stacks[0][1])
+    while(i <= stack[0][0] || i <= stack[0][1])
     { 
-        printf("%i*  %i  [%i]       %i*  %i  [%i]\n", stacks[i][0], stacks[i][1], stacks[i][2], stacks[i][3], stacks[i][4], stacks[i][5]);
+        printf("%i*  %i  [%i]       %i*  %i  [%i]\n", stack[i][0], stack[i][1], stack[i][2], stack[i][3], stack[i][4], stack[i][5]);
         i++;
     }
     printf("------------------------------\n");
@@ -26,22 +26,22 @@ void    print_arr(int **stacks)
 int     main(int argc, char **argv)
 {
     int size;
-    int **stacks;
+    int **stack;
     int i;
 
     size = argc;
-    stacks = (int**)calloc(size, sizeof(int*));
+    stack = (int**)calloc(size, sizeof(int*));
 
     i = 0;
     while(i < size)
     {
-        stacks[i] = (int*)calloc(6, sizeof(int));
+        stack[i] = (int*)calloc(6, sizeof(int));
         i++;
     }
 
     //Callock check success
 
-    if (stacks == '\0')
+    if (stack == '\0')
         printf("calloc failed\n");
 
     //Transform argc in int
@@ -50,19 +50,19 @@ int     main(int argc, char **argv)
    i = 1;
     while(i < size)
     {
-        stacks[i][1] = atoi(argv[i]);
-        stacks[i][0] = i;
-        stacks[i][3] = i;
+        stack[i][1] = atoi(argv[i]);
+        stack[i][0] = i;
+        stack[i][3] = i;
         i++;
     }
 
     //Give value to the number of elements
 
-    stacks[0][0] = size - 1;
-	stacks[0][1] = 0;
+    stack[0][0] = size - 1;
+	stack[0][1] = 0;
 
 
-    printf(">-arr size = %i\n", stacks[0][0]);
-    print_arr(stacks);
+    printf(">-arr size = %i\n", stack[0][0]);
+    print_arr(stack);
 	return(0);
 }

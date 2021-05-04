@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 18:23:27 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/03 20:13:03 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/03 20:44:44 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,27 @@
 **  Do nothing if B is empty.
 */
 
-void    pa(int **stacks)
+void    pa(int **stack)
 {
     int tmp;
     int pos;
 
-    tmp = stacks[1][4];
+    tmp = stack[1][4];
     pos = 1;
-    stacks[0][0] += 1;
-    while(pos <= stacks[0][1])
+    stack[0][0] += 1;
+    while(pos <= stack[0][1])
     {
-        stacks[pos][4] = stacks[pos + 1][4];
+        stack[pos][4] = stack[pos + 1][4];
         pos++;
     }
-    pos = stacks[0][0];
-    stacks[0][1] -= 1;
+    pos = stack[0][0];
+    stack[0][1] -= 1;
     while(pos > 0)
     {
-        stacks[pos][1] = stacks[pos - 1][1];
+        stack[pos][1] = stack[pos - 1][1];
         pos--;
     }
-    stacks[1][1] = tmp;
+    stack[1][1] = tmp;
 }
 
 /*
@@ -45,25 +45,25 @@ void    pa(int **stacks)
 **  Do nothing if A is empty.
 */
 
-void    pb(int **stacks)
+void    pb(int **stack)
 {
     int tmp;
     int pos;
 
-    tmp = stacks[1][1];
+    tmp = stack[1][1];
     pos = 1;
-    stacks[0][1] += 1;
-    while(pos < stacks[0][0])
+    stack[0][1] += 1;
+    while(pos < stack[0][0])
     {
-        stacks[pos][1] = stacks[pos + 1][1];
+        stack[pos][1] = stack[pos + 1][1];
         pos++;
     }
-    pos = stacks[0][1];
-    stacks[0][0] -= 1;
+    pos = stack[0][1];
+    stack[0][0] -= 1;
     while(pos > 0)
     {
-        stacks[pos][4] = stacks[pos - 1][4];
+        stack[pos][4] = stack[pos - 1][4];
         pos--;
     }
-    stacks[1][4] = tmp; 
+    stack[1][4] = tmp; 
 }

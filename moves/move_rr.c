@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 18:14:23 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/03 20:28:53 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/03 20:44:44 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@
 **  the first one.
 */
 
-void    rra(int **stacks)
+void    rra(int **stack)
 {
     int pos;
     int tmp;
 
-    pos = stacks[0][0];
-    tmp = stacks[pos][1];
+    pos = stack[0][0];
+    tmp = stack[pos][1];
     while(pos > 0)
     {
-        stacks[pos][1] = stacks[pos - 1][1];
+        stack[pos][1] = stack[pos - 1][1];
         pos--;
     }
-    stacks[1][1] = tmp;
+    stack[1][1] = tmp;
 }
 
 /*
@@ -37,27 +37,27 @@ void    rra(int **stacks)
 **  the first one.
 */
 
-void    rrb(int **stacks)
+void    rrb(int **stack)
 {
     int pos;
     int tmp;
 
-    pos = stacks[0][0];
-    tmp = stacks[pos][4];
+    pos = stack[0][0];
+    tmp = stack[pos][4];
     while(pos > 0)
     {
-        stacks[pos][4] = stacks[pos - 1][4];
+        stack[pos][4] = stack[pos - 1][4];
         pos--;
     }
-    stacks[1][4] = tmp;
+    stack[1][4] = tmp;
 }
 
 /*
 **  RRR - RRA and RRB at the same time.
 */
 
-void    rrr(int **stacks)
+void    rrr(int **stack)
 {
-    rra(stacks);
-    rrb(stacks);
+    rra(stack);
+    rrb(stack);
 }

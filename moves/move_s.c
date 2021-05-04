@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 18:12:12 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/03 18:06:51 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/03 20:44:44 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 **  if the is only one or no elemnts.
 */
 
-void    sa(int **stacks)
+void    sa(int **stack)
 {
     int tmp;
 
-    tmp = stacks[1][1];
-    stacks[1][1] = stacks[2][1];
-    stacks[2][1] = tmp;
+    tmp = stack[1][1];
+    stack[1][1] = stack[2][1];
+    stack[2][1] = tmp;
 }
 
 /*
@@ -31,21 +31,21 @@ void    sa(int **stacks)
 **  if the is only one or no elemnts.
 */
 
-void    sb(int **stacks)
+void    sb(int **stack)
 {
     int tmp;
 
-    tmp = stacks[1][4];
-    stacks[1][4] = stacks[2][4];
-    stacks[2][4] = tmp;
+    tmp = stack[1][4];
+    stack[1][4] = stack[2][4];
+    stack[2][4] = tmp;
 }
 
 /*
 **  SS - Swap A and B at the same time.
 */
 
-void    ss(int **stacks)
+void    ss(int **stack)
 {
-    sa(stacks);
-    sb(stacks);
+    sa(stack);
+    sb(stack);
 }

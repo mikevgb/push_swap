@@ -6,23 +6,23 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 17:20:58 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/03 20:21:07 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/04 18:00:20 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
-void    print_arr(int **stacks)
+void    print_arr(int **stack)
 {
     int i;
 
     i = 1;
-    printf("N@  %i  dP          N@  %i  dP\n", stacks[0][0], stacks[0][1]);
+    printf("N@  %i  dP          N@  %i  dP\n", stack[0][0], stack[0][1]);
     printf("------------------------------\n");
-    while(i <= stacks[0][0] || i <= stacks[0][1])
+    while(i <= stack[0][0] || i <= stack[0][1])
     { 
-        printf("%i*  %i  [%i]       %i*  %i  [%i]\n", stacks[i][0], stacks[i][1], stacks[i][2], stacks[i][3], stacks[i][4], stacks[i][5]);
+        printf("%i*  %i  [%i]       %i*  %i  [%i]\n", stack[i][0], stack[i][1], stack[i][2], stack[i][3], stack[i][4], stack[i][5]);
         i++;
     }
     printf("------------------------------\n");
@@ -31,22 +31,22 @@ void    print_arr(int **stacks)
 int     main(int argc, char **argv)
 {
     int size;
-    int **stacks;
+    int **stack;
     int i;
 
     size = argc;
-    stacks = (int**)calloc(size, sizeof(int*));
+    stack = (int**)calloc(size, sizeof(int*));
 
     i = 0;
     while(i < size)
     {
-        stacks[i] = (int*)calloc(6, sizeof(int));
+        stack[i] = (int*)calloc(6, sizeof(int));
         i++;
     }
 
     //Callock check success
 
-    if (stacks == '\0')
+    if (stack == '\0')
         printf("calloc failed\n");
 
     //Transform argc in int
@@ -55,74 +55,79 @@ int     main(int argc, char **argv)
     i = 1;
     while(i < size)
     {
-        stacks[i][1] = atoi(argv[i]);
-        stacks[i][0] = i;
-        stacks[i][3] = i;
+        stack[i][1] = atoi(argv[i]);
+        stack[i][0] = i;
+        stack[i][3] = i;
         i++;
     }
 
     //Give value to the number of elements
 
-    stacks[0][0] = size - 1;
-	stacks[0][1] = 0;
+    stack[0][0] = size - 1;
+	stack[0][1] = 0;
     // alloc(argc, argv);
 
-    printf(">-arr size = %i\n", stacks[0][0]);
-    print_arr(stacks);
-    printf("pb");
-    pb(stacks);
-    print_arr(stacks);
-    printf("pa");
-    pa(stacks);
-    print_arr(stacks);
-    printf("pb");
-    pb(stacks);
-    print_arr(stacks);
-    printf("pb");
-    pb(stacks);
-    print_arr(stacks);
-    printf("pb");
-    pb(stacks);
-    print_arr(stacks);
-    printf("pb");
-    pb(stacks);
-    print_arr(stacks);
-    printf("pb");
-    pb(stacks);
-    print_arr(stacks);
-    printf("ra");
-    ra(stacks);
-    print_arr(stacks);
-    printf("rb");
-    rb(stacks);
-    print_arr(stacks);
-    printf("rr");
-    rr(stacks);
-    print_arr(stacks);
-    printf("sa");
-    sa(stacks);
-    print_arr(stacks);
-    printf("sb");
-    sb(stacks);
-    print_arr(stacks);
-    printf("ss");
-    ss(stacks);
-    print_arr(stacks);
-    printf("rra");
-    rra(stacks);
-    print_arr(stacks);
-    printf("rrb");
-    rrb(stacks);
-    print_arr(stacks);
-    printf("rrr");
-    rrr(stacks);
-    print_arr(stacks);
-    printf("pa");
-    pa(stacks);
-    print_arr(stacks);
-    printf("pb");
-    pb(stacks);
-    print_arr(stacks);
+    printf(">-arr size = %i\n", stack[0][0]);
+    dp_calc(stack);
+    print_arr(stack);
+    // printf("pb");
+    // pb(stack);
+    // print_arr(stack);
+    // printf("pa");
+    // pa(stack);
+    // print_arr(stack);
+    // printf("pb");
+    // pb(stack);
+    // print_arr(stack);
+    // printf("pb");
+    // pb(stack);
+    // print_arr(stack);
+    // printf("pb");
+    // pb(stack);
+    // print_arr(stack);
+    // printf("pb");
+    // pb(stack);
+    // print_arr(stack);
+    // printf("pb");
+    // pb(stack);
+    // print_arr(stack);
+    // printf("ra");
+    // ra(stack);
+    // print_arr(stack);
+    // printf("rb");
+    // rb(stack);
+    // print_arr(stack);
+    // printf("rr");
+    // rr(stack);
+    // print_arr(stack);
+    // printf("sa");
+    // sa(stack);
+    // print_arr(stack);
+    // printf("sb");
+    // sb(stack);
+    // print_arr(stack);
+    // printf("ss");
+    // ss(stack);
+    // print_arr(stack);
+    // printf("rra");
+    // rra(stack);
+    // print_arr(stack);
+    // printf("rrb");
+    // rrb(stack);
+    // print_arr(stack);
+    // printf("rrr");
+    // rrr(stack);
+    // print_arr(stack);
+    // printf("pa");
+    // pa(stack);
+    // print_arr(stack);
+    // printf("pb");
+    // pb(stack);
+    // print_arr(stack);
+
+    
+    free(*stack);
+    // system("leaks push_swap");
 	return(0);
 }
 
