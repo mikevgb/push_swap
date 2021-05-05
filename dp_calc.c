@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 19:53:16 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/04 21:14:39 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/05 16:38:05 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void     dp_calc(int **stack)
 {
-    int tmp;
+    // int tmp;
 
     if(stack[0][0] > 1)
         copy_and_bubble_a(stack);
