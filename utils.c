@@ -16,35 +16,57 @@
 static int	norminette_made_me_do_it(int sign)
 {
 	if (sign == 1)
-		return (-1);
+	{
+		printf("Error -1\n");
+		exit(1);
+	}
 	else
-		return (0);
+	{
+		printf("Error 0\n");
+		exit(1);
+	}
+		
+	return(0);
 }
 
 int	ft_atoi(char const *str)
 {
-	char const			*ptr;
 	int					base;
 	long unsigned int	res;
 	int					sign;
+	int	i;
 
-	ptr = str;
 	base = 10;
 	sign = 1;
 	res = 0;
-	while (*ptr == '\t' || *ptr == '\n' || *ptr == '\v'
-		|| *ptr == '\f' || *ptr == '\r' || *ptr == ' ')
-		ptr++;
-	if (*ptr == '-')
+	i = 0;
+	while (*str == '\t' || *str == '\n' || *str == '\v'
+		|| *str == '\f' || *str == '\r' || *str == ' ')
+		str++;
+	if (*str == '-')
 	{
-		ptr++;
+		str++;
 		sign = -1;
 	}
-	else if (*ptr == '+')
-		ptr++;
-	while (isdigit(*ptr))
-		res = (res * base) + (*ptr++ - 48);
+	else if (*str == '+')
+		str++;
+	while (!(str[i] >= '0' && str[i] <= '9'))
+	{
+		i++;
+		printf("Error atoi\n");
+		exit(1);
+	}
+		
+	while (isdigit(*str))
+		res = (res * base) + (*str++ - 48);
 	if (res < 2147483649)
 		return ((int)res * sign);
+	//check if nums are repeated
 	return (norminette_made_me_do_it(sign));
+}
+
+int		ft_error()
+{
+	printf("Error\n");
+	exit(1);
 }

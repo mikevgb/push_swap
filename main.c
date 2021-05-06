@@ -47,13 +47,15 @@ int     main(int argc, char **argv)
 
     //Callock check success
 
-    if (stack == '\0')
+    if (!stack)
+    {
         printf("calloc failed\n");
+        return(0);
+    }
+        
 
     //Transform argc in int
     //and add pos values to 2d array
-   
-   
 
     i = 1;
     while(i < size)
@@ -61,28 +63,6 @@ int     main(int argc, char **argv)
         stack[i][1] = ft_atoi(argv[i]);
         stack[i][0] = i;
         stack[i][3] = i;
-        i++;
-    }
-
-    //Check that numbers dont exceed max and min int
-    i = 1;
-    while(i < size)
-    {
-        int len_argv;
-        char *tmp;
-
-        tmp = argv[i];
-        len_argv = strlen(argv[i]);
-        if (len_argv >= 10)
-        {
-            if(stack[i][1] == -1 || stack[i][1] == 0)
-            {
-                printf("Error: num is too big\n");
-                exit(1);
-            }
-            else
-                i++;
-        }  
         i++;
     }
 
