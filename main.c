@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 17:20:58 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/05 21:31:27 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/06 16:49:37 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int     main(int argc, char **argv)
     // alloc(argc, argv);
 
     printf(">-arr size = %i\n", stack[0][0]);
+    check_dupe(stack);
     dp_calc(stack);
     print_arr(stack);
     // printf("pb");

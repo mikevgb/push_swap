@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:36:57 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/05 21:22:14 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/06 16:48:22 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void    pb(int **stack);
 
 /* Calc */
 
-void     dp_calc(int **stack);
+void    dp_calc(int **stack);
 void    copy_and_bubble_a(int **stack);
 void    copy_and_bubble_b(int **stack);
 
@@ -54,4 +54,5 @@ int		alloc(int argc, char ** argv);
 /* utils */
 
 // static int	norminette_made_me_do_it(int sign);
-int	ft_atoi(char const *str);
+int	    ft_atoi(char const *str);
+void	check_dupe(int **stack);

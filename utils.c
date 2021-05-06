@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:55:25 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/05 18:58:29 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/06 18:01:51 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int	ft_atoi(char const *str)
 		printf("Error atoi\n");
 		exit(1);
 	}
-		
 	while (isdigit(*str))
 		res = (res * base) + (*str++ - 48);
 	if (res < 2147483649)
@@ -69,4 +68,29 @@ int		ft_error()
 {
 	printf("Error\n");
 	exit(1);
+}
+
+void	check_dupe(int **stack)
+{
+	int i;
+	int j;
+	int contador;
+
+	i = 1;
+	j = 1;
+	contador = stack[0][0];
+	while(i < contador)
+	{
+		j = i + 1;
+		while(j < contador + 1)
+		{
+			if(stack[i][1] == stack[j][1] && j != i)
+			{
+				printf("Dupe num\n");
+				exit(1);
+			}
+			j++;
+		}
+		i++;
+	}
 }
