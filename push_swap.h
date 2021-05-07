@@ -44,7 +44,10 @@ void    pb(int **stack);
 void    dp_calc(int **stack);
 void    copy_and_bubble_a(int **stack);
 void    copy_and_bubble_b(int **stack);
-
+void    pos_calculator(int **stack);
+void    sum_move(int **stack);
+void	calc_moves(int **stack);
+void	ft_abs(int **stack);
 /* main */
 
 void    print_arr(int **stack);

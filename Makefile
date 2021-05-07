@@ -26,7 +26,7 @@ OBJ = $(SRC:.c=.o)
 
 CFLAG = -Wall -Werror -Wextra
 
-SANIT = -g3 -fsanitize=address
+SANIT = -g -g3 -fsanitize=address
 
 $(NAME):
 	gcc $(CFLAG) $(SRCS) -o $(NAME)

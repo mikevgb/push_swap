@@ -74,15 +74,13 @@ void	check_dupe(int **stack)
 {
 	int i;
 	int j;
-	int contador;
 
 	i = 1;
 	j = 1;
-	contador = stack[0][0];
-	while(i < contador)
+	while(i < stack[0][0])
 	{
 		j = i + 1;
-		while(j < contador + 1)
+		while(j < stack[0][0] + 1)
 		{
 			if(stack[i][1] == stack[j][1] && j != i)
 			{

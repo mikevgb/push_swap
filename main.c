@@ -18,7 +18,7 @@ void    print_arr(int **stack)
     int i;
 
     i = 1;
-    printf("N@  %i  dP          N@  %i  dP\n", stack[0][0], stack[0][1]);
+    printf("N@  %i  dP %i       N@  %i  dP\n", stack[0][0], stack[0][2], stack[0][1]);
     printf("------------------------------\n");
     while(i <= stack[0][0] || i <= stack[0][1])
     { 
@@ -62,6 +62,7 @@ int     main(int argc, char **argv)
     {
         stack[i][1] = ft_atoi(argv[i]);
         stack[i][0] = i;
+        stack[i][2] = 1;
         stack[i][3] = i;
         i++;
     }

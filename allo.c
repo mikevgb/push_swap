@@ -1,5 +1,5 @@
 
-// #include "push_swap.h"
+#include "push_swap.h"
 
 // int		alloc(int argc, char **argv)
 // {

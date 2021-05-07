@@ -16,74 +16,113 @@ void     dp_calc(int **stack)
 {
     // int tmp;
 
+    
     if(stack[0][0] > 1)
-        copy_and_bubble_a(stack);
-    if(stack[0][1] > 1)
-        copy_and_bubble_b(stack);
+    {
+        pos_calculator(stack);
+        calc_moves(stack);
+        ft_abs(stack);
+        sum_move(stack);
+    }
+       
+    // if(stack[0][1] > 1)
+    // {
+    //     pos_calculator(stack);
+    //     calc_moves(stack);
+    //     ft_abs(stack);
+    //     sum_move(stack);
+    // }
      
 }
 
 /*
-**  copy_and_bubble_a & b - copy stack[1][1] to stack[1][2] then use bubble short algo
-**  for ordering values on it. Same thing for b but with stack[1][4] to stack[1][5]
+**
 */
 
-void    copy_and_bubble_a(int **stack)
+void    pos_calculator(int **stack)
 {
+    //  printf("i = %i j = %i && stack[i][2] = %i && stack[i][1] = %i && stack[j][1] = %i \n", i, j, stack[i][2], stack[i][1], stack[j][1]);
     int i;
     int j;
-    int tmp;
 
-    i = 0;
+    i = 1;
     while(i < stack[0][0] + 1)
     {
-        stack[i][2] = stack[i][1];
-        i++;
-    }
-    i = 0;
-    while(i < (stack[0][0]))
-    {
-        j = 0;
-        while(j < (stack[0][0] - i))
+        j = 1;
+        while(j <= stack[0][0])
         {
-            if(stack[j][2] > stack[j + 1][2])
-            {
-                tmp = stack[j][2];
-                stack[j][2] = stack[j + 1][2];
-                stack[j + 1][2] = tmp;
-            }
+            if(stack[i][1] > stack[j][1])
+                stack[i][2] += 1;
             j++;
         }
         i++;
     }
 }
 
-void    copy_and_bubble_b(int **stack)
+/*
+** sum_move - sum all the moves in dP and store the result
+*/
+
+void    sum_move(int **stack)
 {
     int i;
-    int j;
-    int tmp;
+
+    i = stack[0][0];
+    while(i >= 1)
+    {
+        stack[0][2] += stack[i][2];
+        i--;
+    }
+}
+
+
+
+void    calc_moves(int **stack)
+{
+    int i;
+
+    i = 1;
+    while(i < stack[0][0] + 1)
+    {
+        stack[i][2] -= stack[i][0];
+        i++; 
+    }
+}
+
+/*
+**  ft_abs transforms negative numbers into positive.
+*/
+
+void    ft_abs(int **stack)
+{
+    int i;
 
     i = 0;
-    while(i < stack[0][1] + 1)
+    while(i < stack[0][0] + 1)
     {
-        stack[i][5] = stack[i][4];
+        if(stack[i][2] < 0)
+            stack[i][2] = -stack[i][2];
         i++;
     }
-    i = 0;
-    while(i < (stack[0][1]))
+}
+
+void    move_compare(int **stack)
+{
+    int i;
+    
+    i = stack[0][2];
+    while(!(i == 0))
     {
-        j = 0;
-        while(j < (stack[0][1] - i))
-        {
-            if(stack[j][5] > stack[j + 1][5])
-            {
-                tmp = stack[j][5];
-                stack[j][5] = stack[j + 1][5];
-                stack[j + 1][5] = tmp;
-            }
-            j++;
-        }
-        i++;
+        ra(stack);
+        rb(stack);
+        rr(stack);
+        sa(stack);
+        sb(stack);
+        ss(stack);
+        rra(stack);
+        rrb(stack);
+        rrr(stack);
+        pa(stack);
+        pb(stack);
     }
 }
