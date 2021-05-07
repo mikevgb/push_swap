@@ -48,6 +48,8 @@ void    pos_calculator(int **stack);
 void    sum_move(int **stack);
 void	calc_moves(int **stack);
 void	ft_abs(int **stack);
+void    index_calculator(int **stack);
+void	c_sa(int **stack);
 /* main */
 
 void    print_arr(int **stack);

@@ -19,10 +19,8 @@ void     dp_calc(int **stack)
     
     if(stack[0][0] > 1)
     {
-        pos_calculator(stack);
-        calc_moves(stack);
-        ft_abs(stack);
-        sum_move(stack);
+        index_calculator(stack);
+        c_sa(stack);
     }
        
     // if(stack[0][1] > 1)
@@ -33,6 +31,18 @@ void     dp_calc(int **stack)
     //     sum_move(stack);
     // }
      
+}
+
+/*
+** index_calculator
+*/
+
+void    index_calculator(int **stack)
+{
+    pos_calculator(stack);
+    calc_moves(stack);
+    ft_abs(stack);
+    sum_move(stack);
 }
 
 /*
@@ -106,23 +116,84 @@ void    ft_abs(int **stack)
     }
 }
 
-void    move_compare(int **stack)
-{
-    int i;
+// void    move_compare(int **stack)
+// {
+//     int i;
     
-    i = stack[0][2];
-    while(!(i == 0))
+//     i = stack[0][2];
+//     while(!(i == 0))
+//     {
+//         ra(stack);
+
+//         rb(stack);
+//         rr(stack);
+//         sa(stack);
+//         sb(stack);
+//         ss(stack);
+//         rra(stack);
+//         rrb(stack);
+//         rrr(stack);
+//         pa(stack);
+//         pb(stack);
+//     }
+// }
+
+// 2
+
+// sa = -2 + 0 + 1 = -1
+// 	  2 + 0 + 1 =  3
+// 	+-2 + 0 - 1 = 1/-3
+// ra = -2 + 0 + 1 + 1 + 0 = 0
+// 	  2 + 0 + 1 + 1 + 0 = 4
+// 	+-2 + 0 - 1 + 1 + 0 = 2/-2
+// rra = -2 + 0 + 1 + 1 + 0 = 0
+// 	   2 + 0 + 1 + 1 + 0 = 4
+// 4
+
+// sa = +-4 + 0 +-1 = 5/3/-3/-5
+// ra =  
+
+
+// 1 | 1 | +0 | 3 | -2 |
+
+// 2 | 3 | -1 | 1 | +1 |
+
+// 3 | 2 | +1 | 2 | +1 |
+
+// void    move_calc(int **stack)
+// {
+
+// }
+
+void    c_sa(int **stack)
+{
+    int tmp1;
+    int tmp2;
+
+    int i;
+ 
+    while(i < stack[0][0])
     {
-        ra(stack);
-        rb(stack);
-        rr(stack);
         sa(stack);
-        sb(stack);
-        ss(stack);
-        rra(stack);
-        rrb(stack);
-        rrr(stack);
-        pa(stack);
-        pb(stack);
+        index_calculator(stack);
+        tmp1 = stack[0][0] + stack[i][1];
+        tmp2 = stack[0][0] - stack[i][1];
+        if(tmp1 > tmp2)
+            printf("\ntmp1 is bigger than tmp2\n");
+        else
+            printf("\ntmp2 is bigger than tmp1\n");
+        i++;
     }
+    printf("\nsa1 %i sa2 %i\n", tmp1, tmp2);
+
 }
+
+// void    c_ra(int **stack)
+// {
+//     int tmp1;
+//     int tmp2;
+
+//     tmp1 = stack[0][0] + stack[1][1];
+//     tmp2 = stack[0][0] - stack[1][1];
+//     printf("\ntmp1 %i tmp2 %i\n", tmp1, tmp2);
+// }
