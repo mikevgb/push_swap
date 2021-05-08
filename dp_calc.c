@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 19:53:16 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/05 16:38:05 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/08 21:43:12 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ void     dp_calc(int **stack)
     if(stack[0][0] > 1)
     {
         index_calculator(stack);
-        c_sa(stack);
+        // move_compare(stack);
+        // c_sa(stack);
+        // index_calculator(stack);
     }
        
     // if(stack[0][1] > 1)
@@ -32,6 +34,22 @@ void     dp_calc(int **stack)
     // }
      
 }
+/*
+**  reset_index_calc - reset the dP counter and put all the dP values to 0.
+*/
+
+void    reset_index_calc(int **stack)
+{
+    int i;
+
+    i = 1;
+    stack[0][2] = 0;
+    while(i < stack[0][0] + 1)
+    {
+        stack[i][2] = 0;
+        i++;
+    }
+}
 
 /*
 ** index_calculator
@@ -39,6 +57,7 @@ void     dp_calc(int **stack)
 
 void    index_calculator(int **stack)
 {
+    // reset_index_calc(stack);
     pos_calculator(stack);
     calc_moves(stack);
     ft_abs(stack);
@@ -85,7 +104,9 @@ void    sum_move(int **stack)
     }
 }
 
-
+/*
+**  calc_moves subtract the pos in the array with the pos_calculator result
+*/
 
 void    calc_moves(int **stack)
 {
@@ -138,6 +159,52 @@ void    ft_abs(int **stack)
 //     }
 // }
 
+void    move_compare(int **stack)
+{
+    // int i;
+    int _ra;
+    int _sa;
+    int _rra;
+    
+    // i = stack[0][2];
+    // if(!(i == 0))
+    // {
+        // i = stack[0][2];
+        sa(stack);
+        reset_index_calc(stack);
+        index_calculator(stack);
+        _sa = stack[0][2];
+        sa(stack); //undo
+        reset_index_calc(stack);
+        index_calculator(stack);
+        // i = stack[0][2];
+        ra(stack);
+        reset_index_calc(stack);
+        index_calculator(stack);
+        _ra = stack[0][2];
+        rra(stack); //undo
+        reset_index_calc(stack);
+        index_calculator(stack);
+        // i = stack[0][2];
+        rra(stack);
+        reset_index_calc(stack);
+        index_calculator(stack);
+        _rra = stack[0][2];
+        ra(stack); //undo
+        reset_index_calc(stack);
+        index_calculator(stack);
+        printf("ra dP %i\n", _ra);
+        printf("sa dP %i\n", _sa);
+        printf("rra dP %i\n", _rra);
+        if(_ra < _sa && _ra < _rra)
+            printf("Best move is ra with dP %i\n", _ra);
+        else if(_sa < _ra && _sa < _rra)
+            printf("Best move is sa with dP %i\n", _sa);
+        else if(_rra < _sa && _rra < _ra)
+            printf("Best move is sa with dP %i\n", _rra);
+    // }
+}
+
 // 2
 
 // sa = -2 + 0 + 1 = -1
@@ -165,28 +232,10 @@ void    ft_abs(int **stack)
 
 // }
 
-void    c_sa(int **stack)
-{
-    int tmp1;
-    int tmp2;
-
-    int i;
- 
-    while(i < stack[0][0])
-    {
-        sa(stack);
-        index_calculator(stack);
-        tmp1 = stack[0][0] + stack[i][1];
-        tmp2 = stack[0][0] - stack[i][1];
-        if(tmp1 > tmp2)
-            printf("\ntmp1 is bigger than tmp2\n");
-        else
-            printf("\ntmp2 is bigger than tmp1\n");
-        i++;
-    }
-    printf("\nsa1 %i sa2 %i\n", tmp1, tmp2);
-
-}
+// void    c_sa(int **stack)
+// {
+//     sa(stack);
+// }
 
 // void    c_ra(int **stack)
 // {

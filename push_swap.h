@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:36:57 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/06 16:48:22 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/08 21:16:53 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void    sum_move(int **stack);
 void	calc_moves(int **stack);
 void	ft_abs(int **stack);
 void    index_calculator(int **stack);
+void    reset_index_calc(int **stack);
+void    move_compare(int **stack);
 void	c_sa(int **stack);
 /* main */
 
