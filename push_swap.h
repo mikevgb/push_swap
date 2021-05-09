@@ -37,13 +37,9 @@ void    rrr(int **stack);
 void    pa(int **stack);
 void    pb(int **stack);
 
-
-
 /* Calc */
 
 void    dp_calc(int **stack);
-void    copy_and_bubble_a(int **stack);
-void    copy_and_bubble_b(int **stack);
 void    pos_calculator(int **stack);
 void    sum_move(int **stack);
 void	calc_moves(int **stack);
@@ -51,7 +47,7 @@ void	ft_abs(int **stack);
 void    index_calculator(int **stack);
 void    reset_index_calc(int **stack);
 void    move_compare(int **stack);
-void	c_sa(int **stack);
+
 /* main */
 
 void    print_arr(int **stack);
@@ -60,6 +56,5 @@ int		alloc(int argc, char ** argv);
 
 /* utils */
 
-// static int	norminette_made_me_do_it(int sign);
 int	    ft_atoi(char const *str);
 void	check_dupe(int **stack);

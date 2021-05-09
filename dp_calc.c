@@ -14,9 +14,6 @@
 
 void     dp_calc(int **stack)
 {
-    // int tmp;
-
-    
     if(stack[0][0] > 1)
     {
         index_calculator(stack);
@@ -24,7 +21,7 @@ void     dp_calc(int **stack)
         // c_sa(stack);
         // index_calculator(stack);
     }
-       
+
     // if(stack[0][1] > 1)
     // {
     //     pos_calculator(stack);
@@ -32,8 +29,8 @@ void     dp_calc(int **stack)
     //     ft_abs(stack);
     //     sum_move(stack);
     // }
-     
 }
+
 /*
 **  reset_index_calc - reset the dP counter and put all the dP values to 1.
 */
@@ -57,7 +54,7 @@ void    reset_index_calc(int **stack)
 
 void    index_calculator(int **stack)
 {
-    // reset_index_calc(stack);
+    reset_index_calc(stack);
     pos_calculator(stack);
     calc_moves(stack);
     ft_abs(stack);
@@ -137,127 +134,46 @@ void    ft_abs(int **stack)
     }
 }
 
-// void    move_compare(int **stack)
-// {
-//     int i;
-    
-//     i = stack[0][2];
-//     while(!(i == 0))
-//     {
-//         ra(stack);
-
-//         rb(stack);
-//         rr(stack);
-//         sa(stack);
-//         sb(stack);
-//         ss(stack);
-//         rra(stack);
-//         rrb(stack);
-//         rrr(stack);
-//         pa(stack);
-//         pb(stack);
-//     }
-// }
-
 void    move_compare(int **stack)
 {
-    // int i;
     int _ra;
     int _sa;
     int _rra;
-    
-    // i = stack[0][2];
+
     while(stack[0][2] > 0)
     {
-        // i = stack[0][2];
         sa(stack);
-        reset_index_calc(stack);
         index_calculator(stack);
-        printf("%i stack02 en sa\n", stack[0][2]);
         _sa = stack[0][2];
         sa(stack); //undo
-        reset_index_calc(stack);
         index_calculator(stack);
-        // i = stack[0][2];
         ra(stack);
-        reset_index_calc(stack);
         index_calculator(stack);
         _ra = stack[0][2];
         rra(stack); //undo
-        reset_index_calc(stack);
         index_calculator(stack);
-        // i = stack[0][2];
         rra(stack);
-        reset_index_calc(stack);
         index_calculator(stack);
         _rra = stack[0][2];
         ra(stack); //undo
-        reset_index_calc(stack);
         index_calculator(stack);
-        printf("ra dP %i\n", _ra);
-        printf("sa dP %i\n", _sa);
-        printf("rra dP %i\n", _rra);
-        if(_ra < _sa && _ra < _rra)
+        if(_ra <= _sa && _ra <= _rra)
         {
             printf("Best move is ra with dP %i\n", _ra);
             ra(stack);
         }
             
-        else if(_sa < _ra && _sa < _rra)
+        else if(_sa <= _ra && _sa <= _rra)
         {
             printf("Best move is sa with dP %i\n", _sa);
             sa(stack);
         }
             
-        else if(_rra < _sa && _rra < _ra)
+        else if(_rra <= _sa && _rra <= _ra)
         {
             printf("Best move is rra with dP %i\n", _rra);
             rra(stack);
         }
-        reset_index_calc(stack);
         index_calculator(stack);
-            
     }
 }
-
-// 2
-
-// sa = -2 + 0 + 1 = -1
-// 	  2 + 0 + 1 =  3
-// 	+-2 + 0 - 1 = 1/-3
-// ra = -2 + 0 + 1 + 1 + 0 = 0
-// 	  2 + 0 + 1 + 1 + 0 = 4
-// 	+-2 + 0 - 1 + 1 + 0 = 2/-2
-// rra = -2 + 0 + 1 + 1 + 0 = 0
-// 	   2 + 0 + 1 + 1 + 0 = 4
-// 4
-
-// sa = +-4 + 0 +-1 = 5/3/-3/-5
-// ra =  
-
-
-// 1 | 1 | +0 | 3 | -2 |
-
-// 2 | 3 | -1 | 1 | +1 |
-
-// 3 | 2 | +1 | 2 | +1 |
-
-// void    move_calc(int **stack)
-// {
-
-// }
-
-// void    c_sa(int **stack)
-// {
-//     sa(stack);
-// }
-
-// void    c_ra(int **stack)
-// {
-//     int tmp1;
-//     int tmp2;
-
-//     tmp1 = stack[0][0] + stack[1][1];
-//     tmp2 = stack[0][0] - stack[1][1];
-//     printf("\ntmp1 %i tmp2 %i\n", tmp1, tmp2);
-// }

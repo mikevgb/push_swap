@@ -18,7 +18,7 @@ void    print_arr(int **stack)
     int i;
 
     i = 1;
-    printf("N@  %i  dP %i       N@  %i  dP\n", stack[0][0], stack[0][2], stack[0][1]);
+    printf("N@  %i  dP %i      N@  %i  dP\n", stack[0][0], stack[0][2], stack[0][1]);
     printf("------------------------------\n");
     while(i <= stack[0][0] || i <= stack[0][1])
     { 
@@ -71,70 +71,11 @@ int     main(int argc, char **argv)
 
     stack[0][0] = size - 1;
 	stack[0][1] = 0;
-    // alloc(argc, argv);
 
-    printf(">-arr size = %i\n", stack[0][0]);
     check_dupe(stack);
-    print_arr(stack);
     dp_calc(stack);
     print_arr(stack);
-    // printf("pb");
-    // pb(stack);
-    // print_arr(stack);
-    // printf("pa");
-    // pa(stack);
-    // print_arr(stack);
-    // printf("pb");
-    // pb(stack);
-    // print_arr(stack);
-    // printf("pb");
-    // pb(stack);
-    // print_arr(stack);
-    // printf("pb");
-    // pb(stack);
-    // print_arr(stack);
-    // printf("pb");
-    // pb(stack);
-    // print_arr(stack);
-    // printf("pb");
-    // pb(stack);
-    // print_arr(stack);
-    // printf("ra");
-    // ra(stack);
-    // print_arr(stack);
-    // printf("rb");
-    // rb(stack);
-    // print_arr(stack);
-    // printf("rr");
-    // rr(stack);
-    // print_arr(stack);
-    // printf("sa");
-    // sa(stack);
-    // print_arr(stack);
-    // printf("sb");
-    // sb(stack);
-    // print_arr(stack);
-    // printf("ss");
-    // ss(stack);
-    // print_arr(stack);
-    // printf("rra");
-    // rra(stack);
-    // print_arr(stack);
-    // printf("rrb");
-    // rrb(stack);
-    // print_arr(stack);
-    // printf("rrr");
-    // rrr(stack);
-    // print_arr(stack);
-    // printf("pa");
-    // pa(stack);
-    // print_arr(stack);
-    // printf("pb");
-    // pb(stack);
-    // print_arr(stack);
-
     
     free(*stack);
-    // system("leaks push_swap");
 	return(0);
 }
