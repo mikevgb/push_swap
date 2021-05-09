@@ -75,7 +75,7 @@ int     main(int argc, char **argv)
 
     printf(">-arr size = %i\n", stack[0][0]);
     check_dupe(stack);
-    // print_arr(stack);
+    print_arr(stack);
     dp_calc(stack);
     print_arr(stack);
     // printf("pb");

@@ -20,7 +20,7 @@ void     dp_calc(int **stack)
     if(stack[0][0] > 1)
     {
         index_calculator(stack);
-        // move_compare(stack);
+        move_compare(stack);
         // c_sa(stack);
         // index_calculator(stack);
     }
@@ -35,7 +35,7 @@ void     dp_calc(int **stack)
      
 }
 /*
-**  reset_index_calc - reset the dP counter and put all the dP values to 0.
+**  reset_index_calc - reset the dP counter and put all the dP values to 1.
 */
 
 void    reset_index_calc(int **stack)
@@ -44,9 +44,9 @@ void    reset_index_calc(int **stack)
 
     i = 1;
     stack[0][2] = 0;
-    while(i < stack[0][0] + 1)
+    while(i <= stack[0][0])
     {
-        stack[i][2] = 0;
+        stack[i][2] = 1;
         i++;
     }
 }
@@ -65,12 +65,12 @@ void    index_calculator(int **stack)
 }
 
 /*
-** pos_calculator 
+** pos_calculator - loop comparing all given numbers with each other sum one on
+** stack[i][2] for every number that is bigger.
 */
 
 void    pos_calculator(int **stack)
 {
-    //  printf("i = %i j = %i && stack[i][2] = %i && stack[i][1] = %i && stack[j][1] = %i \n", i, j, stack[i][2], stack[i][1], stack[j][1]);
     int i;
     int j;
 
@@ -89,7 +89,7 @@ void    pos_calculator(int **stack)
 }
 
 /*
-** sum_move - sum all the moves in dP and store the result
+** sum_move - sum all the moves on dP stack and store the result in [0][2]
 */
 
 void    sum_move(int **stack)
@@ -167,12 +167,13 @@ void    move_compare(int **stack)
     int _rra;
     
     // i = stack[0][2];
-    // if(!(i == 0))
-    // {
+    while(stack[0][2] > 0)
+    {
         // i = stack[0][2];
         sa(stack);
         reset_index_calc(stack);
         index_calculator(stack);
+        printf("%i stack02 en sa\n", stack[0][2]);
         _sa = stack[0][2];
         sa(stack); //undo
         reset_index_calc(stack);
@@ -197,12 +198,26 @@ void    move_compare(int **stack)
         printf("sa dP %i\n", _sa);
         printf("rra dP %i\n", _rra);
         if(_ra < _sa && _ra < _rra)
+        {
             printf("Best move is ra with dP %i\n", _ra);
+            ra(stack);
+        }
+            
         else if(_sa < _ra && _sa < _rra)
+        {
             printf("Best move is sa with dP %i\n", _sa);
+            sa(stack);
+        }
+            
         else if(_rra < _sa && _rra < _ra)
-            printf("Best move is sa with dP %i\n", _rra);
-    // }
+        {
+            printf("Best move is rra with dP %i\n", _rra);
+            rra(stack);
+        }
+        reset_index_calc(stack);
+        index_calculator(stack);
+            
+    }
 }
 
 // 2
