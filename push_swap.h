@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:36:57 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/08 21:16:53 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/09 21:44:03 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-
-#define MIN_INT -2147483648
-#define MAX_INT 2147483647
 
 # endif
 
@@ -37,22 +34,35 @@ void    rrr(int **stack);
 void    pa(int **stack);
 void    pb(int **stack);
 
-/* Calc */
+/* calc */
 
 void    dp_calc(int **stack);
-void    pos_calculator(int **stack);
-void    sum_move(int **stack);
-void	calc_moves(int **stack);
-void	ft_abs(int **stack);
-void    index_calculator(int **stack);
-void    reset_index_calc(int **stack);
 void    move_compare(int **stack);
+
+/* index calc a */
+
+void    index_calculator_a(int **stack);
+void    pos_calculator_a(int **stack);
+void    sum_move_a(int **stack);
+void    calc_moves_a(int **stack);
+void    ft_abs_a(int **stack);
+void    reset_index_calc_a(int **stack);
+
+/* index calc b */
+
+void    index_calculator_b(int **stack);
+void    pos_calculator_b(int **stack);
+void    sum_move_b(int **stack);
+void    calc_moves_b(int **stack);
+void    ft_abs_b(int **stack);
+void    reset_index_calc_b(int **stack);
 
 /* main */
 
 void    print_arr(int **stack);
 int     main(int argc, char **argv);
-int		alloc(int argc, char ** argv);
+int 	**allok(int argc, char **argv);
+void    array_init(char **argv, int size, int **stack);
 
 /* utils */
 

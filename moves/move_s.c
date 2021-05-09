@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 18:12:12 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/03 20:44:44 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/09 18:38:39 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,11 @@ void    sa(int **stack)
     int tmp;
 
     tmp = stack[1][1];
-    stack[1][1] = stack[2][1];
-    stack[2][1] = tmp;
+    if(stack[0][0] > 1)
+    {
+        stack[1][1] = stack[2][1];
+        stack[2][1] = tmp;  
+    }
 }
 
 /*
@@ -36,8 +39,11 @@ void    sb(int **stack)
     int tmp;
 
     tmp = stack[1][4];
-    stack[1][4] = stack[2][4];
-    stack[2][4] = tmp;
+    if(stack[0][1] > 1)
+    {
+        stack[1][4] = stack[2][4];
+        stack[2][4] = tmp;   
+    }
 }
 
 /*
@@ -46,6 +52,9 @@ void    sb(int **stack)
 
 void    ss(int **stack)
 {
-    sa(stack);
-    sb(stack);
+    if(stack[0][0] > 1 && stack[0][1])
+    {
+        sa(stack);
+        sb(stack);  
+    }
 }

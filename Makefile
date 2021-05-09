@@ -6,7 +6,7 @@
 #    By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/26 17:20:55 by mvillaes          #+#    #+#              #
-#    Updated: 2021/05/05 18:58:00 by mvillaes         ###   ########.fr        #
+#    Updated: 2021/05/09 19:17:37 by mvillaes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,9 @@ SRCS = 	main.c \
 		./moves/move_rr.c \
 		./moves/move_s.c \
 		./moves/move_p.c \
+		./index_calc/index_calc_a.c \
+		./index_calc/index_calc_b.c \
+		./index_calc/reset_index.c \
 		dp_calc.c \
 		utils.c
 

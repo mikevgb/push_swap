@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 17:20:58 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/08 19:12:09 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/09 21:42:13 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void    print_arr(int **stack)
     int i;
 
     i = 1;
-    printf("N@  %i  dP %i      N@  %i  dP\n", stack[0][0], stack[0][2], stack[0][1]);
+    printf("N@  %i  dP %i      N@  %i  dP %i\n", stack[0][0], stack[0][2], stack[0][1], stack[0][3]);
     printf("------------------------------\n");
     while(i <= stack[0][0] || i <= stack[0][1])
     { 
@@ -43,8 +43,7 @@ int     main(int argc, char **argv)
         stack[i] = (int*)calloc(6, sizeof(int));
         i++;
     }
-
-
+    
     //Callock check success
 
     if (!stack)
@@ -52,11 +51,10 @@ int     main(int argc, char **argv)
         printf("calloc failed\n");
         return(0);
     }
-        
 
-    //Transform argc in int
-    //and add pos values to 2d array
-
+    // Transform argc in int
+    // and add pos values to 2d array
+    
     i = 1;
     while(i < size)
     {
@@ -71,11 +69,11 @@ int     main(int argc, char **argv)
 
     stack[0][0] = size - 1;
 	stack[0][1] = 0;
-
+    // allok(argc, argv);
     check_dupe(stack);
     dp_calc(stack);
     print_arr(stack);
-    
+
     free(*stack);
 	return(0);
 }
