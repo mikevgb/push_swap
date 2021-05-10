@@ -24,8 +24,8 @@ void    reset_index_calc_a(int **stack)
     stack[0][2] = 0;
     while(i <= stack[0][0])
     {
-        stack[i][2] = 1;
-        i++;
+        stack[i++][2] = 1;
+        // i++;
     }
 }
 

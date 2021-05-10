@@ -27,7 +27,7 @@ void    index_calculator_b(int **stack)
 
 /*
 ** pos_calculator - loop comparing all given numbers with each other sum one on
-** stack[i][2] for every number that is bigger.
+** stack[i][5] for every number that is bigger.
 */
 
 void    pos_calculator_b(int **stack)
@@ -50,7 +50,7 @@ void    pos_calculator_b(int **stack)
 }
 
 /*
-** sum_move - sum all the moves on dP stack and store the result in [0][2]
+** sum_move - sum all the moves on dP stack and store the result in [0][5]
 */
 
 void    sum_move_b(int **stack)
