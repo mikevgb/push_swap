@@ -13,9 +13,9 @@ void    print_arr(int **stack)
     int i;
 
     i = 1;
-    printf("N@  %i  dP          N@  %i  dP\n", stack[0][0], stack[0][1]);
+    printf("N@  %i  dP          N@  %i  dP\n", stack[0][0], stack[0][3]);
     printf("------------------------------\n");
-    while(i <= stack[0][0] || i <= stack[0][1])
+    while(i <= stack[0][0] || i <= stack[0][3])
     { 
         printf("%i*  %i  [%i]       %i*  %i  [%i]\n", stack[i][0], stack[i][1], stack[i][2], stack[i][3], stack[i][4], stack[i][5]);
         i++;
@@ -59,7 +59,7 @@ int     main(int argc, char **argv)
     //Give value to the number of elements
 
     stack[0][0] = size - 1;
-	stack[0][1] = 0;
+	stack[0][3] = 0;
 
 
     printf(">-arr size = %i\n", stack[0][0]);

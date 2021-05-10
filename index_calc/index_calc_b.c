@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 18:48:27 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/09 19:31:30 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/10 21:26:29 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ void    pos_calculator_b(int **stack)
     int j;
 
     i = 1;
-    while(i < stack[0][1] + 1)
+    while(i < stack[0][3] + 1)
     {
         j = 1;
-        while(j <= stack[0][1])
+        while(j <= stack[0][3])
         {
             if(stack[i][4] > stack[j][4])
                 stack[i][5] += 1;
@@ -57,7 +57,7 @@ void    sum_move_b(int **stack)
 {
     int i;
 
-    i = stack[0][1];
+    i = stack[0][3];
     while(i >= 1)
     {
         stack[0][5] += stack[i][5];
@@ -74,7 +74,7 @@ void    calc_moves_b(int **stack)
     int i;
 
     i = 1;
-    while(i < stack[0][1] + 1)
+    while(i < stack[0][3] + 1)
     {
         stack[i][5] -= stack[i][1];
         i++; 
@@ -90,7 +90,7 @@ void    ft_abs_b(int **stack)
     int i;
 
     i = 0;
-    while(i < stack[0][1] + 1)
+    while(i < stack[0][3] + 1)
     {
         if(stack[i][5] < 0)
             stack[i][5] = -stack[i][5];

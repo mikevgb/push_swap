@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 19:44:38 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/09 21:41:45 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/10 21:26:29 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,5 @@
 //     //Give value to the number of elements
 
 //     stack[0][0] = size - 1;
-// 	stack[0][1] = 0;
+// 	stack[0][3] = 0;
 // }

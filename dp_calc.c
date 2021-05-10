@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 19:53:16 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/09 19:34:29 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/10 21:50:07 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,25 @@ void     dp_calc(int **stack)
     if(stack[0][0] > 1)
     {
         index_calculator_a(stack);
-        move_compare(stack);
+        index_calculator_b(stack);
+        sum_dp(stack);
+        // move_compare(stack);
         // c_sa(stack);
         // index_calculator(stack);
     }
 
-    // if(stack[0][1] > 1)
+    // if(stack[0][3] > 1)
     // {
     //     pos_calculator(stack);
     //     calc_moves(stack);
     //     ft_abs(stack);
     //     sum_move(stack);
     // }
+}
+
+void    sum_dp(int **stack)
+{
+    stack[0][1] = stack[0][2] + stack[0][5];
 }
 
 void    move_compare(int **stack)
@@ -45,7 +52,7 @@ void    move_compare(int **stack)
     // int _pa;
     // int _pb;
 
-    while(stack[0][2] > 0)
+    while(stack[0][1] > 0)
     {
         sa(stack);
         index_calculator_a(stack);

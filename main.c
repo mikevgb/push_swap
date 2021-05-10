@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 17:20:58 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/09 21:42:13 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/10 21:49:46 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void    print_arr(int **stack)
     int i;
 
     i = 1;
-    printf("N@  %i  dP %i      N@  %i  dP %i\n", stack[0][0], stack[0][2], stack[0][1], stack[0][3]);
+    printf("N@  %i  dP %i  T%i  N@  %i  dP %i\n", stack[0][0], stack[0][2], stack[0][1], stack[0][3], stack[0][5]);
     printf("------------------------------\n");
-    while(i <= stack[0][0] || i <= stack[0][1])
+    while(i <= stack[0][0] || i <= stack[0][3])
     { 
         printf("%i*  %i  [%i]       %i*  %i  [%i]\n", stack[i][0], stack[i][1], stack[i][2], stack[i][3], stack[i][4], stack[i][5]);
         i++;
@@ -61,6 +61,8 @@ int     main(int argc, char **argv)
         stack[i][1] = ft_atoi(argv[i]);
         stack[i][0] = i;
         stack[i][2] = 1;
+        // stack[i][4] = i; //REMOVE!! FOR TESTING ONLY
+        stack[i][5] = 1;
         stack[i][3] = i;
         i++;
     }
@@ -68,7 +70,7 @@ int     main(int argc, char **argv)
     //Give value to the number of elements
 
     stack[0][0] = size - 1;
-	stack[0][1] = 0;
+	stack[0][3] = 0; //FOR TESTING ONLY! SET TO 0
     // allok(argc, argv);
     check_dupe(stack);
     dp_calc(stack);
