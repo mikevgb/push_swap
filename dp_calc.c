@@ -89,3 +89,65 @@ void    move_compare(int **stack)
         index_calculator_a(stack);
     }
 }
+
+// void    swap_a(int **stack)
+// {
+//     if 
+// }
+
+// sa  1
+// sb  2
+// ss  12
+// pa  4
+// pb  5
+// ra  6
+// rb  7
+// rr  13
+// rra 8
+// rrb 9
+// rrr 11
+
+/*
+** dupe_move - function that checks if program is enterin in a loop
+*/
+
+// void    dupe_move(int **stack)
+// {
+//     int current_move;
+//     int last_move;
+//     int sa;
+//     int sb;
+//     int ss;
+
+//     sa = 1;
+//     sb = 2;
+//     last_move = 0
+//     if (last_move = current_move)
+//     {
+        
+//     }
+
+// }
+
+// void    go_back(int **stack)
+// {
+//     int last_move;
+//     int move_counter_max;
+//     int move_counter;
+//     int stored_move;
+
+//     // check if has found an end
+//     if(move_counter == move_counter_max)
+//     {
+//         // protect that it wont go below 0 moves
+//         if(move_counter > 0)
+//             move_counter -= 1;
+//         //
+//         // calculate the best move again
+//         // compare with the last move stored in the list
+//         // if its not the best, look at the second best ...
+//         // loop comparing all the moves, if is equal to the
+//         // worst move, go back and repeat.
+//         //
+//     }
+// }
