@@ -6,11 +6,23 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 19:44:38 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/10 21:26:29 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/13 22:01:45 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+//creates a new node and returns pointer to it
+struct node* getnewnode(int x)
+{
+    struct node* newnode = (struct node*)malloc(sizeof(struct node));
+    newnode->data = x;
+    newnode->prev = NULL;
+    newnode->next = NULL;
+    return newnode;
+}
+
+// https://gist.github.com/mycodeschool/7429492
 
 // int    **allok(int argc, char **argv)
 // {

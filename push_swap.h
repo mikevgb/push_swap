@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:36:57 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/10 21:46:42 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/13 22:01:21 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@
 
 # endif
 
+struct node {
+    int data;
+    struct node* next;
+    struct node* prev;
+};
+
+struct node* head;
 /* movement */
 
 void    ra(int **stack);
