@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:36:57 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/13 22:01:21 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/14 21:57:07 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+
+#define MAX_3 2
+#define MAX_5 12
+#define MAX_100 700
+#define MAX_500 5500
 
 # endif
 
@@ -43,8 +48,8 @@ void    pb(int **stack);
 
 /* calc */
 
-void    dp_calc(int **stack);
-void    move_compare(int **stack);
+void    dp_calc(int **stack, int *move);
+void    move_compare(int **stack, int *move);
 void    sum_dp(int **stack);
 
 /* index calc a */
@@ -76,3 +81,5 @@ void    array_init(char **argv, int size, int **stack);
 
 int	    ft_atoi(char const *str);
 void	check_dupe(int **stack);
+
+void    print_moves(int *move);
