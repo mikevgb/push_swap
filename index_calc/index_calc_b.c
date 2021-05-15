@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 18:48:27 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/10 21:26:29 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/15 21:25:07 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void    calc_moves_b(int **stack)
     i = 1;
     while(i < stack[0][3] + 1)
     {
-        stack[i][5] -= stack[i][1];
+        stack[i][5] -= stack[i][3];
         i++; 
     }
 }

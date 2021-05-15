@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 17:20:58 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/14 22:46:27 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/15 22:27:36 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,11 @@ int     main(int argc, char **argv)
     // allok(argc, argv);
     check_dupe(stack);
     dp_calc(stack, move);
+
     // pb(stack);
     // pb(stack);
     // pa(stack);
+
     print_arr(stack);
     // print_moves(move);
 

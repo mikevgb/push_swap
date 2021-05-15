@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 19:15:57 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/14 21:39:52 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/15 20:57:55 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void    reset_index_calc_b(int **stack)
     stack[0][5] = 0;
     while(i <= stack[0][3])
     {
-        stack[i][3] = 1;
+        stack[i][5] = 1;
         i++;
     }
 }
