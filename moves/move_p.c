@@ -24,15 +24,15 @@ void    pa(int **stack)
 
     tmp = stack[1][4];
     pos = 1;
-    stack[0][0] += 1;
-    // while(pos < stack[0][3] && stack[0][3] > 0)
-    while(pos < stack[0][3])
+    data.total_a += 1;
+    while(pos < data.total_b && data.total_b > 0)
+    // while(pos < data.total_b)
     {
         stack[pos][4] = stack[pos + 1][4];
         pos++;
     }
-    pos = stack[0][0];
-    stack[0][3] -= 1;
+    pos = data.total_a;
+    data.total_b -= 1;
     while(pos > 0)
     {
         stack[pos][1] = stack[pos - 1][1];
@@ -53,15 +53,15 @@ void    pb(int **stack)
 
     tmp = stack[1][1];
     pos = 1;
-    stack[0][3] += 1;
-    // while(pos < stack[0][0] && stack[0][0] > 0)
-    while(pos < stack[0][0])
+    data.total_b += 1;
+    while(pos < data.total_a && data.total_a > 0)
+    // while(pos < data.total_a)
     {
         stack[pos][1] = stack[pos + 1][1];
         pos++;
     }
-    pos = stack[0][3];
-    stack[0][0] -= 1;
+    pos = data.total_b;
+    data.total_a -= 1;
     while(pos > 0)
     {
         stack[pos][4] = stack[pos - 1][4];
@@ -70,7 +70,7 @@ void    pb(int **stack)
     stack[1][4] = tmp; 
 }
 
-void    pb(int **stack)
-{
+// void    pb(int **stack)
+// {
     
-}
+// }

@@ -22,7 +22,7 @@ void    sa(int **stack)
     int tmp;
 
     tmp = stack[1][1];
-    if(stack[0][0] > 1)
+    if(data.total_a > 1)
     {
         stack[1][1] = stack[2][1];
         stack[2][1] = tmp;  
@@ -39,7 +39,7 @@ void    sb(int **stack)
     int tmp;
 
     tmp = stack[1][4];
-    if(stack[0][3] > 1)
+    if(data.total_b > 1)
     {
         stack[1][4] = stack[2][4];
         stack[2][4] = tmp;   
@@ -52,7 +52,7 @@ void    sb(int **stack)
 
 void    ss(int **stack)
 {
-    if(stack[0][0] > 1 && stack[0][3])
+    if(data.total_a > 1 && data.total_b)
     {
         sa(stack);
         sb(stack);  

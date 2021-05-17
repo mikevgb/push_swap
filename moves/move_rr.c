@@ -22,9 +22,9 @@ void    rra(int **stack)
     int pos;
     int tmp;
 
-    pos = stack[0][0];
+    pos = data.total_a;
     tmp = stack[pos][1];
-    while(pos > 0 && stack[0][0] > 1)
+    while(pos > 0 && data.total_a > 1)
     {
         stack[pos][1] = stack[pos - 1][1];
         pos--;
@@ -42,9 +42,9 @@ void    rrb(int **stack)
     int pos;
     int tmp;
 
-    pos = stack[0][0];
+    pos = data.total_a;
     tmp = stack[pos][4];
-    while(pos > 0 && stack[0][3] > 1)
+    while(pos > 0 && data.total_b > 1)
     {
         stack[pos][4] = stack[pos - 1][4];
         pos--;
@@ -58,7 +58,7 @@ void    rrb(int **stack)
 
 void    rrr(int **stack)
 {
-    if(stack[0][0] > 1 && stack[0][3] > 1)
+    if(data.total_a > 1 && data.total_b > 1)
     {
         rra(stack);
         rrb(stack); 

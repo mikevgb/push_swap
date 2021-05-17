@@ -77,10 +77,10 @@ void	check_dupe(int **stack)
 
 	i = 1;
 	j = 1;
-	while(i < stack[0][0])
+	while(i < data.total_a)
 	{
 		j = i + 1;
-		while(j < stack[0][0] + 1)
+		while(j < data.total_a + 1)
 		{
 			if(stack[i][1] == stack[j][1] && j != i)
 			{

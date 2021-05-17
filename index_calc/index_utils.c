@@ -21,8 +21,8 @@ void    reset_index_calc_a(int **stack)
     int i;
 
     i = 1;
-    stack[0][2] = 0;
-    while(i <= stack[0][0])
+    data.index_a = 0;
+    while(i <= data.total_a)
     {
         stack[i][2] = 1;
         i++;
@@ -34,10 +34,22 @@ void    reset_index_calc_b(int **stack)
     int i;
 
     i = 1;
-    stack[0][5] = 0;
-    while(i <= stack[0][3])
+    data.index_b = 0;
+    while(i <= data.total_b)
     {
         stack[i][5] = 1;
         i++;
     }
+}
+
+void    sum_dp()
+{
+    data.total = data.index_a + data.index_b;
+}
+
+void    index_calc(int **stack)
+{
+    index_calculator_a(stack);
+    index_calculator_b(stack);
+    sum_dp();
 }

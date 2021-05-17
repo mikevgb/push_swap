@@ -14,17 +14,15 @@
 
 void     dp_calc(int **stack, int *move)
 {
-    if(stack[0][0] > 1)
+    if(data.total_a > 1)
     {
-        index_calculator_a(stack);
-        index_calculator_b(stack);
-        sum_dp(stack);
+        index_calc(stack);
         move_compare(stack, move);
         // c_sa(stack);
         // index_calculator(stack);
     }
 
-    // if(stack[0][3] > 1)
+    // if(data.total_b > 1)
     // {
     //     pos_calculator(stack);
     //     calc_moves(stack);
@@ -33,243 +31,188 @@ void     dp_calc(int **stack, int *move)
     // }
 }
 
-void    sum_dp(int **stack)
+void    compare_a(int **stack)
 {
-    stack[0][1] = stack[0][2] + stack[0][5];
+    sa(stack);
+    index_calc(stack);
+    data.sa = data.total;
+    sa(stack); //undo
+    index_calc(stack);
+
+    ra(stack);
+    index_calc(stack);
+    data.ra = data.total;
+    rra(stack); //undo
+    index_calc(stack);
+
+    pb(stack);
+    index_calc(stack);
+    data.pb = data.total;
+    pa(stack); //undo
+    index_calc(stack);
+
+    rra(stack);
+    index_calc(stack);
+    data.rra = data.total;
+    ra(stack); //undo
+    index_calc(stack);
+}
+
+void    compare_b(int **stack)
+{
+    sb(stack);
+    index_calc(stack);
+    data.rb = data.total;
+    sb(stack); //undo
+    index_calc(stack);
+
+    rrb(stack);
+    index_calc(stack);
+    data.rrb = data.total;
+    rb(stack); //undo
+    index_calc(stack);
+
+    pa(stack);
+    index_calc(stack);
+    data.pa = data.total;
+    pb(stack); //undo
+    index_calc(stack); 
+
+    rb(stack);
+    index_calc(stack);
+    data.rb = data.total;
+    rrb(stack); //undo
+    index_calc(stack);
+}
+
+void    compare_double(int **stack)
+{
+    rr(stack);
+    index_calc(stack);
+    data.rr = data.total;
+    rrr(stack); //undo
+    index_calc(stack);
+
+    rrr(stack);
+    index_calc(stack);
+    data.rrr = data.total;
+    rr(stack); //undo
+    index_calc(stack); 
+
+    ss(stack);
+    index_calc(stack);
+    data.ss = data.total;
+    ss(stack); //undo
+    index_calc(stack);
 }
 
 void    move_compare(int **stack, int *move)
 {
-    int _ra;
-    int _rb;
-    int _rr;
-    int _sa;
-    int _sb;
-    int _ss;
-    int _rra;
-    int _rrb;
-    int _rrr;
-    int _pa;
-    int _pb;
     int i;      
-    // printf("move stack %i", move[0]);
+
     i = 1; //start in 1 because we use 0 as reference of max moves allowed
-
-
-    while(stack[0][1] > 0)
+    while(data.total > 0)
     {
-        if(stack[0][3] > 0) //stack B
-        {
-            sb(stack);
-            index_calculator_a(stack);
-            index_calculator_b(stack);
-            sum_dp(stack);
-            _sb = stack[0][1];
-            sb(stack); //undo
-            index_calculator_a(stack);
-            index_calculator_b(stack);
-            sum_dp(stack);
-
-            rrb(stack);
-            index_calculator_a(stack);
-            index_calculator_b(stack);
-            sum_dp(stack);
-            _rrb = stack[0][1];
-            rb(stack); //undo
-            index_calculator_a(stack);
-            index_calculator_b(stack);
-            sum_dp(stack);
-
-            pa(stack);
-            index_calculator_a(stack);
-            index_calculator_b(stack);
-            sum_dp(stack);
-            _pa = stack[0][1];
-            pb(stack); //undo
-            index_calculator_a(stack);
-            index_calculator_b(stack);
-            sum_dp(stack); 
-
-            rb(stack);
-            index_calculator_a(stack);
-            index_calculator_b(stack);
-            sum_dp(stack);
-            _rb = stack[0][1];
-            rrb(stack); //undo
-            index_calculator_a(stack);
-            index_calculator_b(stack);
-            sum_dp(stack);
-        }
+        if(data.total_b > 0) //stack B
+            compare_b(stack);
         
-        if(stack[0][1] > 0) //stack A
-        {
-            sa(stack);
-            index_calculator_a(stack);
-            index_calculator_b(stack);
-            sum_dp(stack);
-            _sa = stack[0][1];
-            sa(stack); //undo
-            index_calculator_a(stack);
-            index_calculator_b(stack);
-            sum_dp(stack);
+        if(data.total_a > 0) //stack A
+            compare_a(stack);
 
-            ra(stack);
-            index_calculator_a(stack);
-            index_calculator_b(stack);
-            sum_dp(stack);
-            _ra = stack[0][1];
-            rra(stack); //undo
-            index_calculator_a(stack);
-            index_calculator_b(stack);
-            sum_dp(stack);
-
-            pb(stack);
-            index_calculator_a(stack);
-            index_calculator_b(stack);
-            sum_dp(stack);
-            _pb = stack[0][1];
-            pa(stack); //undo
-            index_calculator_a(stack);
-            index_calculator_b(stack);
-            sum_dp(stack);
-
-            rra(stack);
-            index_calculator_a(stack);
-            index_calculator_b(stack);
-            sum_dp(stack);
-            _rra = stack[0][1];
-            ra(stack); //undo
-            index_calculator_a(stack);
-            index_calculator_b(stack);
-            sum_dp(stack); 
-        }
-
-        if(stack[0][1] > 0 && stack[0][3] > 0)
-        {
-            rr(stack);
-            index_calculator_a(stack);
-            index_calculator_b(stack);
-            sum_dp(stack);
-            _rr = stack[0][1];
-            rrr(stack); //undo
-            index_calculator_a(stack);
-            index_calculator_b(stack);
-            sum_dp(stack);
-
-            rrr(stack);
-            index_calculator_a(stack);
-            index_calculator_b(stack);
-            sum_dp(stack);
-            _rrr = stack[0][1];
-            rr(stack); //undo
-            index_calculator_a(stack);
-            index_calculator_b(stack);
-            sum_dp(stack); 
-
-            ss(stack);
-            index_calculator_a(stack);
-            index_calculator_b(stack);
-            sum_dp(stack);
-            _ss = stack[0][1];
-            ss(stack); //undo
-            index_calculator_a(stack);
-            index_calculator_b(stack);
-            sum_dp(stack);
-        }
+        if(data.total_a > 0 && data.total_b > 0)
+            compare_double(stack);
         
-        if(_sa <= _sb && _sa <= _ss && _sa <=_rra && _sa <= _rrb && _sa <= _pa && _sa <= _pb && _sa <= _rb && _sa <= _rr && _sa <= _rrr)
+        if(data.sa <= data.sb && data.sa <= data.ss && data.sa <= data.rra && data.sa <= data.rrb && data.sa <= data.pa && data.sa <= data.pb && data.sa <= data.rb && data.sa <= data.rr && data.sa <= data.rrr)
         {
-            printf("Best move is sa with dP %i\n", _ra);
+            printf("Best move is sa with dP %i\n", data.ra);
             sa(stack);
-            stack[0][4] += 1; //move counter
+            data.moves += 1; //move counter
             // move[i] = 1;
         }
             
-        else if(_sb <= _sa && _sb <= _ss && _sb <=_rra && _sb <= _rrb && _sb <= _pa && _sb <= _pb && _sb <= _rb && _sb <= _rr && _sb <= _rrr)
+        else if(data.sb <= data.sa && data.sb <= data.ss && data.sb <=data.rra && data.sb <= data.rrb && data.sb <= data.pa && data.sb <= data.pb && data.sb <= data.rb && data.sb <= data.rr && data.sb <= data.rrr)
         {
-            printf("Best move is sb with dP %i\n", _sa);
+            printf("Best move is sb with dP %i\n", data.sa);
             sb(stack);
-            stack[0][4] += 1;
+            data.moves += 1;
             // move[i] = 2;
         }
             
-        else if(_ss <= _sa && _ss <= _sb && _ss <=_rra && _ss <= _rrb && _ss <= _pa && _ss <= _pb && _ss <= _rb && _ss <= _rr && _ss <= _rrr)
+        else if(data.ss <= data.sa && data.ss <= data.sb && data.ss <=data.rra && data.ss <= data.rrb && data.ss <= data.pa && data.ss <= data.pb && data.ss <= data.rb && data.ss <= data.rr && data.ss <= data.rrr)
         {
-            printf("Best move is ss with dP %i\n", _rra);
+            printf("Best move is ss with dP %i\n", data.rra);
             ss(stack);
-            stack[0][4] += 1;
+            data.moves += 1;
             // move[i] = 3;
         }
 
-        else if(_ra <= _sa && _ra <= _ss && _ra <=_rra && _ra <= _rrb && _ra <= _pa && _ra <= _pb && _ra <= _rb && _ra <= _rr && _ra <= _rrr)
+        else if(data.ra <= data.sa && data.ra <= data.ss && data.ra <=data.rra && data.ra <= data.rrb && data.ra <= data.pa && data.ra <= data.pb && data.ra <= data.rb && data.ra <= data.rr && data.ra <= data.rrr)
         {
-            printf("Best move is ra with dP %i\n", _pb);
+            printf("Best move is ra with dP %i\n", data.pb);
             ra(stack);
-            stack[0][4] += 1;
+            data.moves += 1;
             // move[i] = 4;
         }
 
-        else if(_rra <= _sa && _rra <= _ss && _rra <=_ra && _rra <= _rrb && _rra <= _pa && _rra <= _pb && _rra <= _rb && _rra <= _rr && _rra <= _rrr)
+        else if(data.rra <= data.sa && data.rra <= data.ss && data.rra <=data.ra && data.rra <= data.rrb && data.rra <= data.pa && data.rra <= data.pb && data.rra <= data.rb && data.rra <= data.rr && data.rra <= data.rrr)
         {
-            printf("Best move is rra with dP %i\n", _pb);
+            printf("Best move is rra with dP %i\n", data.pb);
             rra(stack);
-            stack[0][4] += 1;
+            data.moves += 1;
             // move[i] = 6;
         }
 
-        else if(_rrb <= _sa && _rrb <= _ss && _rrb <=_ra && _rrb <= _rra && _rrb <= _pa && _rrb <= _pb && _rrb <= _rb && _rrb <= _rr && _rrb <= _rrr)
+        else if(data.rrb <= data.sa && data.rrb <= data.ss && data.rrb <=data.ra && data.rrb <= data.rra && data.rrb <= data.pa && data.rrb <= data.pb && data.rrb <= data.rb && data.rrb <= data.rr && data.rrb <= data.rrr)
         {
-            printf("Best move is rrb with dP %i\n", _pb);
+            printf("Best move is rrb with dP %i\n", data.pb);
             rrb(stack);
-            stack[0][4] += 1;
+            data.moves += 1;
             // move[i] = 7;
         }
 
-        else if(_pa <= _sa && _pa <= _ss && _pa <=_ra && _pa <= _rra && _pa <= _rrb && _pa <= _pb && _pa <= _rb && _pa <= _rr && _pa <= _rrr)
+        else if(data.pa <= data.sa && data.pa <= data.ss && data.pa <=data.ra && data.pa <= data.rra && data.pa <= data.rrb && data.pa <= data.pb && data.pa <= data.rb && data.pa <= data.rr && data.pa <= data.rrr)
         {
-            printf("Best move is pa with dP %i\n", _pb);
+            printf("Best move is pa with dP %i\n", data.pb);
             pa(stack);
-            stack[0][4] += 1;
+            data.moves += 1;
             // move[i] = 8;
         }
 
-        else if(_pb <= _sa && _pb <= _ss && _pb <=_ra && _pb <= _rra && _pb <= _rrb && _pb <= _pa && _pb <= _rb && _pb <= _rr && _pb <= _rrr)
+        else if(data.pb <= data.sa && data.pb <= data.ss && data.pb <=data.ra && data.pb <= data.rra && data.pb <= data.rrb && data.pb <= data.pa && data.pb <= data.rb && data.pb <= data.rr && data.pb <= data.rrr)
         {
-            printf("Best move is pb with dP %i\n", _pb);
+            printf("Best move is pb with dP %i\n", data.pb);
             pb(stack);
-            stack[0][4] += 1;
+            data.moves += 1;
             // move[i] = 9;
         }
 
-        else if(_rb <= _sa && _rb <= _ss && _rb <=_ra && _rb <= _rra && _rb <= _rrb && _rb <= _pa && _rb <= _pb && _rb <= _rr && _rb <= _rrr)
+        else if(data.rb <= data.sa && data.rb <= data.ss && data.rb <=data.ra && data.rb <= data.rra && data.rb <= data.rrb && data.rb <= data.pa && data.rb <= data.pb && data.rb <= data.rr && data.rb <= data.rrr)
         {
-            printf("Best move is rb with dP %i\n", _pb);
+            printf("Best move is rb with dP %i\n", data.pb);
             rb(stack);
-            stack[0][4] += 1;
+            data.moves += 1;
             // move[i] = 5;
         }
 
-        else if(_rr <= _sa && _rr <= _ss && _rr <=_ra && _rr <= _rra && _rr <= _rrb && _rr <= _pa && _rr <= _pb && _rr <= _rb && _rr <= _rrr)
+        else if(data.rr <= data.sa && data.rr <= data.ss && data.rr <=data.ra && data.rr <= data.rra && data.rr <= data.rrb && data.rr <= data.pa && data.rr <= data.pb && data.rr <= data.rb && data.rr <= data.rrr)
         {
-            printf("Best move is rr with dP %i\n", _pb);
+            printf("Best move is rr with dP %i\n", data.pb);
             rr(stack);
-            stack[0][4] += 1;
+            data.moves += 1;
             // move[i] = 5;
         }
 
-        else if(_rrr <= _sa && _rrr <= _ss && _rrr <=_ra && _rrr <= _rra && _rrr <= _rrb && _rrr <= _pa && _rrr <= _pb && _rrr <= _rb && _rrr <= _rr)
+        else if(data.rrr <= data.sa && data.rrr <= data.ss && data.rrr <=data.ra && data.rrr <= data.rra && data.rrr <= data.rrb && data.rrr <= data.pa && data.rrr <= data.pb && data.rrr <= data.rb && data.rrr <= data.rr)
         {
-            printf("Best move is rrr with dP %i\n", _pb);
+            printf("Best move is rrr with dP %i\n", data.pb);
             rrr(stack);
-            stack[0][4] += 1;
+            data.moves += 1;
             // move[i] = 5;
         }
-        index_calculator_a(stack);
-        index_calculator_b(stack);
-        sum_dp(stack);
+        index_calc(stack);
         
 
-        if(stack[0][4] >= move[0])
+        if(data.moves >= move[0])
         {
             printf("exit! moves 1\n");
             break; 
@@ -277,13 +220,11 @@ void    move_compare(int **stack, int *move)
         i++;
     }
     
-    while(stack[0][5] == 0 && stack[0][3] > 0)
+    while(data.index_b == 0 && data.total_b > 0)
     {
         pa(stack);
-        index_calculator_a(stack);
-        index_calculator_b(stack);
-        sum_dp(stack);
-        if(stack[0][4] >= move[0])
+        index_calc(stack);
+        if(data.moves >= move[0])
         {
             printf("exit! moves 2\n");
             break; 
@@ -291,65 +232,3 @@ void    move_compare(int **stack, int *move)
         i++;
     }
 }
-
-// void    swap_a(int **stack)
-// {
-//     if 
-// }
-
-// sa  1
-// sb  2
-// ss  12
-// pa  4
-// pb  5
-// ra  6
-// rb  7
-// rr  13
-// rra 8
-// rrb 9
-// rrr 11
-
-/*
-** dupe_move - function that checks if program is enterin in a loop
-*/
-
-// void    dupe_move(int **stack)
-// {
-//     int current_move;
-//     int last_move;
-//     int sa;
-//     int sb;
-//     int ss;
-
-//     sa = 1;
-//     sb = 2;
-//     last_move = 0
-//     if (last_move = current_move)
-//     {
-        
-//     }
-
-// }
-
-// void    go_back(int **stack)
-// {
-//     int last_move;
-//     int move_counter_max;
-//     int move_counter;
-//     int stored_move;
-
-//     // check if has found an end
-//     if(move_counter == move_counter_max)
-//     {
-//         // protect that it wont go below 0 moves
-//         if(move_counter > 0)
-//             move_counter -= 1;
-//         //
-//         // calculate the best move again
-//         // compare with the last move stored in the list
-//         // if its not the best, look at the second best ...
-//         // loop comparing all the moves, if is equal to the
-//         // worst move, go back and repeat.
-//         //
-//     }
-// }

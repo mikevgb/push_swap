@@ -25,13 +25,29 @@
 
 # endif
 
-struct node {
-    int data;
-    struct node* next;
-    struct node* prev;
-};
+/* values storage */
 
-struct node* head;
+struct data
+{
+    int total_a;
+    int total_b;
+    int total;
+    int index_a;
+    int index_b;
+    int moves;
+    int ra;
+    int rb;
+    int rr;
+    int sa;
+    int sb;
+    int ss;
+    int rra;
+    int rrb;
+    int rrr;
+    int pa;
+    int pb;
+}       data;
+
 /* movement */
 
 void    ra(int **stack);
@@ -50,7 +66,11 @@ void    pb(int **stack);
 
 void    dp_calc(int **stack, int *move);
 void    move_compare(int **stack, int *move);
-void    sum_dp(int **stack);
+void    sum_dp();
+void    index_calc(int **stack);
+void    compare_a(int **stack);
+void    compare_b(int **stack);
+void    compare_double(int **stack);
 
 /* index calc a */
 

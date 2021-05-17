@@ -13,14 +13,14 @@
 #include "push_swap.h"
 
 //creates a new node and returns pointer to it
-struct node* getnewnode(int x)
-{
-    struct node* newnode = (struct node*)malloc(sizeof(struct node));
-    newnode->data = x;
-    newnode->prev = NULL;
-    newnode->next = NULL;
-    return newnode;
-}
+// struct node* getnewnode(int x)
+// {
+//     struct node* newnode = (struct node*)malloc(sizeof(struct node));
+//     newnode->data = x;
+//     newnode->prev = NULL;
+//     newnode->next = NULL;
+//     return newnode;
+// }
 
 // https://gist.github.com/mycodeschool/7429492
 
@@ -67,6 +67,6 @@ struct node* getnewnode(int x)
 
 //     //Give value to the number of elements
 
-//     stack[0][0] = size - 1;
-// 	stack[0][3] = 0;
+//     data.total_a = size - 1;
+// 	data.total_b = 0;
 // }

@@ -20,7 +20,7 @@ SRCS = 	main.c \
 		./moves/move_p.c \
 		./index_calc/index_calc_a.c \
 		./index_calc/index_calc_b.c \
-		./index_calc/reset_index.c \
+		./index_calc/index_utils.c \
 		dp_calc.c \
 		utils.c
 

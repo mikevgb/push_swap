@@ -36,10 +36,10 @@ void    pos_calculator_b(int **stack)
     int j;
 
     i = 1;
-    while(i < stack[0][3] + 1)
+    while(i < data.total_b + 1)
     {
         j = 1;
-        while(j <= stack[0][3])
+        while(j <= data.total_b)
         {
             if(stack[i][4] > stack[j][4])
                 stack[i][5] += 1;
@@ -57,10 +57,10 @@ void    sum_move_b(int **stack)
 {
     int i;
 
-    i = stack[0][3];
+    i = data.total_b;
     while(i >= 1)
     {
-        stack[0][5] += stack[i][5];
+        data.index_b += stack[i][5];
         i--;
     }
 }
@@ -74,7 +74,7 @@ void    calc_moves_b(int **stack)
     int i;
 
     i = 1;
-    while(i < stack[0][3] + 1)
+    while(i < data.total_b + 1)
     {
         stack[i][5] -= stack[i][3];
         i++; 
@@ -90,7 +90,7 @@ void    ft_abs_b(int **stack)
     int i;
 
     i = 0;
-    while(i < stack[0][3] + 1)
+    while(i < data.total_b + 1)
     {
         if(stack[i][5] < 0)
             stack[i][5] = -stack[i][5];

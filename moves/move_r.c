@@ -24,7 +24,7 @@ void    ra(int **stack)
 
     pos = 1;
     tmp = stack[1][1];
-    while(pos < stack[0][0] && stack[0][0] > 1)
+    while(pos < data.total_a && data.total_a > 1)
     {
         stack[pos][1] = stack[pos + 1][1];
         pos++;
@@ -44,7 +44,7 @@ void    rb(int **stack)
 
     pos = 1;
     tmp = stack[1][4];
-    while(pos < stack[0][3] && stack[0][3] > 1)
+    while(pos < data.total_b && data.total_b > 1)
     {
         stack[pos][4] = stack[pos + 1][4];
         pos++;
@@ -59,7 +59,7 @@ void    rb(int **stack)
 
 void    rr(int **stack)
 {
-    if(stack[0][0] > 1 && stack[0][3] > 1)
+    if(data.total_a > 1 && data.total_b > 1)
     {
       ra(stack);
       rb(stack);  
