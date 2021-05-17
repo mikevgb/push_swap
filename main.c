@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 17:20:58 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/15 22:27:36 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/17 21:44:46 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ void    print_arr(int **stack)
     int i;
 
     i = 1;
-    printf("N@  %i  dP %i T%iM%i N@  %i  dP %i\n", data.total_a, data.index_a, data.total, data.moves, data.total_b, data.index_b);
+    printf("N@  %i  ix %i  T%i  N@  %i  ix %i\n", data.elements_a, data.index_a, data.total, data.elements_b, data.index_b);
     printf("------------------------------\n");
-    while(i <= data.total_a || i <= data.total_b)
+    while(i <= data.elements_a || i <= data.elements_b)
     { 
         printf("%i*  %i  [%i]       %i*  %i  [%i]\n", stack[i][0], stack[i][1], stack[i][2], stack[i][3], stack[i][4], stack[i][5]);
         i++;
     }
-    printf("------------------------------\n");
+    printf("----------Moves %i-------------\n", data.moves);
 }
 
 int     main(int argc, char **argv)
@@ -33,7 +33,7 @@ int     main(int argc, char **argv)
     int size;
     int **stack;
     int i;
-    int *move;
+    int **move;
 
     size = argc;
     stack = (int**)calloc(size, sizeof(int*));
@@ -55,18 +55,33 @@ int     main(int argc, char **argv)
     
     //allocate for moves storage
     // move = NULL;
-    // if (data.total_a <= MAX_3)
+    // if (data.elements_a <= MAX_3)
     //     move = (int*)calloc(MAX_3, sizeof(int));
-    //     move[0] = MAX_3;
-    // if (data.total_a <= MAX_5)
+    //     data.max_moves = MAX_3;
+    // if (data.elements_a <= MAX_5)
     //     move = (int*)calloc(MAX_5, sizeof(int));
-    //     move[0] = MAX_5;
-    // if (data.total_a <= MAX_100)
+    //     data.max_moves = MAX_5;
+    // if (data.elements_a <= MAX_100)
     //     move = (int*)calloc(MAX_100, sizeof(int));
-    //     move[0] = MAX_100;
-    // if (data.total_a <= MAX_500)
-        move = (int*)calloc(MAX_500, sizeof(int));
-        move[0] = MAX_500;
+    //     data.max_moves = MAX_100;
+    // if (data.elements_a <= MAX_500)
+    move = (int**)calloc(12, sizeof(int*));
+
+    i = 0;
+    while(i < 12)
+    {
+        move[i] = (int*)calloc(2, sizeof(int));
+        i++;
+    }
+    i = 0;
+    while(i < 12)
+    {
+        move[i][0] = 333333;
+        move[i][1] = 333333;
+        i++;
+    }
+    
+    data.max_moves = MAX_500;
 
     // Transform argc in int
     // and add pos values to 2d array
@@ -78,7 +93,7 @@ int     main(int argc, char **argv)
         stack[i][1] = ft_atoi(argv[i]);
         stack[i][0] = i;
         stack[i][2] = 1;
-        stack[i][4] = x; //REMOVE!! FOR TESTING ONLY
+        // stack[i][4] = x; //REMOVE!! FOR TESTING ONLY
         stack[i][5] = 1;
         stack[i][3] = i;
         i++;
@@ -87,13 +102,18 @@ int     main(int argc, char **argv)
 
     //Give value to the number of elements
 
-    data.total_a = size - 1;
-	data.total_b = 0; //FOR TESTING ONLY! SET TO 0
+    data.elements_a = size - 1;
+	data.elements_b = 0; //FOR TESTING ONLY! SET TO 0
     // allok(argc, argv);
     check_dupe(stack);
-    index_calculator_a(stack);
-    index_calculator_b(stack);
-    // dp_calc(stack, move);
+    // pb(stack);
+    // pb(stack);
+    // pb(stack);
+    // pa(stack);
+    // index_calc(stack);
+    // index_calculator_a(stack);
+    // index_calculator_b(stack);
+    dp_calc(stack, move);
 
     // pb(stack);
     // pb(stack);

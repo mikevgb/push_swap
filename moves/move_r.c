@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 18:13:38 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/10 21:26:29 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/17 20:09:48 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void    ra(int **stack)
 
     pos = 1;
     tmp = stack[1][1];
-    while(pos < data.total_a && data.total_a > 1)
+    while(pos < data.elements_a && data.elements_a > 1)
     {
         stack[pos][1] = stack[pos + 1][1];
         pos++;
@@ -44,7 +44,7 @@ void    rb(int **stack)
 
     pos = 1;
     tmp = stack[1][4];
-    while(pos < data.total_b && data.total_b > 1)
+    while(pos < data.elements_b && data.elements_b > 1)
     {
         stack[pos][4] = stack[pos + 1][4];
         pos++;
@@ -59,7 +59,7 @@ void    rb(int **stack)
 
 void    rr(int **stack)
 {
-    if(data.total_a > 1 && data.total_b > 1)
+    if(data.elements_a > 1 && data.elements_b > 1)
     {
       ra(stack);
       rb(stack);  

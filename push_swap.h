@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:36:57 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/14 21:57:07 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/17 20:10:06 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,13 @@
 
 struct data
 {
-    int total_a;
-    int total_b;
+    int elements_a;
+    int elements_b;
     int total;
     int index_a;
     int index_b;
     int moves;
+    int max_moves;
     int ra;
     int rb;
     int rr;
@@ -64,13 +65,15 @@ void    pb(int **stack);
 
 /* calc */
 
-void    dp_calc(int **stack, int *move);
-void    move_compare(int **stack, int *move);
+void    dp_calc(int **stack, int **move);
+void    move_compare(int **stack, int **move);
 void    sum_dp();
 void    index_calc(int **stack);
-void    compare_a(int **stack);
-void    compare_b(int **stack);
-void    compare_double(int **stack);
+void    compare_a(int **stack, int **move);
+void    compare_b(int **stack, int **move);
+void    compare_double(int **stack, int **move);
+void    choose_less(int **move);
+void    reset_move(int **move);
 
 /* index calc a */
 

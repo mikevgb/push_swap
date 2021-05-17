@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:55:25 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/06 18:01:51 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/17 20:09:32 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,10 @@ void	check_dupe(int **stack)
 
 	i = 1;
 	j = 1;
-	while(i < data.total_a)
+	while(i < data.elements_a)
 	{
 		j = i + 1;
-		while(j < data.total_a + 1)
+		while(j < data.elements_a + 1)
 		{
 			if(stack[i][1] == stack[j][1] && j != i)
 			{

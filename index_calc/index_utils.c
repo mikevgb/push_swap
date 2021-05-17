@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reset_index.c                                      :+:      :+:    :+:   */
+/*   index_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 19:15:57 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/15 20:57:55 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/17 20:09:48 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void    reset_index_calc_a(int **stack)
 
     i = 1;
     data.index_a = 0;
-    while(i <= data.total_a)
+    while(i <= data.elements_a)
     {
         stack[i][2] = 1;
         i++;
@@ -35,7 +35,7 @@ void    reset_index_calc_b(int **stack)
 
     i = 1;
     data.index_b = 0;
-    while(i <= data.total_b)
+    while(i <= data.elements_b)
     {
         stack[i][5] = 1;
         i++;

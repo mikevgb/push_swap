@@ -13,9 +13,9 @@ void    print_arr(int **stack)
     int i;
 
     i = 1;
-    printf("N@  %i  dP          N@  %i  dP\n", data.total_a, data.total_b);
+    printf("N@  %i  dP          N@  %i  dP\n", data.elements_a, data.elements_b);
     printf("------------------------------\n");
-    while(i <= data.total_a || i <= data.total_b)
+    while(i <= data.elements_a || i <= data.elements_b)
     { 
         printf("%i*  %i  [%i]       %i*  %i  [%i]\n", stack[i][0], stack[i][1], stack[i][2], stack[i][3], stack[i][4], stack[i][5]);
         i++;
@@ -58,11 +58,11 @@ int     main(int argc, char **argv)
 
     //Give value to the number of elements
 
-    data.total_a = size - 1;
-	data.total_b = 0;
+    data.elements_a = size - 1;
+	data.elements_b = 0;
 
 
-    printf(">-arr size = %i\n", data.total_a);
+    printf(">-arr size = %i\n", data.elements_a);
     print_arr(stack);
 	return(0);
 }

@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 19:44:38 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/13 22:01:45 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/17 20:09:48 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,6 @@
 
 //     //Give value to the number of elements
 
-//     data.total_a = size - 1;
-// 	data.total_b = 0;
+//     data.elements_a = size - 1;
+// 	data.elements_b = 0;
 // }
