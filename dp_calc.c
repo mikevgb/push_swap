@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 19:53:16 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/17 22:21:18 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/17 22:27:03 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,7 +166,7 @@ void    move_compare(int **stack, int **move)
     int i;
 
     i = 1; //start in 1 because we use 0 as reference of max moves allowed
-    while(data.total > 0)
+    while(data.total > 0 || data.elements_b > 0)
     {
         // printf("data total %i\n", data.total);
         reset_move(move);
@@ -289,6 +289,7 @@ void    move_compare(int **stack, int **move)
             reset_move(move);
         }
         
+            
 
         reset_move(move);
         if(data.total == 0)

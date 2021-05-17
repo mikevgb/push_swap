@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 17:20:58 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/17 21:44:46 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/17 22:30:16 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ int     main(int argc, char **argv)
     //     move = (int*)calloc(MAX_100, sizeof(int));
     //     data.max_moves = MAX_100;
     // if (data.elements_a <= MAX_500)
+
+    //array for saving move values
     move = (int**)calloc(12, sizeof(int*));
 
     i = 0;
@@ -73,6 +75,8 @@ int     main(int argc, char **argv)
         move[i] = (int*)calloc(2, sizeof(int));
         i++;
     }
+    
+    //set initial array move values to 333333
     i = 0;
     while(i < 12)
     {
