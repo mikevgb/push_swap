@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 19:53:16 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/17 22:27:03 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/18 20:59:06 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void     dp_calc(int **stack, int **move)
 {
-    if(data.elements_a > 1)
+    if(data.elements_a > 1 || data.elements_b >= 1)
     {
         index_calc(stack);
         move_compare(stack, move);
@@ -60,7 +60,7 @@ void    compare_a(int **stack, int **move)
 
     pb(stack);
     index_calc(stack);
-    move[3][0] = data.total + 1;
+    move[3][0] = data.total;
     pa(stack); //undo
     index_calc(stack);
 
@@ -126,14 +126,41 @@ void    clean_equal(int **move)
 
     i = 1;
     j = 2;
-    while(i < 11 && j < 11)
+    while(i < 12)
     {
-        if(move[i][1] == move[j][1])
-        move[j][1] = 333333;
+        j = 1;
+        while(j < 12)
+        {
+            if (j != i)
+            {
+                if(move[i][1] == move[j][1])
+                move[j][1] = 333333;
+            }
+            j++;
+        }
         i++;
-        j++;
     }
 }
+
+// void    clean_equal(int **move)
+// {
+//     int i;
+//     int j;
+
+//     i = 1;
+//     j = 2;
+//     while(i < 11 && j < 11)
+//     {
+//         if(move[i][1] == move[j][1])
+//         move[j][1] = 333333;
+//         i++;
+//         j++;
+//     }
+// }
+
+/*
+** Compare values given by move compare, give the smaller a 1 and if equal
+*/
 
 void    choose_less(int **move)
 {
@@ -141,32 +168,58 @@ void    choose_less(int **move)
     int j;
 
     i = 1;
-    j = 2;
-    while(i < 11 && j < 11)
+    while(i < 12)
     {
-        if (move[i][0] < move[j][0])
-            move[i][1] = 1;
+        j = 1;
+        while(j < 12)
+        {
+            if (j != i)
+            {
+               if (move[i][0] < move[j][0])
+                move[i][1] = 1;
+               if (move[i][0] == move[j][0])
+                move[i][1] = 2;
+            }
+            j++;
+        }
         i++;
-        j++;
-    }
-    i = 1;
-    j = 2;
-    while(i < 11 && j < 11)
-    {
-        if (move[i][0] == move[j][0])
-            move[i][1] = 2;
-        i++;
-        j++;
     }
     clean_equal(move);   
 }
+
+
+// void    choose_less(int **move)
+// {
+//     int i;
+//     int j;
+
+//     i = 1;
+//     j = 2;
+//     while(i < 11 && j < 11)
+//     {
+//         if (move[i][0] < move[j][0])
+//             move[i][1] = 1;
+//         i++;
+//         j++;
+//     }
+//     i = 1;
+//     j = 2;
+//     while(i < 11 && j < 11)
+//     {
+//         if (move[i][0] == move[j][0])
+//             move[i][1] = 2;
+//         i++;
+//         j++;
+//     }
+//     clean_equal(move);   
+// }
 
 void    move_compare(int **stack, int **move)
 {
     int i;
 
     i = 1; //start in 1 because we use 0 as reference of max moves allowed
-    while(data.total > 0 || data.elements_b > 0)
+    while(data.total > 0)
     {
         // printf("data total %i\n", data.total);
         reset_move(move);

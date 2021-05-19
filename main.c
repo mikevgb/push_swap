@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 17:20:58 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/17 22:30:16 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/19 23:07:31 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,194 @@ void    print_arr(int **stack)
         i++;
     }
     printf("----------Moves %i-------------\n", data.moves);
+}
+
+void    reset_calc(int **stack)
+{
+    int i;
+
+    i = 1;
+    while(i <= data.elements_a)
+    {
+        stack[i][2] = 1;
+        i++;
+    }
+}
+
+void    reset_calc_b(int **stack)
+{
+    int i;
+
+    i = 1;
+    while(i <= data.elements_a)
+    {
+        stack[i][5] = 1;
+        i++;
+    }
+}
+
+void    find_small(int **stack)
+{
+    int i;
+    int j;
+
+    i = 1;
+    reset_calc(stack);
+    while(i <= data.elements_a)
+    {
+        j = 1;
+        while(j <= data.elements_a)
+        {
+            if (j != i)
+            {
+                if(stack[i][1] > stack[j][1])
+                    stack[i][2] += 1; 
+            }
+            j++;
+        }
+        i++;
+    }
+}
+
+void    find_small_b(int **stack)
+{
+    int i;
+    int j;
+
+    i = 1;
+    reset_calc_b(stack);
+    while(i <= data.elements_b)
+    {
+        j = 1;
+        while(j <= data.elements_b)
+        {
+            if (j != i)
+            {
+                if(stack[i][4] > stack[j][4])
+                    stack[i][5] += 1; 
+            }
+            j++;
+        }
+        i++;
+    }
+}
+
+void    move_top(int **stack)
+{
+    while(data.elements_a != 0)
+    {
+        while(stack[1][2] != data.elements_a)
+        { 
+            ra(stack);
+            data.moves += 1;
+            find_small(stack);
+        }
+            
+        if(stack[1][2] == data.elements_a)
+        {
+            pb(stack);
+            data.moves += 1;
+            find_small(stack);
+        }
+    }
+}
+
+void    move_top_b(int **stack)
+{
+    while(data.elements_a != 0)
+    {
+        while(stack[1][5] != data.elements_b)
+        { 
+            rb(stack);
+            data.moves += 1;
+            find_small_b(stack);
+        }
+    }
+}
+
+void    move_back(int **stack)
+{
+    while (data.elements_b != 0)
+    {
+        data.moves += 1;
+        pa(stack);
+    }
+        
+}
+
+void    hold_first(int **stack)
+{
+    int i;
+
+    i = 1;
+    while(i < 20)
+    {
+        if (stack[i][2] < 20)
+        {
+            printf("hold first %i number %i\n", stack[i][2], stack[i][1]);
+            data.hold_first_pos = stack[i][0];
+            break ;
+        }
+        i++;
+    }
+}
+
+void    hold_second(int **stack)
+{
+    int i;
+
+    i = 100;
+    while(i > 80)
+    {
+        if(stack[i][2] < 20)
+        {
+            printf("hold second %i number %i\n", stack[i][2], stack[i][1]);
+            data.hold_second_pos = stack[i][0];
+            break;
+        }
+        i--;
+    }
+}
+
+void    choose_hold(int **stack)
+{
+    int hold_1;
+    int hold_2;
+    int i;
+
+    hold_1 = data.hold_first_pos;
+    hold_2 = 100 - data.hold_second_pos;
+    printf("hold1 %i hold2 %i\n", hold_1, hold_2);
+    if(hold_1 < hold_2)
+    {
+        i = 0;
+        while(i <= hold_1)
+        {
+            ra(stack);
+            data.moves += 1;
+            i++;
+        }    
+    }
+    else
+    {
+        i = 0;
+        while(i <= hold_2)
+        {
+            rra(stack);
+            data.moves += 1;
+            i++;
+        }    
+    }
+}
+
+void    set_b(int **stack)
+{
+    if(data.elements_b > 0)
+    {
+        find_small_b(stack);
+        move_top_b(stack);
+        pb(stack);
+    }
 }
 
 int     main(int argc, char **argv)
@@ -91,7 +279,7 @@ int     main(int argc, char **argv)
     // and add pos values to 2d array
     
     i = 1;
-    int x = -3; //
+    int x = 1; //
     while(i < size)
     {
         stack[i][1] = ft_atoi(argv[i]);
@@ -115,9 +303,22 @@ int     main(int argc, char **argv)
     // pb(stack);
     // pa(stack);
     // index_calc(stack);
+    // pb(stack);
+    // pb(stack);
+    // index_calc(stack);
     // index_calculator_a(stack);
     // index_calculator_b(stack);
-    dp_calc(stack, move);
+    // dp_calc(stack, move);
+    // index_calc(stack);
+    pb(stack);
+    pb(stack);
+    find_small(stack);
+    hold_first(stack);
+    hold_second(stack);
+    choose_hold(stack);
+    // ra(stack);
+    // move_top(stack);
+    // move_back(stack);
 
     // pb(stack);
     // pb(stack);

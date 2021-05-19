@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:36:57 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/17 20:10:06 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/19 21:23:18 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,10 @@
 
 /* values storage */
 
-struct data
+struct  data
 {
+    int hold_second_pos;
+    int hold_first_pos;
     int elements_a;
     int elements_b;
     int total;
@@ -48,6 +50,14 @@ struct data
     int pa;
     int pb;
 }       data;
+
+/* moves storage */
+
+struct  moves
+{
+    int data;
+    struct moves *next;
+}       moves;
 
 /* movement */
 
