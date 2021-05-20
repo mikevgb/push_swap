@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:36:57 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/17 20:10:06 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/20 21:30:39 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,11 @@
 
 /* values storage */
 
-struct data
+struct  data
 {
+    int small_b;
+    int hold_second_pos;
+    int hold_first_pos;
     int elements_a;
     int elements_b;
     int total;
@@ -48,6 +51,27 @@ struct data
     int pa;
     int pb;
 }       data;
+
+/* reset */
+
+void    reset_calc(int **stack);
+void    reset_calc_b(int **stack);
+
+/* find small */
+
+void    find_small(int **stack);
+void    find_small_b(int **stack);
+
+/* move_top */
+
+void    move_top(int **stack);
+void    move_top_b(int **stack);
+
+/* hold */
+
+void    hold_first(int **stack);
+void    hold_second(int **stack);
+void    choose_hold(int **stack);
 
 /* movement */
 

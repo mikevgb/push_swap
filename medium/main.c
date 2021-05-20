@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 17:20:58 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/17 22:30:16 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/20 21:59:07 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,18 @@ void    ft_5(int **stack)
     pa(stack);
 
 }
+
+void    set_b(int **stack)
+{
+    if(data.elements_b > 0)
+    {
+        find_small_b(stack);
+        move_top_b(stack);
+    }
+    pb(stack);
+    find_small_b(stack);
+}
+
 
 int     main(int argc, char **argv)
 {
@@ -140,11 +152,11 @@ int     main(int argc, char **argv)
     while(i < size)
     {
         stack[i][1] = ft_atoi(argv[i]);
-        // stack[i][0] = i;
+        stack[i][0] = i;
         // stack[i][2] = 1;
         // // stack[i][4] = x; //REMOVE!! FOR TESTING ONLY
         // stack[i][5] = 1;
-        // stack[i][3] = i;
+        stack[i][3] = i;
         i++;
         x++; //
     }
@@ -163,7 +175,19 @@ int     main(int argc, char **argv)
     // index_calculator_a(stack);
     // index_calculator_b(stack);
     // dp_calc(stack, move);
-    ft_5(stack);
+    i = 0;
+    while(i < 11)
+    {
+        find_small(stack);
+        hold_first(stack);
+        hold_second(stack);
+        choose_hold(stack);
+        set_b(stack);
+        // pb(stack);
+        i++;
+    }
+    find_small(stack);
+    find_small_b(stack);
 
     // pb(stack);
     // pb(stack);
