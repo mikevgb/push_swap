@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:36:57 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/20 21:30:39 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/22 19:36:04 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ struct  data
     int pa;
     int pb;
 }       data;
+
+
+void    move_2_top_b(int **stack);
 
 /* reset */
 

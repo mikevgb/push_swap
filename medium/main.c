@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 17:20:58 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/20 21:59:07 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/22 23:21:32 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,7 @@ void    ft_5(int **stack)
         }  
         i--;
     }
-    
     pa(stack);
-
 }
 
 void    set_b(int **stack)
@@ -81,8 +79,32 @@ void    set_b(int **stack)
         move_top_b(stack);
     }
     pb(stack);
+    data.moves += 1;
     find_small_b(stack);
 }
+
+// void    find_big_b(int **stack)
+// {
+//     int i;
+//     int j;
+
+//     i = 1;
+//     reset_calc_b(stack);
+//     while(i <= data.elements_b)
+//     {
+//         j = 1;
+//         while(j <= data.elements_b)
+//         {
+//             if(j != i)
+//             {
+//                 if(stack[i][4] < stack[j][4])
+//                     stack[i][5] += 1;
+//             }
+//             j++;
+//         }
+//         i++;
+//     }
+// }
 
 
 int     main(int argc, char **argv)
@@ -176,7 +198,7 @@ int     main(int argc, char **argv)
     // index_calculator_b(stack);
     // dp_calc(stack, move);
     i = 0;
-    while(i < 11)
+    while(i < 100)
     {
         find_small(stack);
         hold_first(stack);
@@ -186,8 +208,21 @@ int     main(int argc, char **argv)
         // pb(stack);
         i++;
     }
-    find_small(stack);
-    find_small_b(stack);
+    // i = 0;
+    // while(i < 100)
+    // {
+        // find_small(stack);
+        
+        move_2_top_b(stack);
+        pa(stack);
+        data.moves += 1;
+        find_small_b(stack);
+        rrb(stack);
+        // move_2_top_b(stack);
+    //     i++;
+    // }
+    
+    // find_big_b(stack);
 
     // pb(stack);
     // pb(stack);

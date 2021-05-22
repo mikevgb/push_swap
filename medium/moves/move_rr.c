@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 18:14:23 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/17 20:09:48 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/22 23:05:23 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void    rrb(int **stack)
     int pos;
     int tmp;
 
-    pos = data.elements_a;
+    pos = data.elements_b;
     tmp = stack[pos][4];
     while(pos > 0 && data.elements_b > 1)
     {
