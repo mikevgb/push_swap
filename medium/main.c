@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 17:20:58 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/23 21:25:01 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/23 21:38:48 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -236,8 +236,6 @@ int     main(int argc, char **argv)
         move[i][1] = 333333;
         i++;
     }
-    
-    data.max_moves = MAX_500;
 
     // Transform argc in int
     // and add pos values to 2d array
@@ -261,15 +259,43 @@ int     main(int argc, char **argv)
     data.elements_a = size - 1;
 	data.elements_b = 0; //FOR TESTING ONLY! SET TO 0
 
-    back_up_array(stack);
+    // back up array
+    int **back_up;
+
+    back_up = (int **)calloc(data.total_elements, sizeof(int*));
+    i = 0;
+    while(i < data.total_elements)
+    {
+        back_up[i] = (int*)calloc(6, sizeof(int));
+        i++;
+    }
+    i = 0;
+    while(i < data.total_elements)
+    {
+        back_up[i][0] = stack[i][0];
+        back_up[i][1] = stack[i][1];
+        back_up[i][2] = stack[i][2];
+        back_up[i][3] = stack[i][3];
+        back_up[i][4] = stack[i][4];
+        back_up[i][5] = stack[i][5];
+        i++;
+    }
+
+    data.increase = 0.001;
+    data.chunk = 0.000;
+
+    //// main loop
+    
     do_a(stack);
     do_b(stack);
     while(data.moves >= 11500)
     {
         printf("moves = %i\n", data.moves);
+        printf("chunk size = %f\n", data.chunk);
+        data.chunk += 0.0001;
         data.moves = 0;
         restore_back_up(stack, back_up);
-        chunk_tuner();
+        // chunk_tuner();
         do_a(stack);
         do_b(stack);
     }
