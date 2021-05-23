@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 17:20:58 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/22 23:21:32 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/23 21:25:01 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,9 @@ void    set_b(int **stack)
     if(data.elements_b > 0)
     {
         find_small_b(stack);
-        move_top_b(stack);
+        // move_top_b(stack);
     }
     pb(stack);
-    data.moves += 1;
     find_small_b(stack);
 }
 
@@ -105,7 +104,93 @@ void    set_b(int **stack)
 //         i++;
 //     }
 // }
+void    do_a(int **stack)
+{
+    int i;
+    
+    i = 0;
+    while(i < 500)
+    {
+        find_small(stack);
+        hold_first(stack);
+        hold_second(stack);
+        choose_hold(stack);
+        set_b(stack);
+        i++;
+    }
+}
 
+void    do_b(int **stack)
+{
+    int i;
+    i = 0;
+
+    while(i < 500)
+    { 
+        move_2_top_b(stack);
+        find_small_b(stack);
+        i++;
+    }
+}
+
+void    back_up_array(int **stack)
+{
+    int **back_up;
+    int i;
+
+    back_up = (int **)calloc(data.total_elements, sizeof(int*));
+    i = 0;
+    while(i < data.total_elements)
+    {
+        back_up[i] = (int*)calloc(6, sizeof(int));
+        i++;
+    }
+    i = 0;
+    while(i < data.total_elements)
+    {
+        back_up[i][0] = stack[i][0];
+        back_up[i][1] = stack[i][1];
+        back_up[i][2] = stack[i][2];
+        back_up[i][3] = stack[i][3];
+        back_up[i][4] = stack[i][4];
+        back_up[i][5] = stack[i][5];
+        i++;
+    }
+}
+
+void    restore_back_up(int **stack, int **back_up)
+{
+    int i;
+
+    i = 0;
+    while(i < data.total_elements)
+    {
+        stack[i][0] = back_up[i][0];
+        stack[i][1] = back_up[i][1];
+        stack[i][2] = back_up[i][2];
+        stack[i][3] = back_up[i][3];
+        stack[i][4] = back_up[i][4];
+        stack[i][5] = back_up[i][5];
+        i++;
+    }
+}
+
+// void    loop(int **stack, int **back_up)
+// {
+//     back_up_array(stack);
+//     do_a(stack);
+//     do_b(stack);
+//     while(data.moves >= 11500)
+//     {
+//         printf("moves = %i\n", data.moves);
+//         data.moves = 0;
+//         restore_back_up(stack, back_up);
+//         chunk_tuner();
+//         do_a(stack);
+//         do_b(stack);
+//     }
+//     printf("moves = %i\n", data.moves);
+// }
 
 int     main(int argc, char **argv)
 {
@@ -115,6 +200,7 @@ int     main(int argc, char **argv)
     int **move;
 
     size = argc;
+    data.total_elements = size;
     stack = (int**)calloc(size, sizeof(int*));
 
     i = 0;
@@ -131,19 +217,6 @@ int     main(int argc, char **argv)
         printf("calloc failed\n");
         return(0);
     }
-    
-    //allocate for moves storage
-    // move = NULL;
-    // if (data.elements_a <= MAX_3)
-    //     move = (int*)calloc(MAX_3, sizeof(int));
-    //     data.max_moves = MAX_3;
-    // if (data.elements_a <= MAX_5)
-    //     move = (int*)calloc(MAX_5, sizeof(int));
-    //     data.max_moves = MAX_5;
-    // if (data.elements_a <= MAX_100)
-    //     move = (int*)calloc(MAX_100, sizeof(int));
-    //     data.max_moves = MAX_100;
-    // if (data.elements_a <= MAX_500)
 
     //array for saving move values
     move = (int**)calloc(12, sizeof(int*));
@@ -187,51 +260,38 @@ int     main(int argc, char **argv)
 
     data.elements_a = size - 1;
 	data.elements_b = 0; //FOR TESTING ONLY! SET TO 0
-    // allok(argc, argv);
-    // check_dupe(stack);
-    // pb(stack);
-    // pb(stack);
-    // pb(stack);
-    // pa(stack);
-    // index_calc(stack);
-    // index_calculator_a(stack);
-    // index_calculator_b(stack);
-    // dp_calc(stack, move);
-    i = 0;
-    while(i < 100)
+
+    back_up_array(stack);
+    do_a(stack);
+    do_b(stack);
+    while(data.moves >= 11500)
     {
-        find_small(stack);
-        hold_first(stack);
-        hold_second(stack);
-        choose_hold(stack);
-        set_b(stack);
-        // pb(stack);
-        i++;
+        printf("moves = %i\n", data.moves);
+        data.moves = 0;
+        restore_back_up(stack, back_up);
+        chunk_tuner();
+        do_a(stack);
+        do_b(stack);
     }
+    printf("moves = %i\n", data.moves);
     // i = 0;
-    // while(i < 100)
+    // while(i < 500)
     // {
-        // find_small(stack);
-        
-        move_2_top_b(stack);
-        pa(stack);
-        data.moves += 1;
-        find_small_b(stack);
-        rrb(stack);
-        // move_2_top_b(stack);
+    //     find_small(stack);
+    //     hold_first(stack);
+    //     hold_second(stack);
+    //     choose_hold(stack);
+    //     set_b(stack);
     //     i++;
     // }
-    
-    // find_big_b(stack);
-
-    // pb(stack);
-    // pb(stack);
-    // pa(stack);
-
-    print_arr(stack);
-    // print_moves(move);
-
-
+    // i = 0;
+    // while(i < 500)
+    // { 
+    //     move_2_top_b(stack);
+    //     find_small_b(stack);
+    //     i++;
+    // }
+    // print_arr(stack);
     free(*stack);
 	return(0);
 }

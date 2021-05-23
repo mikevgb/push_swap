@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:36:57 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/22 19:36:04 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/23 21:19:15 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@
 
 struct  data
 {
+    float chunk;
     int small_b;
+    int total_elements;
     int hold_second_pos;
     int hold_first_pos;
     int elements_a;
@@ -51,6 +53,12 @@ struct  data
     int pa;
     int pb;
 }       data;
+
+/* chunk tuning */
+void    chunk_tuner();
+void    back_up_array(int **stack);
+void    restore_back_up(int **stack, int **back_up);
+// void    chunk_finder(int **stack);
 
 
 void    move_2_top_b(int **stack);

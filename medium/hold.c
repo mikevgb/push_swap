@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 20:26:59 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/20 21:55:56 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/23 20:53:12 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void    hold_first(int **stack)
 
     i = 1;
     tmp = 333333;
-    chunk = data.elements_a / 4;
+    // chunk = data.elements_a * 0.02;
+    chunk = data.elements_a * data.chunk;
     while(i <= chunk)
     {
         j = 1;
@@ -42,7 +43,6 @@ void    hold_first(int **stack)
         }
         i++;
     }
-    printf("hold first pos %i tmp %i\n", data.hold_first_pos, tmp);
 }
 
 void    hold_second(int **stack)
@@ -55,7 +55,8 @@ void    hold_second(int **stack)
 
     i = data.elements_a;
     tmp = 333333;
-    chunk = data.elements_a * 0.75;
+    // chunk = data.elements_a * 0.02;
+    chunk = data.elements_a * data.chunk;
     while(i >= chunk)
     {
         j = data.elements_a;
@@ -76,7 +77,6 @@ void    hold_second(int **stack)
         }
         i--;
     }
-    printf("hold second pos %i tmp %i\n", data.hold_second_pos, tmp);
 }
 
 void    choose_hold(int **stack)
@@ -87,14 +87,12 @@ void    choose_hold(int **stack)
 
     hold_1 = data.hold_first_pos;
     hold_2 = data.elements_a - data.hold_second_pos;
-    printf("hold1 %i hold2 %i\n", hold_1, hold_2);
     if(hold_1 <= hold_2)
     {
         i = 1;
         while(i < hold_1)
         {
             ra(stack);
-            data.moves += 1;
             i++;
         }    
     }
@@ -104,7 +102,6 @@ void    choose_hold(int **stack)
         while(i < hold_2)
         {
             rra(stack);
-            data.moves += 1;
             i++;
         }    
     }
