@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 20:26:59 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/23 20:53:12 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/24 20:46:02 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,40 @@ void    hold_first(int **stack)
     }
 }
 
+// void    hold_first(int **stack)
+// {
+//     int i;
+//     int first;
+
+//     i = 1;
+//     first = 1;
+//     while(first <= data.elements_a)
+//     {
+//         while(stack[i][2] > first)
+//         {
+//             if(stack[i][2] == first)
+//             {
+//                 data.hold_first_pos = stack[i][0];
+//             }
+//             i++;
+//         }
+//         first++;
+//     }
+// }
+
+// void    hold_first(int **stack)
+// {
+//     int i;
+
+//     i = 1;
+//     while(i <= data.elements_a)
+//     {
+//         if(stack[i][2] >= 1 || stack[i][2] <= 20)
+//             data.hold_first_pos = stack[i][0];
+//         i++;
+//     }
+// }
+
 void    hold_second(int **stack)
 {
     int i;
@@ -78,6 +112,40 @@ void    hold_second(int **stack)
         i--;
     }
 }
+
+// void    hold_second(int **stack)
+// {
+//     int i;
+//     int second;
+
+//     i = data.elements_a;
+//     second = 2;
+//     while(second <= data.elements_a)
+//     {
+//         while(stack[i][2] > second)
+//         {
+//             if(stack[i][2] == second)
+//             {
+//                 data.hold_second_pos = stack[i][0];
+//             }
+//             i--;
+//         }
+//         second++;
+//     }
+// }
+
+// void    hold_second(int **stack)
+// {
+//     int i;
+
+//     i = data.elements_a;
+//     while(i >= 1)
+//     {
+//         if(stack[i][2] >= 1 || stack[i][2] <= 20)
+//             data.hold_second_pos = stack[i][0];
+//         i--;
+//     }
+// }
 
 void    choose_hold(int **stack)
 {

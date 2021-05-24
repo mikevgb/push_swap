@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:36:57 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/23 21:35:33 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/24 17:49:16 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 
 struct  data
 {
+    int move_cap;
     float increase;
     float chunk;
     int small_b;
