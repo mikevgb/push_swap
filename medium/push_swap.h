@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:36:57 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/24 17:49:16 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/27 21:48:45 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,20 @@
 
 # endif
 
+/* moves storage */
+
+typedef struct _moves {
+    struct _moves *next;
+    char *value;
+} moves_t;
+
 /* values storage */
 
 struct  data
 {
+    int best_moves;
+    int best_chunk;
+    char valid_moves;
     int move_cap;
     float increase;
     float chunk;

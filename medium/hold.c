@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 20:26:59 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/26 22:25:30 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/27 21:39:49 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,26 @@ void    hold_first(int **stack)
         i++;
     }
 }
+//////////////////////////
 
+// void    hold_first(int **stack)
+// {
+//     int i;
+//     int j;
+
+//     i = data.elements_a / data.chunk;
+//     j = 1;
+//     while(j <= data.elements_a)
+//     {
+//         if(stack[j][2] <= i)
+//         {
+//             data.hold_first_pos = stack[j][0];
+//             break;
+//         }
+//         j++;
+//     }
+// }
+////////////////////////////////
 // void    hold_second(int **stack)
 // {
 //     int i;
@@ -146,15 +165,40 @@ void    hold_second(int **stack)
     i = data.elements_a;
     while(i >= 1)
     {
-        // find_small(stack);
         if(stack[i][2] > 0 && stack[i][2] < data.chunk)
         {
             data.hold_second_pos = stack[i][0];
-            // printf("hold second %i\n", data.hold_second_pos);
             break ;
         }
-            
         i--;
+    }
+}
+
+void    choose_hold(int **stack)
+{
+    int hold_1;
+    int hold_2;
+    int i;
+
+    hold_1 = data.hold_first_pos;
+    hold_2 = data.elements_a - data.hold_second_pos;
+    if(hold_1 <= hold_2)
+    {
+        i = 1;
+        while(i < hold_1)
+        {
+            ra(stack);
+            i++;
+        }    
+    }
+    if (hold_2 < hold_1)
+    {
+        i = 1;
+        while(i < hold_2)
+        {
+            rra(stack);
+            i++;
+        }    
     }
 }
 
@@ -171,7 +215,15 @@ void    hold_second(int **stack)
 //         i = 1;
 //         while(i < hold_1)
 //         {
-//             ra(stack);
+//             // if(data.elements_b > 0)
+//             // {
+//             //     find_small_b(stack);
+//             //     // printf("stack15 1 = %i\n", stack[1][5]);
+//             //     if(stack[1][5] != 1)
+//             //         rr(stack);
+//             // }
+//             // else
+//                 ra(stack);
 //             i++;
 //         }    
 //     }
@@ -180,50 +232,43 @@ void    hold_second(int **stack)
 //         i = 1;
 //         while(i < hold_2)
 //         {
-//             rra(stack);
+//             // if(data.elements_b > 0)
+//             // {
+//             //     find_small_b(stack);
+//             //     // printf("stack15 2 = %i\n", stack[1][5]);
+//             //     if(stack[1][5] != 1)
+//             //         rrr(stack);
+//             // }
+//             // else
+//                 rra(stack);
 //             i++;
 //         }    
 //     }
 // }
 
-void    choose_hold(int **stack)
-{
-    int hold_1;
-    int hold_2;
-    int i;
+// void    choose_hold(int **stack)
+// {
+//     int i;
+//     int j;
 
-    hold_1 = data.hold_first_pos;
-    hold_2 = data.elements_a - data.hold_second_pos;
-    if(hold_1 <= hold_2)
-    {
-        i = 0;
-        while(i < hold_1 + 1)
-        {
-            // if(data.elements_b > 0)
-            // {
-            //     find_small_b(stack);
-            //     if(stack[1][5] != data.elements_b)
-            //         rr(stack);
-            // }
-            // else
-            ra(stack);
-            i++;
-        }    
-    }
-    if (hold_2 < hold_1)
-    {
-        i = 0;
-        while(i < hold_2 + 1)
-        {
-            // if(data.elements_b > 0)
-            // {
-            //     find_small_b(stack);
-            //     if(stack[1][5] != data.elements_b)
-            //         rrr(stack);
-            // }
-            // else
-            rra(stack);
-            i++;
-        }    
-    }
-}
+//     i = data.elements_a / 2;
+//     if (data.hold_first_pos <= i)
+//     {
+//         j = 0;
+//         while(j < data.hold_first_pos)
+//         {
+//             ra(stack);
+//             j++;
+//         }  
+//     }
+//     if (data.hold_first_pos > i)
+//     {
+//         j = 0;
+//         while(j < (data.elements_a - data.hold_first_pos))
+//         {
+//             rra(stack);
+//             j++;
+//         }
+           
+//     }
+// }

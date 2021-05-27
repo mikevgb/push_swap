@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 17:20:58 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/26 22:43:17 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/27 22:16:33 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void    print_arr(int **stack)
         i++;
     }
     printf("----------Moves %i-------------\n", data.moves);
+    printf("----------Best Moves %i--------\n", data.best_moves);
 }
 
 void    ft_3(int **stack)
@@ -55,6 +56,8 @@ void    ft_5(int **stack)
     ft_3(stack);
     print_arr(stack);
     int i = 4;
+
+    find_small(stack);
 
     //loop for all nums that are not max or min
     while(i >= 4)
@@ -109,13 +112,14 @@ void    do_a(int **stack)
 {
     int i;
     
-    i = 0;
-    while(i < data.total_elements - 1)
+    i = 1;
+    while(i < data.total_elements)
     {
         find_small(stack);
-        // find_small_b(stack); ////////
+        find_small_b(stack); ////////
         hold_first(stack);
-        hold_second(stack);
+        
+        // hold_second(stack);
         choose_hold(stack);
         // set_b(stack);
         pb(stack);
@@ -126,9 +130,9 @@ void    do_a(int **stack)
 void    do_b(int **stack)
 {
     int i;
-    i = 0;
+    i = 1;
 
-    while(i < data.total_elements - 1)
+    while(i < data.total_elements)
     { 
         move_2_top_b(stack);
         find_small_b(stack);
@@ -292,7 +296,7 @@ int     main(int argc, char **argv)
     if(data.total_elements >= 500)
     {
         data.move_cap = 11500;
-        data.chunk = 15;
+        data.chunk = 10;
     }
         
     else if(data.total_elements >= 100)
@@ -301,71 +305,12 @@ int     main(int argc, char **argv)
         data.chunk = 1; //0.002
     }
 
-    // else if(data.total_elements == 3)
-    // {
-    //     data.move_cap = 3;
-    //     data.chunk = 0.0001;
-    // }
-
-    // else if(data.total_elements == 5)
-    // {
-    //     data.move_cap = 12;
-    //     data.chunk = 0.0001;
-    // }
-        // do_a(stack);
-        // do_b(stack);
-        // find_small(stack);
-        // // // find_small_b(stack); ////////
-        // hold_first(stack);
-        // hold_second(stack);
-        // choose_hold(stack);
-        // // set_b(stack);
-        // pb(stack);
-        // find_small_b(stack);
-
-        // find_small(stack);
-        // find_small_b(stack); ////////
-        // hold_first(stack);
-        // hold_second(stack);
-        // choose_hold(stack);
-        // // set_b(stack);
-        // pb(stack);
-        // find_small_b(stack);
-
-        // find_small(stack);
-        // find_small_b(stack); ////////
-        // hold_first(stack);
-        // hold_second(stack);
-        // choose_hold(stack);
-        // // set_b(stack);
-        // pb(stack);
-        // find_small_b(stack);
-
-        //         find_small(stack);
-        // find_small_b(stack); ////////
-        // hold_first(stack);
-        // hold_second(stack);
-        // choose_hold(stack);
-        // // set_b(stack);
-        // pb(stack);
-        // find_small_b(stack);
-
-        //         find_small(stack);
-        // find_small_b(stack); ////////
-        // hold_first(stack);
-        // hold_second(stack);
-        // choose_hold(stack);
-        // // set_b(stack);
-        // pb(stack);
-        // find_small_b(stack);
-
-
-        // print_arr(stack);
-
-    int best = 333333;
-    int best_moves = 333333;
-    do_a(stack);
-    do_b(stack);
+    ///////////////////////////////
+    data.moves = 333333;
+    data.best_chunk = 333333;
+    data.best_moves = 333333;
+    // do_a(stack);
+    // do_b(stack);
     while(data.moves > data.move_cap)
     {
         if(data.total_elements >= 100)
@@ -374,23 +319,26 @@ int     main(int argc, char **argv)
         restore_back_up(stack, back_up);
         do_a(stack);
         do_b(stack);
-        if(data.moves < best_moves)
+        if(data.moves < data.best_moves)
         {
-            best_moves = data.moves;
-            best = data.chunk;
+            data.best_moves = data.moves;
+            data.best_chunk = data.chunk;
         }
         printf("----------------\n");
         printf("total elements %i\n", data.total_elements);
         printf("moves = %i\n", data.moves);
         printf("chunk size = %f\n", data.chunk);
-        printf("best chunk %i\n", best);
-        printf("best moves %i\n", best_moves);
+        printf("best chunk %i\n", data.best_chunk);
+        printf("best moves %i\n", data.best_moves);
         printf("move cap %i\n", data.move_cap);
-        if (data.move_cap >= best_moves)
-            data.move_cap = best_moves - 1;
-        if (data.chunk > 80)
-            break;    
+        // getchar();
+        if (data.move_cap >= data.best_moves)
+            data.move_cap = data.best_moves - 1;
+        if (data.chunk > 30)
+            break;
     }
+
+    /////////////////////////////////
     //// main loop
 
     //13772
@@ -444,12 +392,14 @@ int     main(int argc, char **argv)
     // printf("move cap %i", data.move_cap);
     find_small(stack);
     print_arr(stack);
-    printf("best chunk %i\n", best);
-    printf("best moves %i\n", best_moves);
+    printf("best chunk %i\n", data.best_chunk);
+    printf("best moves %i\n", data.best_moves);
     printf("move cap %i\n", data.move_cap);
     // printf("best chunk %f\n", best);
     // printf("best moves %i\n", best_moves);
 
     free(*stack);
+    free(*back_up);
+
 	return(0);
 }
