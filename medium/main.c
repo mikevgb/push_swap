@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 17:20:58 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/27 22:16:33 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/28 21:47:36 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ void    do_a(int **stack)
         choose_hold(stack);
         // set_b(stack);
         pb(stack);
+        data.moves += 1;
         i++;
     }
 }
@@ -204,7 +205,7 @@ int     main(int argc, char **argv)
     int size;
     int **stack;
     int i;
-    int **move;
+    // int **move;
 
     size = argc;
     data.total_elements = size;
@@ -225,24 +226,25 @@ int     main(int argc, char **argv)
         return(0);
     }
 
-    //array for saving move values
-    move = (int**)calloc(12, sizeof(int*));
 
-    i = 0;
-    while(i < 12)
-    {
-        move[i] = (int*)calloc(2, sizeof(int));
-        i++;
-    }
+    //array for saving move values
+    // move = (int**)calloc(12, sizeof(int*));
+
+    // i = 0;
+    // while(i < 12)
+    // {
+    //     move[i] = (int*)calloc(2, sizeof(int));
+    //     i++;
+    // }
     
-    //set initial array move values to 333333
-    i = 0;
-    while(i < 12)
-    {
-        move[i][0] = 333333;
-        move[i][1] = 333333;
-        i++;
-    }
+    // //set initial array move values to 333333
+    // i = 0;
+    // while(i < 12)
+    // {
+    //     move[i][0] = 333333;
+    //     move[i][1] = 333333;
+    //     i++;
+    // }
 
     // Transform argc in int
     // and add pos values to 2d array
@@ -289,32 +291,34 @@ int     main(int argc, char **argv)
     }
 
     data.increase = 0.001;
-    data.chunk = 0.000;
+    data.chunk1 = 0.000;
 
     //set max moves 
 
     if(data.total_elements >= 500)
     {
         data.move_cap = 11500;
-        data.chunk = 10;
+        data.chunk1 = 1;
     }
         
     else if(data.total_elements >= 100)
     {
         data.move_cap = 1100;
-        data.chunk = 1; //0.002
+        data.chunk1 = 1; //0.002
+        data.chunk2 = 0;
     }
 
     ///////////////////////////////
     data.moves = 333333;
-    data.best_chunk = 333333;
+    data.best_chunk1 = 333333;
+    data.best_chunk2 = 333333;
     data.best_moves = 333333;
     // do_a(stack);
     // do_b(stack);
     while(data.moves > data.move_cap)
     {
         if(data.total_elements >= 100)
-            data.chunk += 1;
+            data.chunk1 += 1;
         data.moves = 0;
         restore_back_up(stack, back_up);
         do_a(stack);
@@ -322,27 +326,41 @@ int     main(int argc, char **argv)
         if(data.moves < data.best_moves)
         {
             data.best_moves = data.moves;
-            data.best_chunk = data.chunk;
+            data.best_chunk1 = data.chunk1;
+            data.best_chunk2 = data.chunk2;
         }
         printf("----------------\n");
         printf("total elements %i\n", data.total_elements);
         printf("moves = %i\n", data.moves);
-        printf("chunk size = %f\n", data.chunk);
-        printf("best chunk %i\n", data.best_chunk);
+        printf("chunk1 size = %f\n", data.chunk1);
+        printf("chunk2 size = %i\n", data.chunk2);
+        printf("best chunk1 %i\n", data.best_chunk1);
+        printf("best chunk2 %i\n", data.best_chunk2);
         printf("best moves %i\n", data.best_moves);
         printf("move cap %i\n", data.move_cap);
         // getchar();
         if (data.move_cap >= data.best_moves)
             data.move_cap = data.best_moves - 1;
-        if (data.chunk > 30)
+        // if (data.chunk1 >= 30)
+        // {
+        //     data.chunk2 += 1;
+        //     data.chunk1 = 1;
+        // }
+            
+        // if (data.chunk2 > 30)
+        //     break;
+        if (data.chunk1 > 30)
             break;
     }
+
+
+
 
     /////////////////////////////////
     //// main loop
 
     //13772
-    // data.chunk = 0.0302;
+    // data.chunk1 = 0.0302;
 
     // do_a(stack);
     // do_b(stack);
@@ -354,9 +372,9 @@ int     main(int argc, char **argv)
     // {
     //     // printf("total elements = %i\n", data.total_elements);
     //     if(data.total_elements >= 500)
-    //         data.chunk += 0.001;
+    //         data.chunk1 += 0.001;
     //     if(data.total_elements >= 3)
-    //         data.chunk += 0.0001;
+    //         data.chunk1 += 0.0001;
         
     //     data.moves = 0;
     //     restore_back_up(stack, back_up);
@@ -366,18 +384,18 @@ int     main(int argc, char **argv)
     //     if (data.moves < best_moves)
     //     {
     //         best_moves = data.moves;
-    //         best = data.chunk;
+    //         best = data.chunk1;
     //     }
     //     printf("----------------\n");
     //     printf("total elements %i\n", data.total_elements);
     //     printf("moves = %i\n", data.moves);
-    //     printf("chunk size = %f\n", data.chunk);
+    //     printf("chunk size = %f\n", data.chunk1);
     //     printf("best chunk %f\n", best);
     //     printf("best moves %i\n", best_moves);
     //     printf("move cap %i\n", data.move_cap);
     //     if (data.move_cap >= best_moves)
     //         data.move_cap = best_moves - 1;
-    //     if (data.chunk > 0.3) //////// before 0.4
+    //     if (data.chunk1 > 0.3) //////// before 0.4
     //         break;
     // }
     // printf("best chunk %f\n", best);
@@ -392,7 +410,8 @@ int     main(int argc, char **argv)
     // printf("move cap %i", data.move_cap);
     find_small(stack);
     print_arr(stack);
-    printf("best chunk %i\n", data.best_chunk);
+    printf("best chunk1 %i\n", data.best_chunk1);
+    printf("best chunk2 %i\n", data.best_chunk2);
     printf("best moves %i\n", data.best_moves);
     printf("move cap %i\n", data.move_cap);
     // printf("best chunk %f\n", best);

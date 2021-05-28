@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:36:57 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/27 21:48:45 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/28 21:46:07 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,13 @@ typedef struct _moves {
 struct  data
 {
     int best_moves;
-    int best_chunk;
+    int best_chunk1;
+    int best_chunk2;
     char valid_moves;
     int move_cap;
     float increase;
-    float chunk;
+    float chunk1;
+    int chunk2;
     int small_b;
     int total_elements;
     int hold_second_pos;

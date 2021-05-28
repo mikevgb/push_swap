@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 20:26:59 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/27 21:39:49 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/28 21:45:56 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 //     i = 1;
 //     tmp = 333333;
 //     // chunk = data.elements_a * 0.02;
-//     chunk = data.elements_a * data.chunk;
+//     chunk = data.elements_a * data.chunk1;
 //     while(i <= chunk)
 //     {
 //         j = 1;
@@ -74,7 +74,7 @@ void    hold_first(int **stack)
     while(i <= data.elements_a)
     {
         // find_small(stack);
-        if(stack[i][2] > 0 && stack[i][2] < data.chunk)
+        if(stack[i][2] > 0 && stack[i][2] < data.chunk1)
         {
             data.hold_first_pos = stack[i][0];
             // printf("hold first %i\n", data.hold_first_pos);
@@ -90,7 +90,7 @@ void    hold_first(int **stack)
 //     int i;
 //     int j;
 
-//     i = data.elements_a / data.chunk;
+//     i = data.elements_a / data.chunk1;
 //     j = 1;
 //     while(j <= data.elements_a)
 //     {
@@ -114,7 +114,7 @@ void    hold_first(int **stack)
 //     i = data.elements_a;
 //     tmp = 333333;
 //     // chunk = data.elements_a * 0.02;
-//     chunk = data.elements_a * data.chunk;
+//     chunk = data.elements_a * data.chunk1;
 //     while(i >= chunk)
 //     {
 //         j = data.elements_a;
@@ -165,7 +165,7 @@ void    hold_second(int **stack)
     i = data.elements_a;
     while(i >= 1)
     {
-        if(stack[i][2] > 0 && stack[i][2] < data.chunk)
+        if(stack[i][2] > 0 && stack[i][2] < data.chunk2)
         {
             data.hold_second_pos = stack[i][0];
             break ;
@@ -187,7 +187,21 @@ void    choose_hold(int **stack)
         i = 1;
         while(i < hold_1)
         {
-            ra(stack);
+            // if(data.elements_b > 0)
+            // {
+            //     find_small_b(stack);
+            //     // printf("stack15 1 = %i\n", stack[1][5]);
+            //     if(stack[1][5] != data.elements_b)
+            //     {
+            //         rr(stack);
+            //         data.moves += 1;
+            //     }  
+            // }
+            // else
+            // {
+                ra(stack);
+                data.moves += 1;
+            // }
             i++;
         }    
     }
@@ -196,7 +210,21 @@ void    choose_hold(int **stack)
         i = 1;
         while(i < hold_2)
         {
-            rra(stack);
+            // if(data.elements_b > 0)
+            // {
+            //     find_small_b(stack);
+            //     // printf("stack15 1 = %i\n", stack[1][5]);
+            //     if(stack[1][5] != data.elements_b)
+            //     {
+            //         rrr(stack);
+            //         data.moves += 1;
+            //     }
+            // }
+            // else
+            // {
+                rra(stack);
+                data.moves += 1;
+            // }
             i++;
         }    
     }

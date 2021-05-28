@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 20:25:57 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/24 20:00:25 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/28 20:06:13 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void    move_top(int **stack)
         while(stack[1][2] != data.elements_a)
         { 
             ra(stack);
+            data.moves += 1;
             find_small(stack);
         }
             
@@ -37,6 +38,7 @@ void    move_top_b(int **stack)
         while(stack[1][5] != 1)
         { 
             rb(stack);
+            data.moves += 1;
             find_small_b(stack);
         }
     }

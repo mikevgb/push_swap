@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 18:12:12 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/23 17:34:35 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/28 20:04:20 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void    sa(int **stack)
     {
         stack[1][1] = stack[2][1];
         stack[2][1] = tmp;
-        data.moves += 1;  
+        // data.moves += 1;  
     }
 }
 
@@ -44,7 +44,7 @@ void    sb(int **stack)
     {
         stack[1][4] = stack[2][4];
         stack[2][4] = tmp;
-        data.moves += 1; 
+        // data.moves += 1; 
     }
 }
 
