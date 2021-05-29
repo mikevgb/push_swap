@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 18:23:27 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/28 20:03:43 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/29 21:48:10 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void    pa(int **stack)
     pos = 1;
     data.elements_a += 1;
     while(pos < data.elements_b)
-    // while(pos < data.elements_b)
     {
         stack[pos][4] = stack[pos + 1][4];
         pos++;
@@ -39,7 +38,8 @@ void    pa(int **stack)
         pos--;
     }
     stack[1][1] = tmp;
-    // data.moves += 1;
+    data.moves += 1;
+    // move_store("pa");
 }
 
 /*
@@ -56,7 +56,6 @@ void    pb(int **stack)
     pos = 1;
     data.elements_b += 1;
     while(pos < data.elements_a)
-    // while(pos < data.elements_a)
     {
         stack[pos][1] = stack[pos + 1][1];
         pos++;
@@ -69,10 +68,5 @@ void    pb(int **stack)
         pos--;
     }
     stack[1][4] = tmp;
-    // data.moves += 1;
+    data.moves += 1;
 }
-
-// void    pb(int **stack)
-// {
-    
-// }

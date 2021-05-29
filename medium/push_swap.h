@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:36:57 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/28 21:46:07 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/29 22:49:25 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,15 @@ typedef struct _moves {
 
 struct  data
 {
+    int move_s_pos;
+    int save_move_flag;
     int best_moves;
     int best_chunk1;
     int best_chunk2;
     char valid_moves;
     int move_cap;
-    float increase;
-    float chunk1;
-    int chunk2;
+    int increase;
+    int chunk1;
     int small_b;
     int total_elements;
     int hold_second_pos;
@@ -67,6 +68,33 @@ struct  data
     int pa;
     int pb;
 }       data;
+
+/* loop */
+
+void    main_loop(int **stack, int **back_up);
+void    final_loop(int **stack, int **back_up);
+void    make_order(int **stack, int **back_up);
+
+/* back_up.c */
+
+void    save_bup(int **stack, int **back_up);
+void    restore_back_up(int **stack, int **back_up);
+
+/* print.c */
+
+void    print_arr(int **stack);
+void    print_loop();
+
+/* do.c */
+
+void    do_a(int **stack);
+void    do_b(int **stack);
+
+void    move_store(char str);
+
+void    ft_3(int **stack);
+
+void    ft_5(int **stack);
 
 /* chunk tuning */
 void    chunk_tuner();

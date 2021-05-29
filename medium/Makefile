@@ -6,7 +6,7 @@
 #    By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/26 17:20:55 by mvillaes          #+#    #+#              #
-#    Updated: 2021/05/23 20:53:52 by mvillaes         ###   ########.fr        #
+#    Updated: 2021/05/29 22:39:57 by mvillaes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,15 @@ SRCS = 	main.c \
 		move_top.c \
 		hold.c \
 		move_2_top_b.c \
-		chunk_tuner.c \
 		./moves/move_r.c \
 		./moves/move_rr.c \
 		./moves/move_s.c \
 		./moves/move_p.c \
-		utils.c
+		utils.c \
+		do.c \
+		print.c \
+		back_up.c \
+		loop.c
 
 
 OBJ = $(SRC:.c=.o)
