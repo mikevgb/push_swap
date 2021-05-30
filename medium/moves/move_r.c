@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 18:13:38 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/29 19:22:09 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/30 21:01:43 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void    ra(int **stack)
     }
     stack[pos][1] = tmp;
     data.moves += 1;
+    if (data.save_move_flag == 1)
+        printf("ra\n");
 }
 
 /*
@@ -52,6 +54,8 @@ void    rb(int **stack)
     }
     stack[pos][4] = tmp;
     data.moves += 1;
+    if (data.save_move_flag == 1)
+        printf("rb\n");
 }
 
 
@@ -64,6 +68,8 @@ void    rr(int **stack)
     if(data.elements_a > 1 && data.elements_b > 1)
     {
       ra(stack);
-      rb(stack);  
+      rb(stack);
+      if (data.save_move_flag == 1)
+        printf("rr\n");  
     }
 }

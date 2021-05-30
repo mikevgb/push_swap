@@ -6,7 +6,7 @@
 #    By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/26 17:20:55 by mvillaes          #+#    #+#              #
-#    Updated: 2021/05/29 22:39:57 by mvillaes         ###   ########.fr        #
+#    Updated: 2021/05/30 19:45:52 by mvillaes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRCS = 	main.c \
 		do.c \
 		print.c \
 		back_up.c \
-		loop.c
+		loop.c \
+		init.c
 
 
 OBJ = $(SRC:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 21:58:29 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/29 22:07:19 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/30 19:47:27 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,16 @@ void    print_loop()
     printf("best chunk1 %i\n", data.best_chunk1);
     printf("best moves %i\n", data.best_moves);
     printf("move cap %i\n", data.move_cap);
+}
+
+void    print_moves(char *s_moves)
+{
+    int i;
+
+    i = 0;
+    while(i <= data.move_s_pos)
+    {
+        printf("%c\n", s_moves[i]);
+        i++;
+    }
 }

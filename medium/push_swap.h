@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:36:57 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/29 22:49:25 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/30 21:13:51 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,10 @@
 
 # endif
 
-/* moves storage */
-
-typedef struct _moves {
-    struct _moves *next;
-    char *value;
-} moves_t;
 
 /* values storage */
 
-struct  data
+typedef struct  s_data
 {
     int move_s_pos;
     int save_move_flag;
@@ -67,13 +61,21 @@ struct  data
     int rrr;
     int pa;
     int pb;
-}       data;
+}               t_data;
+
+
+/* init */
+
+void    init_stack(int **stack, int size, char **argv);
+void    set_loop();
+void    check_alloc(int **stack, int **back_up);
 
 /* loop */
 
 void    main_loop(int **stack, int **back_up);
 void    final_loop(int **stack, int **back_up);
 void    make_order(int **stack, int **back_up);
+void    loop(int **stack, int **back_up);
 
 /* back_up.c */
 
@@ -84,11 +86,12 @@ void    restore_back_up(int **stack, int **back_up);
 
 void    print_arr(int **stack);
 void    print_loop();
+void    print_moves();
 
 /* do.c */
 
 void    do_a(int **stack);
-void    do_b(int **stack);
+void    do_b(int **stacks);
 
 void    move_store(char str);
 
@@ -182,4 +185,3 @@ void    array_init(char **argv, int size, int **stack);
 int	    ft_atoi(char const *str);
 void	check_dupe(int **stack);
 
-void    print_moves(int *move);
