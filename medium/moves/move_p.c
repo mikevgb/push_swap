@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 18:23:27 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/30 21:25:14 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/31 19:29:16 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,30 +17,30 @@
 **  Do nothing if B is empty.
 */
 
-void    pa(int **stack, t_data)
+void	pa(int **stack, t_data *data)
 {
-    int tmp;
-    int pos;
+	int	tmp;
+	int	pos;
 
-    tmp = stack[1][4];
-    pos = 1;
-    t_data->elements_a += 1;
-    while(pos < data.elements_b)
-    {
-        stack[pos][4] = stack[pos + 1][4];
-        pos++;
-    }
-    pos = data.elements_a;
-    data.elements_b -= 1;
-    while(pos > 0)
-    {
-        stack[pos][1] = stack[pos - 1][1];
-        pos--;
-    }
-    stack[1][1] = tmp;
-    data.moves += 1;
-    if (data.save_move_flag == 1)
-        printf("pa\n");
+	tmp = stack[1][4];
+	pos = 1;
+	data->elements_a += 1;
+	while (pos < data->elements_b)
+	{
+		stack[pos][4] = stack[pos + 1][4];
+		pos++;
+	}
+	pos = data->elements_a;
+	data->elements_b -= 1;
+	while (pos > 0)
+	{
+		stack[pos][1] = stack[pos - 1][1];
+		pos--;
+	}
+	stack[1][1] = tmp;
+	data->moves += 1;
+	if (data->save_move_flag == 1)
+		printf("pa\n");
 }
 
 /*
@@ -48,28 +48,28 @@ void    pa(int **stack, t_data)
 **  Do nothing if A is empty.
 */
 
-void    pb(int **stack)
+void	pb(int **stack, t_data *data)
 {
-    int tmp;
-    int pos;
+	int	tmp;
+	int	pos;
 
-    tmp = stack[1][1];
-    pos = 1;
-    data.elements_b += 1;
-    while(pos < data.elements_a)
-    {
-        stack[pos][1] = stack[pos + 1][1];
-        pos++;
-    }
-    pos = data.elements_b;
-    data.elements_a -= 1;
-    while(pos > 0)
-    {
-        stack[pos][4] = stack[pos - 1][4];
-        pos--;
-    }
-    stack[1][4] = tmp;
-    data.moves += 1;
-    if (data.save_move_flag == 1)
-        printf("pb\n");
+	tmp = stack[1][1];
+	pos = 1;
+	data->elements_b += 1;
+	while (pos < data->elements_a)
+	{
+		stack[pos][1] = stack[pos + 1][1];
+		pos++;
+	}
+	pos = data->elements_b;
+	data->elements_a -= 1;
+	while (pos > 0)
+	{
+		stack[pos][4] = stack[pos - 1][4];
+		pos--;
+	}
+	stack[1][4] = tmp;
+	data->moves += 1;
+	if (data->save_move_flag == 1)
+		printf("pb\n");
 }

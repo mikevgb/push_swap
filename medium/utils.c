@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:55:25 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/17 20:09:32 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/31 19:46:13 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,8 @@ static int	norminette_made_me_do_it(int sign)
 	{
 		printf("Error 0\n");
 		exit(1);
-	}
-		
-	return(0);
+	}	
+	return (0);
 }
 
 int	ft_atoi(char const *str)
@@ -34,7 +33,7 @@ int	ft_atoi(char const *str)
 	int					base;
 	long unsigned int	res;
 	int					sign;
-	int	i;
+	int					i;
 
 	base = 10;
 	sign = 1;
@@ -60,29 +59,28 @@ int	ft_atoi(char const *str)
 		res = (res * base) + (*str++ - 48);
 	if (res < 2147483649)
 		return ((int)res * sign);
-	//check if nums are repeated
 	return (norminette_made_me_do_it(sign));
 }
 
-int		ft_error()
+int	ft_error(void)
 {
 	printf("Error\n");
 	exit(1);
 }
 
-void	check_dupe(int **stack)
+void	check_dupe(int **stack, t_data *data)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 1;
 	j = 1;
-	while(i < data.elements_a)
+	while (i < data->elements_a)
 	{
 		j = i + 1;
-		while(j < data.elements_a + 1)
+		while (j < data->elements_a + 1)
 		{
-			if(stack[i][1] == stack[j][1] && j != i)
+			if (stack[i][1] == stack[j][1] && j != i)
 			{
 				printf("Dupe num\n");
 				exit(1);
