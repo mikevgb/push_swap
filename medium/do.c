@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 21:56:38 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/31 19:36:15 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/06/01 21:44:39 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,23 +67,19 @@ void	ft_3(int **stack, t_data *data)
 
 void	ft_5(int **stack, t_data *data)
 {
-	int	i;
-
+	print_arr(stack, data);	
 	pb(stack, data);
 	pb(stack, data);
 	ft_3(stack, data);
-	i = 4;
+	print_arr(stack, data);
 	find_small(stack, data);
-	while (i >= 4)
-	{
-		if (stack[1][4] > stack[i][1])
-			rra(stack, data);
-		if (stack[1][4] < stack[i][1])
-		{
+	// while(data->elements_b > 0)
+	// {
+		if(stack[1][4] < stack[1][2] && stack[1][4] < stack[data->elements_a][2])
 			pa(stack, data);
-			break ;
-		}
-		i--;
-	}
-	pa(stack, data);
+		if(stack[1][4] > stack[1][2] && stack[1][4] < stack[data->elements_a][2])
+			pa(stack, data);
+		else
+			rra(stack, data);	
+	// }
 }

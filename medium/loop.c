@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 22:39:41 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/31 19:38:38 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/06/01 19:55:06 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,16 @@ void	final_loop(int **stack, int **back_up, t_data *data)
 void	make_order(int **stack, int **back_up, t_data *data)
 {
 	if (data->total_elements - 1 <= 3)
+	{
+		data->save_move_flag = 1;
 		ft_3(stack, data);
+	}
 	if (data->total_elements - 1 > 3 && data->total_elements - 1 <= 5)
+	{
+		data->save_move_flag = 1;
 		ft_5(stack, data);
-	if (data->total_elements > 5)
+	}
+	if (data->total_elements - 1 > 5)
 		main_loop(stack, back_up, data);
 }
 
@@ -65,7 +71,7 @@ void	loop(int **stack, int **back_up, t_data *data)
 {
 	check_alloc(stack, back_up);
 	save_bup(stack, back_up, data);
-	set_loop();
+	set_loop(data);
 	make_order(stack, back_up, data);
 	find_small(stack, data);
 	free(*stack);

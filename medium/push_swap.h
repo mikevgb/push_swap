@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:28:37 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/31 19:47:15 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/06/01 17:00:32 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ typedef struct s_data
 /* init */
 
 void	init_stack(int **stack, int size, char **argv, t_data *data);
-void	set_loop(void);
+void	set_loop(t_data *data);
 void	check_alloc(int **stack, int **back_up);
 
 /* loop */
@@ -98,6 +98,7 @@ void	chunk_tuner(void);
 void	back_up_array(int **stack);
 
 void	move_2_top_b(int **stack, t_data *data);
+void	mv2tb_helper(int **stack, t_data *data, int i);
 
 /* reset */
 
