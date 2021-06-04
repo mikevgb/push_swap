@@ -6,7 +6,7 @@
 #    By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/26 17:20:55 by mvillaes          #+#    #+#              #
-#    Updated: 2021/05/30 19:45:52 by mvillaes         ###   ########.fr        #
+#    Updated: 2021/06/04 19:03:23 by mvillaes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS = 	main.c \
 		./moves/move_rr.c \
 		./moves/move_s.c \
 		./moves/move_p.c \
+		./utils/ft_bzero.c \
 		utils.c \
 		do.c \
 		print.c \

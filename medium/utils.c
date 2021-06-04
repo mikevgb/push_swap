@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:55:25 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/31 19:46:13 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/06/04 21:38:13 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,10 @@ void	check_dupe(int **stack, t_data *data)
 		j = i + 1;
 		while (j < data->elements_a + 1)
 		{
-			if (stack[i][1] == stack[j][1] && j != i)
+			if (stack[i][1] == stack[j][1])
 			{
 				printf("Dupe num\n");
-				exit(1);
+				exit (1);
 			}
 			j++;
 		}

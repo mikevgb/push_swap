@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:28:37 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/06/01 17:00:32 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/06/04 20:59:16 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,6 @@ typedef struct s_data
 	int		index_b;
 	int		moves;
 	int		max_moves;
-	int		ra;
-	int		rb;
-	int		rr;
-	int		sa;
-	int		sb;
-	int		ss;
-	int		rra;
-	int		rrb;
-	int		rrr;
-	int		pa;
-	int		pb;
 }	t_data;
 
 /* init */
@@ -89,9 +78,12 @@ void	do_b(int **stacks, t_data *data);
 
 void	move_store(char str);
 
+void	ft_2(int **stack, t_data *data, int choose);
+
 void	ft_3(int **stack, t_data *data);
 
 void	ft_5(int **stack, t_data *data);
+void	move_top_a(int **stack, t_data *data);
 
 /* chunk tuning */
 void	chunk_tuner(void);
@@ -168,12 +160,13 @@ void	reset_index_calc_b(int **stack);
 /* main */
 
 int		main(int argc, char **argv);
-int		**allok(int argc, char **argv);
+int		check_in_order(int **stack, t_data *data);
 void	array_init(char **argv, int size, int **stack);
 
 /* utils */
 
 int		ft_atoi(char const *str);
 void	check_dupe(int **stack, t_data *data);
+void	*ft_bzero(void *ft, size_t i);
 
 #endif
