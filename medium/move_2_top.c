@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_2_top_b.c                                     :+:      :+:    :+:   */
+/*   move_2_top.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 19:24:04 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/06/01 17:01:09 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/06/05 19:32:48 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,32 @@ void	mv2tb_helper(int **stack, t_data *data, int i)
 			rrb(stack, data);
 			j++;
 		}
+	}
+}
+
+void	move_top_a(int **stack, t_data *data)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	while (i <= data->elements_a)
+	{
+		if (stack[i][2] == data->elements_a)
+		{
+			if ((data->elements_a / 2) >= stack[i][0])
+			{
+				j = 1;
+				while (j++ < stack[i][0])
+					ra(stack, data);
+			}
+			else if ((data->elements_a / 2 < stack[i][0]))
+			{
+				j = 0;
+				while (j++ < data->elements_a - stack[i][0] + 1)
+					rra(stack, data);
+			}
+		}
+		i++;
 	}
 }

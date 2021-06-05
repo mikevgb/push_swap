@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:55:25 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/06/04 21:38:13 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/06/05 20:31:01 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,23 +49,11 @@ int	ft_atoi(char const *str)
 	}
 	else if (*str == '+')
 		str++;
-	while (!(str[i] >= '0' && str[i] <= '9'))
-	{
-		i++;
-		printf("Error atoi\n");
-		exit(1);
-	}
 	while (isdigit(*str))
 		res = (res * base) + (*str++ - 48);
 	if (res < 2147483649)
 		return ((int)res * sign);
 	return (norminette_made_me_do_it(sign));
-}
-
-int	ft_error(void)
-{
-	printf("Error\n");
-	exit(1);
 }
 
 void	check_dupe(int **stack, t_data *data)

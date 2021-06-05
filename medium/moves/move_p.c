@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 18:23:27 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/31 19:29:16 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/06/05 19:10:39 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	pa(int **stack, t_data *data)
 	stack[1][1] = tmp;
 	data->moves += 1;
 	if (data->save_move_flag == 1)
-		printf("pa\n");
+		ft_putstr("pa\n");
 }
 
 /*
@@ -71,5 +71,5 @@ void	pb(int **stack, t_data *data)
 	stack[1][4] = tmp;
 	data->moves += 1;
 	if (data->save_move_flag == 1)
-		printf("pb\n");
+		ft_putstr("pb\n");
 }

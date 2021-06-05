@@ -6,23 +6,24 @@
 #    By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/26 17:20:55 by mvillaes          #+#    #+#              #
-#    Updated: 2021/06/04 19:03:23 by mvillaes         ###   ########.fr        #
+#    Updated: 2021/06/05 19:34:00 by mvillaes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 SRCS = 	main.c \
+		allo.c \
 		resets.c \
 		find_small.c \
-		move_top.c \
 		hold.c \
-		move_2_top_b.c \
+		move_2_top.c \
 		./moves/move_r.c \
 		./moves/move_rr.c \
 		./moves/move_s.c \
 		./moves/move_p.c \
 		./utils/ft_bzero.c \
+		./utils/ft_putstr.c \
 		utils.c \
 		do.c \
 		print.c \

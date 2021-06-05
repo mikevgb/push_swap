@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 22:39:41 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/06/04 19:14:27 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/06/05 19:36:43 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ void	main_loop(int **stack, int **back_up, t_data *data)
 	data->best_moves = 333333;
 	while (data->moves > data->move_cap)
 	{
-		if (data->total_elements >= 5)
-			data->chunk1 += 1;
+		data->chunk1 += 1;
 		data->moves = 0;
 		restore_back_up(stack, back_up, data);
 		do_a(stack, data);
@@ -53,11 +52,6 @@ void	final_loop(int **stack, int **back_up, t_data *data)
 
 void	make_order(int **stack, int **back_up, t_data *data)
 {
-	if (data->total_elements - 1 == 2)
-	{
-		data->save_move_flag = 1;
-		ft_2(stack, data, 1);
-	}
 	if (data->total_elements - 1 <= 3)
 	{
 		data->save_move_flag = 1;

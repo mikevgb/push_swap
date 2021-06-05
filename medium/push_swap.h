@@ -6,22 +6,18 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:28:37 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/06/04 20:59:16 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/06/05 19:43:47 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <ctype.h>
-
-# define MAX_3 2
-# define MAX_5 12
-# define MAX_100 700
-# define MAX_500 5500
 
 typedef struct s_data
 {
@@ -29,14 +25,9 @@ typedef struct s_data
 	int		save_move_flag;
 	int		best_moves;
 	int		best_chunk1;
-	int		best_chunk2;
-	char	valid_moves;
 	int		move_cap;
-	int		increase;
 	int		chunk1;
-	int		small_b;
 	int		total_elements;
-	int		hold_second_pos;
 	int		hold_first_pos;
 	int		elements_a;
 	int		elements_b;
@@ -44,14 +35,18 @@ typedef struct s_data
 	int		index_a;
 	int		index_b;
 	int		moves;
-	int		max_moves;
 }	t_data;
+
+/* alloc */
+
+int		**alloc_stack(t_data *data);
+int		**back_up_stack(t_data *data);
+void	check_alloc(int **stack, int **back_up);
 
 /* init */
 
-void	init_stack(int **stack, int size, char **argv, t_data *data);
+void	init_stack(int **stack, char **argv, t_data *data);
 void	set_loop(t_data *data);
-void	check_alloc(int **stack, int **back_up);
 
 /* loop */
 
@@ -75,22 +70,14 @@ void	print_moves(char *s_moves, t_data *data);
 
 void	do_a(int **stack, t_data *data);
 void	do_b(int **stacks, t_data *data);
-
-void	move_store(char str);
-
-void	ft_2(int **stack, t_data *data, int choose);
-
 void	ft_3(int **stack, t_data *data);
-
 void	ft_5(int **stack, t_data *data);
-void	move_top_a(int **stack, t_data *data);
 
-/* chunk tuning */
-void	chunk_tuner(void);
-void	back_up_array(int **stack);
+/* move 2 top */
 
 void	move_2_top_b(int **stack, t_data *data);
 void	mv2tb_helper(int **stack, t_data *data, int i);
+void	move_top_a(int **stack, t_data *data);
 
 /* reset */
 
@@ -102,15 +89,9 @@ void	reset_calc_b(int **stack, t_data *data);
 void	find_small(int **stack, t_data *data);
 void	find_small_b(int **stack, t_data *data);
 
-/* move_top */
-
-void	move_top(int **stack, t_data *data);
-void	move_top_b(int **stack, t_data *data);
-
 /* hold */
 
 void	hold_first(int **stack, t_data *data);
-void	hold_second(int **stack, t_data *data);
 void	choose_hold(int **stack, t_data *data);
 
 /* movement */
@@ -127,36 +108,6 @@ void	rrr(int **stack, t_data *data);
 void	pa(int **stack, t_data *data);
 void	pb(int **stack, t_data *data);
 
-/* calc */
-
-void	dp_calc(int **stack, int **move);
-void	move_compare(int **stack, int **move);
-void	sum_dp(void);
-void	index_calc(int **stack);
-void	compare_a(int **stack, int **move);
-void	compare_b(int **stack, int **move);
-void	compare_double(int **stack, int **move);
-void	choose_less(int **move);
-void	reset_move(int **move);
-
-/* index calc a */
-
-void	index_calculator_a(int **stack);
-void	pos_calculator_a(int **stack);
-void	sum_move_a(int **stack);
-void	calc_moves_a(int **stack);
-void	ft_abs_a(int **stack);
-void	reset_index_calc_a(int **stack);
-
-/* index calc b */
-
-void	index_calculator_b(int **stack);
-void	pos_calculator_b(int **stack);
-void	sum_move_b(int **stack);
-void	calc_moves_b(int **stack);
-void	ft_abs_b(int **stack);
-void	reset_index_calc_b(int **stack);
-
 /* main */
 
 int		main(int argc, char **argv);
@@ -168,5 +119,6 @@ void	array_init(char **argv, int size, int **stack);
 int		ft_atoi(char const *str);
 void	check_dupe(int **stack, t_data *data);
 void	*ft_bzero(void *ft, size_t i);
+void	ft_putstr(char *str);
 
 #endif

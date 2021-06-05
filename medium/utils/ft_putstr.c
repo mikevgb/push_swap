@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/04 18:58:54 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/06/05 19:15:10 by mvillaes         ###   ########.fr       */
+/*   Created: 2021/06/05 19:08:34 by mvillaes          #+#    #+#             */
+/*   Updated: 2021/06/05 19:09:37 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	*ft_bzero(void *ft, size_t i)
+void	ft_putstr(char *str)
 {
-	char	*ptr;
-
-	ptr = ft;
-	while (i > 0)
-	{
-		*ptr++ = 0;
-		i--;
-	}
-	return (ft);
+	while (*str)
+		write(1, str++, 1);
 }

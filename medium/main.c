@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 17:20:58 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/06/04 21:15:51 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/06/05 19:38:26 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,40 +15,24 @@
 int	main(int argc, char **argv)
 {
 	t_data	data;
-	int		size;
 	int		**stack;
 	int		**back_up;
-	int		i;
 
 	ft_bzero(&data, sizeof(t_data));
-	size = argc;	
-	data.total_elements = size;
-	stack = (int **)calloc(size, sizeof(int *));
-	i = 0;
-	while (i < size)
-	{
-		stack[i] = (int *)calloc(6, sizeof(int));
-		i++;
-	}
-	init_stack(stack, size, argv, &data);
-	back_up = (int **)calloc(data.total_elements, sizeof(int *));
-	i = 0;
-	while (i < data.total_elements)
-	{
-		back_up[i] = (int *)calloc(6, sizeof(int));
-		i++;
-	}
+	data.total_elements = argc;
+	stack = alloc_stack(&data);
+	init_stack(stack, argv, &data);
+	back_up = back_up_stack(&data);
 	check_dupe(stack, &data);
 	if (check_in_order(stack, &data) == 1)
 		loop(stack, back_up, &data);
-	print_arr(stack, &data);
 	return (0);
 }
 
 int	check_in_order(int **stack, t_data *data)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 1;
 	j = 2;
