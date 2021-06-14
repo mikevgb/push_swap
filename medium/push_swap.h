@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:28:37 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/06/05 19:43:47 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/06/14 21:56:41 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,9 @@ void	check_alloc(int **stack, int **back_up);
 
 /* init */
 
-void	init_stack(int **stack, char **argv, t_data *data);
+void	init_stack(char **argv, t_data *data, int k);
 void	set_loop(t_data *data);
+void	init_stack_helper(int **stack, t_data *data);
 
 /* loop */
 
@@ -120,5 +121,13 @@ int		ft_atoi(char const *str);
 void	check_dupe(int **stack, t_data *data);
 void	*ft_bzero(void *ft, size_t i);
 void	ft_putstr(char *str);
+char	**ft_split(char const *s, char c);
+size_t	ft_strlcpy(char *restrict dst, \
+const char *restrict src, size_t dstsize);
+size_t	ft_strlen(const char *s);
+size_t	ft_strlen_array(char **s);
+void	*ft_calloc(size_t count, size_t size);
+int		ft_isalpha(int c);
+int		ft_isdigit(int c);
 
 #endif

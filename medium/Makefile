@@ -6,7 +6,7 @@
 #    By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/26 17:20:55 by mvillaes          #+#    #+#              #
-#    Updated: 2021/06/05 19:34:00 by mvillaes         ###   ########.fr        #
+#    Updated: 2021/06/14 21:56:17 by mvillaes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,13 @@ SRCS = 	main.c \
 		./moves/move_p.c \
 		./utils/ft_bzero.c \
 		./utils/ft_putstr.c \
+		./utils/ft_split.c \
+		./utils/ft_strlcpy.c \
+		./utils/ft_strlen.c \
+		./utils/ft_calloc.c \
+		./utils/check_dupe.c \
+		./utils/ft_isalpha.c \
+		./utils/ft_isdigit.c \
 		utils.c \
 		do.c \
 		print.c \

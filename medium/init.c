@@ -6,26 +6,73 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 19:05:20 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/06/05 20:01:42 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/06/14 22:07:35 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	init_stack(int **stack, char **argv, t_data *data)
+char	***parser(char **argv, t_data *data)
 {
-	int	i;
+	int		i;
+	int		j;
+	char	***ptr;
 
-	i = 1;
-	while (i < data->total_elements)
+	ptr = malloc(sizeof(char **) * (ft_strlen_array(&argv[1]) + 1));
+	data->total_elements = 0;
+	i = 0;
+	while (argv[i + 1] != NULL)
 	{
-		stack[i][1] = ft_atoi(argv[i]);
-		stack[i][0] = i;
-		stack[i][3] = i;
+		j = 0;
+		ptr[i] = ft_split(argv[i + 1], ' ');
+		while (ptr[i][j] != NULL)
+		{
+			data->total_elements++;
+			j++;
+		}
 		i++;
 	}
+	ptr[i] = NULL;
+	return (ptr);
+}
+
+void	init_stack_helper(int **stack, t_data *data)
+{
+	int	**back_up;
+
+	back_up = back_up_stack(data);
 	data->elements_a = data->total_elements - 1;
 	data->elements_b = 0;
+	check_dupe(stack, data);
+	if (check_in_order(stack, data) == 1)
+		loop(stack, back_up, data);
+}
+
+void	init_stack(char **argv, t_data *data, int k)
+{
+	int		i;
+	int		j;
+	char	***ptr;
+	int		**stack;
+
+	ptr = parser(argv, data);
+	stack = alloc_stack(data);
+	data->total_elements += 1;
+	i = 0;
+	while (ptr[i] != NULL)
+	{
+		j = 0;
+		while (ptr[i][j] != NULL)
+		{
+			stack[k][1] = ft_atoi(ptr[i][j]);
+			stack[k][0] = k;
+			stack[k][3] = k;
+			k++;
+			j++;
+		}
+		i++;
+	}
+	init_stack_helper(stack, data);
 }
 
 void	set_loop(t_data *data)
@@ -40,9 +87,4 @@ void	set_loop(t_data *data)
 		data->move_cap = 1100;
 		data->chunk1 = 1;
 	}
-}
-
-int		parse_input(const char *string)
-{
-	char const *copy = strdup(string);
 }
