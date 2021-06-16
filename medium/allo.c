@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 19:16:49 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/06/12 20:06:54 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/06/16 17:23:10 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,5 @@ int	**back_up_stack(t_data *data)
 void	check_alloc(int **stack, int **back_up)
 {
 	if (!stack || !back_up)
-		printf("calloc failed\n");
+		ft_error();
 }

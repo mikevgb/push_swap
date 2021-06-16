@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 19:05:20 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/06/14 22:07:35 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/06/15 19:48:39 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	init_stack(char **argv, t_data *data, int k)
 		}
 		i++;
 	}
+	ft_free_parser(ptr);
 	init_stack_helper(stack, data);
 }
 

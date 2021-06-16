@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:28:37 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/06/14 21:56:41 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/06/16 19:36:25 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <string.h>
-# include <ctype.h>
 
 typedef struct s_data
 {
@@ -60,12 +58,6 @@ void	loop(int **stack, int **back_up, t_data *data);
 
 void	save_bup(int **stack, int **back_up, t_data *data);
 void	restore_back_up(int **stack, int **back_up, t_data *data);
-
-/* print.c */
-
-void	print_arr(int **stack, t_data *data);
-void	print_loop(t_data *data);
-void	print_moves(char *s_moves, t_data *data);
 
 /* do.c */
 
@@ -127,7 +119,9 @@ const char *restrict src, size_t dstsize);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlen_array(char **s);
 void	*ft_calloc(size_t count, size_t size);
-int		ft_isalpha(int c);
 int		ft_isdigit(int c);
+void	ft_free_parser(char ***ptr);
+void	ft_free_stack(int **stack, t_data *data);
+void	ft_error(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 21:56:38 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/06/14 22:07:10 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/06/15 21:08:54 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_3(int **stack, t_data *data)
 	{
 		if (stack[2][1] > stack[3][1])
 		{
-			rra(stack,data);
+			rra(stack, data);
 			sa(stack, data);
 		}
 		if (stack[1][1] > stack[3][1])
@@ -69,6 +69,4 @@ void	ft_5(int **stack, t_data *data)
 	ra(stack, data);
 	pa(stack, data);
 	ra(stack, data);
-	find_small(stack, data);
 }
-	

@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 22:39:41 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/06/12 20:12:35 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/06/15 21:07:40 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	final_loop(int **stack, int **back_up, t_data *data)
 	data->save_move_flag = 1;
 	do_a(stack, data);
 	do_b(stack, data);
+	ft_free_stack(back_up, data);
 }
 
 void	make_order(int **stack, int **back_up, t_data *data)
@@ -72,7 +73,5 @@ void	loop(int **stack, int **back_up, t_data *data)
 	save_bup(stack, back_up, data);
 	set_loop(data);
 	make_order(stack, back_up, data);
-	find_small(stack, data);
-	free(*stack);
-	free(*back_up);
+	ft_free_stack(stack, data);
 }

@@ -6,7 +6,7 @@
 #    By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/26 17:20:55 by mvillaes          #+#    #+#              #
-#    Updated: 2021/06/14 21:56:17 by mvillaes         ###   ########.fr        #
+#    Updated: 2021/06/16 19:36:28 by mvillaes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,11 +29,11 @@ SRCS = 	main.c \
 		./utils/ft_strlen.c \
 		./utils/ft_calloc.c \
 		./utils/check_dupe.c \
-		./utils/ft_isalpha.c \
 		./utils/ft_isdigit.c \
-		utils.c \
+		./utils/free.c \
+		./utils/atoi_tuned.c \
+		./utils/ft_error.c \
 		do.c \
-		print.c \
 		back_up.c \
 		loop.c \
 		init.c
