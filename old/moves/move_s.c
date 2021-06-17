@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 18:12:12 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/06/05 19:11:11 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/17 20:09:48 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,16 @@
 **  if the is only one or no elemnts.
 */
 
-void	sa(int **stack, t_data *data)
+void    sa(int **stack)
 {
-	int	tmp;
+    int tmp;
 
-	tmp = stack[1][1];
-	if (data->elements_a > 1)
-	{
-		stack[1][1] = stack[2][1];
-		stack[2][1] = tmp;
-		data->moves += 1;
-		if (data->save_move_flag == 1)
-			ft_putstr("sa\n");
-	}
+    tmp = stack[1][1];
+    if(data.elements_a > 1)
+    {
+        stack[1][1] = stack[2][1];
+        stack[2][1] = tmp;  
+    }
 }
 
 /*
@@ -37,32 +34,27 @@ void	sa(int **stack, t_data *data)
 **  if the is only one or no elemnts.
 */
 
-void	sb(int **stack, t_data *data)
+void    sb(int **stack)
 {
-	int	tmp;
+    int tmp;
 
-	tmp = stack[1][4];
-	if (data->elements_b > 1)
-	{
-		stack[1][4] = stack[2][4];
-		stack[2][4] = tmp;
-		data->moves += 1;
-		if (data->save_move_flag == 1)
-			ft_putstr("sb\n");
-	}
+    tmp = stack[1][4];
+    if(data.elements_b > 1)
+    {
+        stack[1][4] = stack[2][4];
+        stack[2][4] = tmp;   
+    }
 }
 
 /*
 **  SS - Swap A and B at the same time.
 */
 
-void	ss(int **stack, t_data *data)
+void    ss(int **stack)
 {
-	if (data->elements_a > 1 && data->elements_b)
-	{
-		sa(stack, data);
-		sb(stack, data);
-		if (data->save_move_flag == 1)
-			ft_putstr("ss\n");
-	}
+    if(data.elements_a > 1 && data.elements_b)
+    {
+        sa(stack);
+        sb(stack);  
+    }
 }

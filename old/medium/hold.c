@@ -1,44 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   hold.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/26 17:20:58 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/06/15 20:48:20 by mvillaes         ###   ########.fr       */
+/*   Created: 2021/05/20 20:26:59 by mvillaes          #+#    #+#             */
+/*   Updated: 2021/05/31 19:49:55 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
-{
-	t_data	data;
-	int		k;
-
-	k = 1;
-	ft_bzero(&data, sizeof(t_data));
-	data.total_elements = argc;
-	init_stack(argv, &data, k);
-	return (0);
-}
-
-int	check_in_order(int **stack, t_data *data)
+void	hold_first(int **stack, t_data *data)
 {
 	int	i;
-	int	j;
 
 	i = 1;
-	j = 2;
-	while (i <= data->elements_a && j <= data->elements_a)
+	while (i <= data->elements_a)
 	{
-		if (stack[i][1] > stack[j][1])
-			return (1);
-		if (i == data->elements_a)
-			return (0);
+		if (stack[i][2] > 0 && stack[i][2] < data->chunk1)
+		{
+			data->hold_first_pos = stack[i][0];
+			break ;
+		}
 		i++;
-		j++;
 	}
-	return (0);
+}
+
+void	choose_hold(int **stack, t_data *data)
+{
+	int	hold_1;
+	int	i;
+
+	hold_1 = data->hold_first_pos;
+	i = 1;
+	while (i < hold_1)
+	{
+		ra(stack, data);
+		i++;
+	}
 }

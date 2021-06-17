@@ -1,44 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/26 17:20:58 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/06/15 20:48:20 by mvillaes         ###   ########.fr       */
+/*   Created: 2021/06/14 22:59:37 by mvillaes          #+#    #+#             */
+/*   Updated: 2021/06/16 18:54:30 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int argc, char **argv)
-{
-	t_data	data;
-	int		k;
-
-	k = 1;
-	ft_bzero(&data, sizeof(t_data));
-	data.total_elements = argc;
-	init_stack(argv, &data, k);
-	return (0);
-}
-
-int	check_in_order(int **stack, t_data *data)
+void	ft_free_parser(char ***ptr)
 {
 	int	i;
 	int	j;
 
-	i = 1;
-	j = 2;
-	while (i <= data->elements_a && j <= data->elements_a)
+	i = 0;
+	while (ptr[i])
 	{
-		if (stack[i][1] > stack[j][1])
-			return (1);
-		if (i == data->elements_a)
-			return (0);
+		j = 0;
+		while (ptr[i][j])
+		{
+			free(ptr[i][j]);
+			j++;
+		}
+		free(ptr[i]);
 		i++;
-		j++;
 	}
-	return (0);
+	free(ptr);
+}
+
+void	ft_free_stack(int **stack, t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < data->total_elements)
+	{
+		free(stack[i]);
+		i++;
+	}
+	free(stack);
 }

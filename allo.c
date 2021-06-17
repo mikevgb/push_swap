@@ -5,68 +5,45 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/09 19:44:38 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/05/17 20:09:48 by mvillaes         ###   ########.fr       */
+/*   Created: 2021/06/05 19:16:49 by mvillaes          #+#    #+#             */
+/*   Updated: 2021/06/16 17:23:10 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//creates a new node and returns pointer to it
-// struct node* getnewnode(int x)
-// {
-//     struct node* newnode = (struct node*)malloc(sizeof(struct node));
-//     newnode->data = x;
-//     newnode->prev = NULL;
-//     newnode->next = NULL;
-//     return newnode;
-// }
+int	**alloc_stack(t_data *data)
+{
+	int	i;
+	int	**stack;
 
-// https://gist.github.com/mycodeschool/7429492
+	stack = (int **)ft_calloc(data->total_elements + 1, sizeof(int *));
+	i = 0;
+	while (i < data->total_elements + 1)
+	{
+		stack[i] = (int *)ft_calloc(6, sizeof(int));
+		i++;
+	}
+	return (stack);
+}
 
-// int    **allok(int argc, char **argv)
-// {
-//     int size;
-//     int **stack;
-//     int i;
+int	**back_up_stack(t_data *data)
+{
+	int	i;
+	int	**back_up;
 
-//     size = argc;
-//     stack = (int**)calloc(size, sizeof(int*));
+	back_up = (int **)ft_calloc(data->total_elements + 1, sizeof(int *));
+	i = 0;
+	while (i < data->total_elements + 1)
+	{
+		back_up[i] = (int *)ft_calloc(6, sizeof(int));
+		i++;
+	}
+	return (back_up);
+}
 
-//     i = 0;
-//     while(i < size)
-//     {
-//         stack[i] = (int*)calloc(6, sizeof(int));
-//         i++;
-//     }
-    
-//     //Callock check success
-
-//     if (!stack)
-//     {
-//         printf("calloc failed\n");
-//         return(0);
-//     }
-//     array_init(argv, size, stack);
-//     return(**stack);
-// }
-
-// void    array_init(char **argv, int size, int **stack)
-// {
-//     int i;
-
-//     i = 1;
-//     while(i < size)
-//     {
-//         stack[i][1] = ft_atoi(argv[i]);
-//         stack[i][0] = i;
-//         stack[i][2] = 1;
-//         stack[i][3] = i;
-//         i++;
-//     }
-
-//     //Give value to the number of elements
-
-//     data.elements_a = size - 1;
-// 	data.elements_b = 0;
-// }
+void	check_alloc(int **stack, int **back_up)
+{
+	if (!stack || !back_up)
+		ft_error();
+}

@@ -6,7 +6,7 @@
 /*   By: mvillaes <mvillaes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 18:14:23 by mvillaes          #+#    #+#             */
-/*   Updated: 2021/06/05 19:11:02 by mvillaes         ###   ########.fr       */
+/*   Updated: 2021/05/17 20:09:48 by mvillaes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,19 @@
 **  the first one.
 */
 
-void	rra(int **stack, t_data *data)
+void    rra(int **stack)
 {
-	int	pos;
-	int	tmp;
+    int pos;
+    int tmp;
 
-	pos = data->elements_a;
-	tmp = stack[pos][1];
-	while (pos > 0 && data->elements_a > 1)
-	{
-		stack[pos][1] = stack[pos - 1][1];
-		pos--;
-	}
-	stack[1][1] = tmp;
-	data->moves += 1;
-	if (data->save_move_flag == 1)
-		ft_putstr("rra\n");
+    pos = data.elements_a;
+    tmp = stack[pos][1];
+    while(pos > 0 && data.elements_a > 1)
+    {
+        stack[pos][1] = stack[pos - 1][1];
+        pos--;
+    }
+    stack[1][1] = tmp;
 }
 
 /*
@@ -40,35 +37,30 @@ void	rra(int **stack, t_data *data)
 **  the first one.
 */
 
-void	rrb(int **stack, t_data *data)
+void    rrb(int **stack)
 {
-	int	pos;
-	int	tmp;
+    int pos;
+    int tmp;
 
-	pos = data->elements_b;
-	tmp = stack[pos][4];
-	while (pos > 0 && data->elements_b > 1)
-	{
-		stack[pos][4] = stack[pos - 1][4];
-		pos--;
-	}
-	stack[1][4] = tmp;
-	data->moves += 1;
-	if (data->save_move_flag == 1)
-		ft_putstr("rrb\n");
+    pos = data.elements_a;
+    tmp = stack[pos][4];
+    while(pos > 0 && data.elements_b > 1)
+    {
+        stack[pos][4] = stack[pos - 1][4];
+        pos--;
+    }
+    stack[1][4] = tmp;
 }
 
 /*
 **  RRR - RRA and RRB at the same time.
 */
 
-void	rrr(int **stack, t_data *data)
+void    rrr(int **stack)
 {
-	if (data->elements_a > 1 && data->elements_b > 1)
-	{
-		rra(stack, data);
-		rrb(stack, data);
-		if (data->save_move_flag == 1)
-			ft_putstr("rrr\n");
-	}
+    if(data.elements_a > 1 && data.elements_b > 1)
+    {
+        rra(stack);
+        rrb(stack); 
+    }
 }
